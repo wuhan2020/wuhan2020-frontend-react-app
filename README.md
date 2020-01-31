@@ -121,6 +121,8 @@ Before Backend is fully ready/supported:
   - [ ] Consultation
   - [ ] Production
 - [ ] Page Sharing?
+- [ ] Homepage
+  - But we dont have that much data yet??
 
 After Back is fully ready/supported
 - [ ] Consider migrate to Rxjs - low priority
