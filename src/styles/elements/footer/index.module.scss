@@ -20,12 +20,6 @@ $footer-namespace: "elementsFooter";
     margin-bottom: 32px;
   }
 
-  .ant-col {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   @include tablet-and-smaller() {
     padding: 32px;
   }
