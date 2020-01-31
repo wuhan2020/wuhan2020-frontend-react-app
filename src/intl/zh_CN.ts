@@ -20,12 +20,16 @@ const zh_CN: ILocalization = {
 	NEWS_FEED: '动态',
 
 	OPEN_SOURCE_PROJ: '开源项目',
+	OTHER_SUPPLIES: ' 项其他物资',
 	OVERVIEW: '疫情简要',
 
 	PREVENTION_AND_TREATMENT: '预防与治疗',
 	PRODUCTION: '生产',
 
+	UNLIMITED: '不限',
+
 	VIEW_DATA: '查看数据',
+	VIEW_DETAIL: '查看详情',
 
 	WANNA_CONTRIBUTE: '我想贡献力量',
 }

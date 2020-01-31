@@ -3,6 +3,7 @@ import { typeName, StrongAction } from "../../common/StrongAction";
 import { actionCreators as appActionCreators } from '../App/actions';
 import { getClinics } from '../../http/Api';
 import { IClinic } from '../../types/interfaces';
+import { mockClinics } from '../../mockData/Clinics';
 
 const SUFFIX = '__CLINICS';
 
@@ -20,9 +21,10 @@ export const actionCreators = {
     dispatch(appActionCreators.toggleAppLoading(true));
     try
     {
-      const result = await getClinics(districtName);
-      const list = result.map((item) => {return {...item, category: index}});
-      dispatch(new UpdateClinicListActions(list));
+      // const result = await getClinics(districtName);
+      // const list = result.map((item) => {return {...item, category: index}});
+      // dispatch(new UpdateClinicListActions(list));
+      dispatch(new UpdateClinicListActions(mockClinics));
     }
     catch (err)
     {

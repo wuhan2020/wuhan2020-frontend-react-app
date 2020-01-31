@@ -85,6 +85,8 @@ This is a typical frontend project using typical frontend tech stack:
     ├── constants/            constants
     ├── http/                 All http request handling logics are here
     ├── images/               static resources (mostly .svg files)
+    ├── intl/                 react-intl configs
+    ├── mockData/             mock data is stored here
     ├── store/                Redux store related
     ├── styles/               All scss files, structures are following those under `components`
     ├── types/                Type definition/Interface definition
@@ -93,7 +95,7 @@ This is a typical frontend project using typical frontend tech stack:
     ├── routes.tsx            defines all routes
 ├── test/                     testing code, hopefully we can get to them at some point :D
 ├── wwwroot/                  built/compiled files, dist files will be under here
-    ├── dist/                files under this directory is ready to deploy
+    ├── dist/                 files under this directory is ready to deploy
     ├── template.html         template for webpack to package the app
 ├── package.json              npm package related
 ├── tsconfig.json             typescript compiler related

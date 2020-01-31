@@ -19,12 +19,16 @@ interface ILocalization extends Record<string, string>
 	NEWS_FEED: string;
 
 	OPEN_SOURCE_PROJ: string;
+	OTHER_SUPPLIES: string;
 	OVERVIEW: string;
 
 	PREVENTION_AND_TREATMENT: string;
 	PRODUCTION: string;
 
+	UNLIMITED: string;
+
 	VIEW_DATA: string;
+	VIEW_DETAIL: string;
 
 	WANNA_CONTRIBUTE: string;
 }

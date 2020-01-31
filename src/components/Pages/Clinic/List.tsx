@@ -10,6 +10,7 @@ import { IApplicationState } from "../../../store";
 import { withRouter, RouteComponentProps } from "react-router";
 import { IClinic } from "../../../types/interfaces";
 import Button from "../../../components/Elements/Button";
+import ClinicCard from "../../../components/Elements/Clinic/Card";
 
 interface ConnectedProps {
 	actions: ClinicsActions;
@@ -53,14 +54,26 @@ class ClinicList extends React.PureComponent<Props, {}>
 
 	render()
 	{
+		const {clinicList} = this.props;
 		return (
-			<Layout style={{backgroundColor: '#fff'}}>
+			<Layout style={{backgroundColor: '#fff', flex: '1 1 auto', minHeight: 'unset'}}>
 				<Content>
 					<div className={styles.pageClinicList}>
 						<header>
 							<div className={styles.title}>{Message('CLINIC_LIST_PAGE_TITLE')}</div>
 							<Button shape='round' type='primary' onClick={() => this.onNewClick}>{Message('NEW_DEMAND')}</Button>
 						</header>
+						<section className={styles.listWrapper}>
+							<Row type='flex'>
+								{clinicList.map((clinic, index) => {
+									return (
+										<Col key={`clinic_${index}`} lg={8} sm={24}>
+											<ClinicCard clinic={clinic} />
+										</Col>
+									);
+								})}
+							</Row>
+						</section>
 					</div>
 				</Content>
 			</Layout>
