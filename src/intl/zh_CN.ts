@@ -2,6 +2,7 @@ import { ILocalization } from "./interface";
 
 const zh_CN: ILocalization = {
 	CLINIC: '医院',
+	CLINIC_LIST_PAGE_TITLE: '医院急需物资',
 
 	DOMESTIC: '国内',
 	DONATE: '捐款',
@@ -15,6 +16,7 @@ const zh_CN: ILocalization = {
 	LOGISTICS: '物流',
 
 	NEED_HELP: "我需要帮助",
+	NEW_DEMAND: '发布需求',
 	NEWS_FEED: '动态',
 
 	OPEN_SOURCE_PROJ: '开源项目',

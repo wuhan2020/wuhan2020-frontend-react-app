@@ -9,6 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 import IntlContainer from "./components/IntlContainer";
 import { ConfigProvider } from 'antd';
 import '@babel/polyfill'
+import HttpManager from "./http/HttpManager";
 
 /**
  * resolve the issues that crash in browser which base on X5 kernel
@@ -20,6 +21,7 @@ global.Intl = require('intl');
 const store = configureStore();
 
 const routes = createRoutes(store);
+HttpManager.getInstance().init(store);
 
 const render = () =>
 {

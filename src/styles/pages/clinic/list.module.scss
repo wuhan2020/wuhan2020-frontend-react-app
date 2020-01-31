@@ -1,0 +1,26 @@
+
+@import '../../colors';
+@import '../../fonts';
+@import '../../media';
+
+$clinic-list-namespace: "pageClinicList";
+
+.#{$clinic-list-namespace} {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 40px;
+
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;;
+
+    .title {
+      color: $black;
+      font-size: $px30;
+    }
+  }
+}

@@ -8,6 +8,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import Nav from "./Elements/Nav";
 import Footer from "./Elements/Footer";
+import { Spin } from "antd";
+import GlobalLoader from "./Elements/Loader/GloabalLoader";
 
 interface Props extends RouteComponentProps<{}, {}>
 {
@@ -31,7 +33,7 @@ class App extends React.PureComponent<Props, {}>
 
 	componentWillMount()
 	{
-		const { location, history } = this.props;
+		const { location } = this.props;
     const params = new URLSearchParams(location.search)
     
     // @todo - handle any global app request here
@@ -39,11 +41,13 @@ class App extends React.PureComponent<Props, {}>
 
 	public render()
 	{
+		const { app } = this.props;
 		return (
 			<div className={styles.main}>
 				<Nav />
 				{this.props.children}
 				<Footer />
+				{app.loading ? <GlobalLoader size='large' /> : null}
 			</div>
 		);
 	}

@@ -1,6 +1,7 @@
 interface ILocalization extends Record<string, string>
 {
 	CLINIC: string;
+	CLINIC_LIST_PAGE_TITLE: string;
 
 	DOMESTIC: string;
 	DONATE: string;
@@ -14,6 +15,7 @@ interface ILocalization extends Record<string, string>
 	LOGISTICS: string;
 
 	NEED_HELP: string;
+	NEW_DEMAND: string;
 	NEWS_FEED: string;
 
 	OPEN_SOURCE_PROJ: string;

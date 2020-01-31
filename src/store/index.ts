@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import AppReducer, { AppState } from './App';
+import AppReducer from './App';
+import ClinicReducer from './Clinic';
 
 export const allReducers = combineReducers({
   app: AppReducer,
+  clinic: ClinicReducer,
   routing: routerReducer
 })
 
