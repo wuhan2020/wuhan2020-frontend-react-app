@@ -1,6 +1,6 @@
 import * as React from "react";
 import styles from '../../../styles/elements/nav/index.module.scss';
-import { IconLogo } from "../../../components/Icons";
+import { IconLogo, IconLogoOrange } from "../../../components/Icons";
 import Button from "../Button";
 import Message from "../../../components/Message";
 import { RouteComponentProps, withRouter } from "react-router";
@@ -65,7 +65,9 @@ class Nav extends React.PureComponent<Props, {}>
     ];
     return (
       <div className={`${styles.elementsNav} ${styles.transparent}`}>
-        <div className={styles.left}></div>
+        <div onClick={() => this.props.history.push(URLS.HOME)} className={styles.left}>
+          <IconLogoOrange />
+        </div>
         <div className={styles.right}>
           <Menu selectedKeys={[this.props.location.pathname]} onClick={this.handleMenuClick} mode='horizontal'>
             {items.map((item) => {

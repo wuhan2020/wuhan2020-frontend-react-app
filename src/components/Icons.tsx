@@ -29,10 +29,14 @@ const Icon = (Icon: React.ReactType): React.StatelessComponent<IconProps> => (
 
 
 export const IconLogo = Icon(require('../images/icons/logo.svg'));
+export const IconLogoOrange = Icon(require('../images/icons/logo-orange.svg'));
+export const IconLogoWhite = Icon(require('../images/icons/logo-white.svg'));
 
 export enum IconNames
 {
 	LOGO,
+	LOGO_ORANGE,
+	LOGO_WHITE,
 }
 
 export const renderIcon = (name: IconNames, width: string, height: string, className?: string) =>
@@ -41,5 +45,9 @@ export const renderIcon = (name: IconNames, width: string, height: string, class
 	{
 		case (IconNames.LOGO):
 			return <IconLogo className={className} width={width} height={height} />;
+		case (IconNames.LOGO_ORANGE):
+			return <IconLogoOrange className={className} width={width} height={height} />;
+		case (IconNames.LOGO_WHITE):
+			return <IconLogoWhite className={className} width={width} height={height} />;
 	}
 }
