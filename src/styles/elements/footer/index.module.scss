@@ -1,0 +1,32 @@
+@import '../../colors';
+@import '../../media';
+@import '../../fonts';
+
+$footer-namespace: "elementsFooter";
+
+.#{$footer-namespace} {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 32px 160px;
+  padding-bottom: 57px;
+  background-color: $black1;
+
+  .title {
+    color: $white;
+    text-align: center;
+    font-size: $px18;
+    font-weight: $medium;
+    margin-bottom: 32px;
+  }
+
+  .ant-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include tablet-and-smaller() {
+    padding: 32px;
+  }
+}

@@ -28,7 +28,7 @@ const render = () =>
 			<Provider store={store}>
 				<IntlContainer>
 					<ConfigProvider autoInsertSpaceInButton={false}>
-						<BrowserRouter basename="mesh-pano-viewer">{routes}</BrowserRouter>
+						<BrowserRouter>{routes}</BrowserRouter>
 					</ConfigProvider>
 				</IntlContainer>
 			</Provider>

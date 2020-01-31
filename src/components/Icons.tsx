@@ -1,5 +1,4 @@
 import * as React from 'react';
-import '../styles/icons/index.scss';
 
 export interface IconProps
 {
@@ -28,13 +27,19 @@ const Icon = (Icon: React.ReactType): React.StatelessComponent<IconProps> => (
 	});
 };
 
+
+export const IconLogo = Icon(require('../images/icons/logo.svg'));
+
 export enum IconNames
 {
+	LOGO,
 }
 
 export const renderIcon = (name: IconNames, width: string, height: string, className?: string) =>
 {
 	switch (name)
 	{
+		case (IconNames.LOGO):
+			return <IconLogo className={className} width={width} height={height} />;
 	}
 }

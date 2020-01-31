@@ -1,0 +1,39 @@
+@import '../../colors';
+@import '../../fonts';
+@import '../../media';
+
+$page-home-namespace: "pageHome";
+
+.#{$page-home-namespace} {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  .overview {
+    display: flex;
+    flex-direction: column;
+    margin-top: 33px;
+    width: 100%;
+    max-width: 1080px;
+
+    label {
+      text-align: center;
+      color: $black1;
+      font-size: $px24;
+      margin-bottom: 26px;
+    }
+
+    .overviewTitle {
+      color: $black1;
+      font-size: $px18;
+      text-align: center;
+    }
+  }
+
+  .cardBody {
+    display: flex;
+    flex-direction: column;
+  }
+}

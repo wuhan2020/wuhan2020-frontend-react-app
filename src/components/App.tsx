@@ -1,12 +1,13 @@
 import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router";
-import "../styles/app.scss";
+import styles from "../styles/app.module.scss";
 import { IApplicationState } from "../store";
 import { AppState } from "../store/App";
 import { actionCreators, Actions } from "../store/App/actions";
 import { connect } from "react-redux";
-import { Select, Spin } from 'antd';
 import { bindActionCreators } from "redux";
+import Nav from "./Elements/Nav";
+import Footer from "./Elements/Footer";
 
 interface Props extends RouteComponentProps<{}, {}>
 {
@@ -39,9 +40,10 @@ class App extends React.PureComponent<Props, {}>
 	public render()
 	{
 		return (
-			<div className="main">
+			<div className={styles.main}>
+				<Nav />
 				{this.props.children}
-        Hello World
+				<Footer />
 			</div>
 		);
 	}

@@ -1,0 +1,29 @@
+@import '../../colors';
+
+$nav-namespace: "elementsNav";
+
+.#{$nav-namespace} {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 60px;
+  background-color: $main;
+  align-items: center;
+  justify-content: center;
+
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1080x;
+    align-items: center;
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;;
+      flex: 1 1 auto;
+    }
+  }
+}
