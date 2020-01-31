@@ -46,13 +46,13 @@ export default class Footer extends React.PureComponent<{}, {}>
         name: Message('OPEN_SOURCE_PROJ'),
         link: URLS.OPEN_SOURCE_PROJ
       },
-    ]
+    ];
 		return (
 			<div className={styles.elementsFooter}>
         <div className={styles.title}>{Message('VIEW_DATA')}</div>
         <Row type='flex' justify='center'>
-          {items.map((item) => {
-            return <Col style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} lg={2} sm={8}>
+          {items.map((item, index) => {
+            return <Col key={`footer_item_${index}`} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} lg={2} sm={8}>
               <Button className='grey' href={item.link} type='link'>{item.name}</Button>
             </Col>
           })}

@@ -3,3 +3,18 @@
 .ant-btn-link {
   color: $white !important;
 }
+
+.ant-btn-primary {
+  background-color: $main !important;
+  border-color: $main !important;
+
+  &:hover, &:focus {
+    background-color: $main_light !important;
+    border-color: $main_light !important;
+  }
+
+  &:active {
+    background-color: $main_dark !important;
+    border-color: $main_dark !important;
+  }
+}

@@ -1,0 +1,6 @@
+@import '../../colors';
+
+.ant-menu-item-selected, .ant-menu-item-active {
+  color: $main !important;
+  border-bottom: 2px solid $main !important;
+}
