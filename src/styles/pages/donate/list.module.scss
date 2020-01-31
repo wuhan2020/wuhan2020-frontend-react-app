@@ -1,0 +1,14 @@
+
+@import '../../colors';
+@import '../../fonts';
+@import '../../media';
+
+$page-donate-namespace: "pageDonateList";
+
+.#{$page-donate-namespace} {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 40px;
+}

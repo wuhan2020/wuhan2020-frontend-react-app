@@ -1,0 +1,14 @@
+
+@import '../../colors';
+@import '../../fonts';
+@import '../../media';
+
+$production-list-namespace: "pageProductionList";
+
+.#{$production-list-namespace} {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 40px;
+}

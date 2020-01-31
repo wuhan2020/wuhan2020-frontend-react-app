@@ -1,0 +1,14 @@
+
+@import '../../colors';
+@import '../../fonts';
+@import '../../media';
+
+$logistics-list-namespace: "pageLogisticsList";
+
+.#{$logistics-list-namespace} {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 40px;
+}

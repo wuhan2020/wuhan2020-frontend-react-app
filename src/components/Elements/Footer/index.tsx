@@ -4,8 +4,12 @@ import Message from "../../../components/Message";
 import { URLS } from "../../../constants/urls";
 import { Row, Col } from "antd";
 import Button from "../Button";
+import { withRouter, RouteComponentProps } from "react-router";
 
-export default class Footer extends React.PureComponent<{}, {}>
+interface Props extends RouteComponentProps {
+
+}
+class Footer extends React.PureComponent<Props, {}>
 {
 	render()
 	{
@@ -53,7 +57,7 @@ export default class Footer extends React.PureComponent<{}, {}>
         <Row type='flex' justify='center'>
           {items.map((item, index) => {
             return <Col key={`footer_item_${index}`} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} lg={2} sm={8}>
-              <Button className='grey' href={item.link} type='link'>{item.name}</Button>
+              <Button className='grey' onClick={() => this.props.history.push(item.link)} type='link'>{item.name}</Button>
             </Col>
           })}
         </Row>
@@ -61,3 +65,5 @@ export default class Footer extends React.PureComponent<{}, {}>
 		)
 	}
 }
+
+export default withRouter(Footer);
