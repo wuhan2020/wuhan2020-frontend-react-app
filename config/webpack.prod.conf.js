@@ -8,15 +8,15 @@ const webpackConfig = merge(baseConfig, {
 	mode: 'production',
 	output: {
 		path: path.resolve(__dirname, '..', 'wwwroot/dist'),
-		filename: './static/js/app.bundle.[hash].js',
-		chunkFilename: './static/js/[id].[chunkhash].js',
+		filename: 'http://q519ubblo.bkt.clouddn.com/static/js/app.bundle.[hash].js',
+		chunkFilename: 'http://q519ubblo.bkt.clouddn.com/static/js/[id].[chunkhash].js',
 		publicPath: process.env.PUBLIC_URL ? process.env.PUBLIC_URL : '',
 	},
 	plugins: [
 		...baseConfig.plugins,
 		new MiniCssExtractPlugin({
-			filename: './static/css/[name].[hash].css',
-			chunkFilename: './static/css/[id].[chunkhash].css',
+			filename: 'http://q519ubblo.bkt.clouddn.com/static/css/[name].[hash].css',
+			chunkFilename: 'http://q519ubblo.bkt.clouddn.com/static/css/[id].[chunkhash].css',
 		}),
 	],
 	optimization: {
@@ -28,7 +28,7 @@ const webpackConfig = merge(baseConfig, {
 					enforce: true,
 					test: /node_modules/,
 					name: 'vendor',
-					filename: './static/js/[name].[hash].js',
+					filename: 'http://q519ubblo.bkt.clouddn.com/static/js/[name].[hash].js',
 					priority: -10,
 				},
 			},
