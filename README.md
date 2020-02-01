@@ -43,7 +43,9 @@ Then you should be able to visit the app under `http://localhost:3001/`
 
 ## Build and Compile
 
-TBD
+```
+yarn build
+``
 
 ## Deploy, CI/CD
 
