@@ -21,6 +21,16 @@ $clinic-list-namespace: "pageClinicList";
     .title {
       color: $black0;
       font-size: $px30;
+      margin-bottom: 27px;
+    }
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: column;
+
+    .districtFilter {
+      width: 100%;
     }
   }
 

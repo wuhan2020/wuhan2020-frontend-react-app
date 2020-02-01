@@ -1,9 +1,6 @@
 import * as React from "react";
 import '../../../styles/elements/card/index.scss';
 
-
-}
-
 export default class UrgentIndicator extends React.PureComponent<{}, {}>
 {
 	render()

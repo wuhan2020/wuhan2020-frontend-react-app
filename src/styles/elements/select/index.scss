@@ -1,0 +1,11 @@
+@import '../../colors';
+
+.ant-select-selection {
+  &:active, &:hover, &:focus {
+    border-color: $main !important;
+  }
+
+  &:active, &:focus {
+    box-shadow: none !important;
+  }
+}

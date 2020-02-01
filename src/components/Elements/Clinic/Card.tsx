@@ -8,7 +8,7 @@ import Button from "../Button";
 import Message from "../../../components/Message";
 
 interface ClinicCardProps {
-  clinic: IClinic
+  clinic: IClinic;
 }
 
 export default class ClinicCard extends React.PureComponent<ClinicCardProps, {}>
@@ -32,7 +32,7 @@ export default class ClinicCard extends React.PureComponent<ClinicCardProps, {}>
               )
             }
           })}
-          {clinic.supplies.length - 3 > 0 ? <div className={styles.otherSupplies}>+{clinic.supplies.length - 3 }{Message('OTHER_SUPPLIES')}</div> : null}
+          <div className={styles.otherSupplies}>+{clinic.supplies.length - 3 }{Message('OTHER_SUPPLIES')}</div>
           <Button className={styles.viewDetailBtn} type='ghost' shape='round'>{Message('VIEW_DETAIL')}</Button>
         </div>
       </Card>

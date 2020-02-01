@@ -11,6 +11,10 @@ import { withRouter, RouteComponentProps } from "react-router";
 import { IClinic } from "../../../types/interfaces";
 import Button from "../../../components/Elements/Button";
 import ClinicCard from "../../../components/Elements/Clinic/Card";
+import { clinicsLocation } from "../../../constants/globals";
+import Select from "../../../components/Elements/Select";
+import Option from "../../../components/Elements/Select/Option";
+import { makeFilteredClinicsSelector } from "../../../store/Clinic";
 
 interface ConnectedProps {
 	actions: ClinicsActions;
@@ -22,34 +26,30 @@ interface Props extends RouteComponentProps {
 
 }
 
-// @todo - remove these when backend better supports data retrieving instead of getting from github directly
-const targetDistricts = [
-	{key: 0, name: '十堰市'},
-	{key: 0, name: '咸宁市'},
-	{key: 0, name: '孝感市'},
-	{key: 0, name: '宜昌市'},
-	{key: 0, name: '武汉市'},
-	{key: 0, name: '荆州市'},
-	{key: 0, name: '荆门市'},
-	{key: 0, name: '襄阳市'},
-	{key: 0, name: '鄂州市'},
-	{key: 0, name: '随州市'},
-	{key: 0, name: '黄冈市'},
-	{key: 0, name: '黄石市'},
-]
-
 const { Content } = Layout;
 class ClinicList extends React.PureComponent<Props, {}>
 {
 	public props: ConnectedProps & Props;
+
+	provinces: {key: number, name: string}[] = [
+		{key: -1, name: '省市'},
+	];
+
 	componentDidMount() {
-		targetDistricts.forEach((item) => {
-			this.props.actions.fetchClinicList(item.name, item.key);
+		clinicsLocation.forEach((location) => {
+			location.districts.forEach((d) => {
+				this.provinces.push({...d});
+				this.props.actions.fetchClinicList(location.province.key, d.value, d.key);
+			})
 		});
 	}
 
 	onNewClick = () => {
 
+	}
+
+	onDistrictFilterChange = (value) => {
+		this.props.actions.updateDistrict(value);
 	}
 
 	render()
@@ -63,6 +63,22 @@ class ClinicList extends React.PureComponent<Props, {}>
 							<div className={styles.title}>{Message('CLINIC_LIST_PAGE_TITLE')}</div>
 							<Button shape='round' type='primary' onClick={() => this.onNewClick}>{Message('NEW_DEMAND')}</Button>
 						</header>
+						<section className={styles.filters}>
+							<Row type='flex'>
+								<Col lg={3} sm={12}>
+									<Select
+										onChange={this.onDistrictFilterChange}
+										className={styles.districtFilter}
+										defaultValue={this.provinces[0].key}>
+										{this.provinces.map((p) => {
+											return (
+												<Option value={p.key}>{p.name}</Option>
+											);
+										})}
+									</Select>
+								</Col>
+							</Row>
+						</section>
 						<section className={styles.listWrapper}>
 							<Row type='flex'>
 								{clinicList.map((clinic, index) => {
@@ -83,9 +99,10 @@ class ClinicList extends React.PureComponent<Props, {}>
 
 const mapStateToProps = (state: IApplicationState) =>
 {
+	const filteredClinicsSelector = makeFilteredClinicsSelector();
 	return {
 		loading: state.app.loading,
-		clinicList: state.clinic.list,
+		clinicList: filteredClinicsSelector(state),
 	};
 };
 
