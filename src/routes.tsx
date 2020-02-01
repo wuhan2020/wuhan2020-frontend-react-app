@@ -18,7 +18,7 @@ import Clinic from './components/Pages/Clinic';
 
 export default (store: Store<any>) => (
 	<App>
-		<Route exact path={URLS.HOME} component={Home} />
+		<Route exact path={URLS.HOME} component={ClinicList} />
 		<Route exact path={URLS.CLINIC} component={Clinic} />
 		<Route exact path={URLS.CLINICS} component={ClinicList} />
 		<Route exact path={URLS.DONATE} component={DonateList} />

@@ -7,6 +7,7 @@ import { RouteComponentProps, withRouter } from "react-router";
 import { Menu } from "antd";
 import { URLS } from "../../../constants/urls";
 import MenuItem from "../Menu/Item";
+import { PROJECT_HOMEPAGE } from "../../../constants/globals";
 
 interface Props extends RouteComponentProps<{}, {}> {
 
@@ -19,7 +20,6 @@ class Nav extends React.PureComponent<Props, {}>
       <div className={styles.elementsNav}>
         <div className={styles.wrapper}>
           <div className={styles.column}>
-            <Button type="link">{Message('NEED_HELP')}</Button>
           </div>
           <div className={styles.column}>
             <IconLogo />
@@ -34,6 +34,9 @@ class Nav extends React.PureComponent<Props, {}>
 
   handleMenuClick = (e) => {
     this.props.history.push(e.key);
+  }
+  onContributeClick = () => {
+    window.open(PROJECT_HOMEPAGE);
   }
 
   renderGlobalNav = () => {
@@ -80,8 +83,7 @@ class Nav extends React.PureComponent<Props, {}>
               return <MenuItem key={item.link}>{item.name}</MenuItem>;
             })}
           </Menu>
-          <Button theme='white' type='primary'>{Message('NEED_HELP')}</Button>
-          <Button theme='white' type='primary'>{Message('WANNA_CONTRIBUTE')}</Button>
+          <Button onClick={this.onContributeClick} theme='white' type='primary'>{Message('WANNA_CONTRIBUTE')}</Button>
         </div>
       </div>
     )
@@ -90,8 +92,13 @@ class Nav extends React.PureComponent<Props, {}>
 	render()
 	{
     const isHomePage = this.props.location.pathname === '/';
-		return isHomePage ? this.renderHomeNav() : this.renderGlobalNav();
+    // @todo - use the commented out one when homepage is ready
+    return this.renderGlobalNav();
+		// return isHomePage ? this.renderHomeNav() : this.renderGlobalNav();
 	}
 }
 
 export default withRouter(Nav);
+
+/* Add this button back when needed
+          <Button theme='white' type='primary'>{Message('NEED_HELP')}</Button> */

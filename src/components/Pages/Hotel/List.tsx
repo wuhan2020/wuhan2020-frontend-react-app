@@ -31,7 +31,7 @@ class HotelList extends React.PureComponent<Props, {}>
 			<Layout style={{backgroundColor: '#fff', flex: '1 1 auto', minHeight: 'unset'}}>
 				<Content>
 					<div className={styles.pageHotelList}>
-            Hotel List
+            {Message('DEVELOPING')}
 					</div>
 				</Content>
 			</Layout>

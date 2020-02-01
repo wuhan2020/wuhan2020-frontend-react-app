@@ -5,18 +5,22 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { IApplicationState } from "../../../store";
 import { withRouter, RouteComponentProps } from "react-router";
-import { Layout, Row, Col, Divider, Table } from "antd";
+import { Layout, Row, Col, Divider, Table, message } from "antd";
 import { ClinicsState } from "../../../store/Clinic";
 import { actionCreators as clinicsActionCreators, Actions as ClinicsActions } from "../../../store/Clinic/actions";
 import { AppState } from "../../../store/App";
 import { IClinic } from "../../../types/interfaces";
 import Button from "../../../components/Elements/Button";
+import { copyStringToClipboard } from "../../../utils/stringHelper";
+import { IntlShape, injectIntl } from "react-intl";
+import { GAODE_SEARCH_PREFIX } from "../../../constants/globals";
 
 interface ConnectedProps {
   loading: boolean;
   app: AppState;
   clinicsState: ClinicsState;
   actions: ClinicsActions;
+	intl: IntlShape;
 }
 
 interface Props extends RouteComponentProps {
@@ -88,6 +92,14 @@ class Clinic extends React.PureComponent<Props, State>
     ]
   }
 
+  onCopyAddress = (address: string) => {
+    copyStringToClipboard(address);
+    message.success(this.props.intl.formatMessage({ id: 'COPIED_TO_CLIPBOARD' }));
+  }
+  onViewMap = (address: string) => {
+    window.open(`${GAODE_SEARCH_PREFIX}${address}`);
+  }
+
 	render()
 	{
     const {clinic} = this.state;
@@ -115,7 +127,13 @@ class Clinic extends React.PureComponent<Props, State>
               <Col lg={8} sm={24}>
                 <section className={styles.infoSection}>
                   <div className={styles.infoSectionTitle}>{Message('MAILING_ADDRESS')}</div>
-                  <div className={styles.infoSectionBody}></div>
+                  <div className={styles.infoSectionBody}>
+                    <div className={styles.address}>{clinic.address}</div>
+                    <div className={styles.addressActions}>
+                      <Button type='link' onClick={() => this.onViewMap(clinic.address)}>{Message('VIEW_MAP')}</Button>
+                      <Button onClick={() => this.onCopyAddress(clinic.address)} type='link'>{Message('COPY')}</Button>
+                    </div>
+                  </div>
                 </section>
               </Col>
               <Col lg={8} sm={24}>
@@ -170,7 +188,7 @@ const mapActionsToProps = dispatch =>
 	};
 };
 
-export default connect(
+export default injectIntl(connect(
 	mapStateToProps,
 	mapActionsToProps
-)(withRouter(Clinic));
+)(withRouter(Clinic)) as any) as any;

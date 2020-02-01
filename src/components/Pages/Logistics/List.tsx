@@ -31,7 +31,7 @@ class LogisticsList extends React.PureComponent<Props, {}>
 			<Layout style={{backgroundColor: '#fff', flex: '1 1 auto', minHeight: 'unset'}}>
 				<Content>
 					<div className={styles.pageLogisticsList}>
-            Logistics List
+            {Message('DEVELOPING')}
 					</div>
 				</Content>
 			</Layout>

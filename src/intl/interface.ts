@@ -6,7 +6,10 @@ interface ILocalization extends Record<string, string>
 	CLINIC: string;
 	CLINIC_PAGE_TITLE: string;
 	CONTACT_METHODS: string;
+	COPIED_TO_CLIPBOARD: string;
+	COPY: string;
 
+	DEVELOPING: string;
 	DOMESTIC: string;
 	DONATE: string;
 
@@ -43,6 +46,7 @@ interface ILocalization extends Record<string, string>
 
 	VIEW_DATA: string;
 	VIEW_DETAIL: string;
+	VIEW_MAP: string;
 	VIEW_SOURCE: string;
 
 	WANNA_CONTRIBUTE: string;

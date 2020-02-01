@@ -44,6 +44,8 @@ const ClinicReducer: Reducer<ClinicsState> = (state: ClinicsState, act) =>
 		return {...state, selectedCity: act.value};
 	} else if (isActionType(act, Actions.AddCityAction)) {
 		return {...state, cityList: [...state.cityList, act.city]};
+	} else if (isActionType(act, Actions.ResetAction)) {
+		return {...initialClinicsState};
 	}
 	return state || initialClinicsState
 }

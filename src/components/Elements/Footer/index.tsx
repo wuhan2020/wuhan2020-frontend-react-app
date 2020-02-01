@@ -65,7 +65,11 @@ class Footer extends React.PureComponent<Props, {}>
         <Row type='flex' justify='center'>
           {items.map((item, index) => {
             return <Col key={`footer_item_${index}`} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} lg={2} sm={8}>
-              <Button theme='white' className='grey' onClick={() => this.props.history.push(item.link)} type='link'>{item.name}</Button>
+              <Button
+                theme='white'
+                className='grey'
+                onClick={() => item.link === URLS.OPEN_SOURCE_PROJ ? window.open(item.link): this.props.history.push(item.link)}
+                type='link'>{item.name}</Button>
             </Col>
           })}
         </Row>

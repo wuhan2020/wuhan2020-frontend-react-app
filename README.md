@@ -90,6 +90,7 @@ This is a typical frontend project using typical frontend tech stack:
     ├── store/                Redux store related
     ├── styles/               All scss files, structures are following those under `components`
     ├── types/                Type definition/Interface definition
+    ├── utils/                Utility functions
     ├── boot-client.tsx       entry file - for webpack
     ├── configureStore.ts     main file to config Redux store
     ├── routes.tsx            defines all routes

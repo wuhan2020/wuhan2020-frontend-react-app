@@ -1,5 +1,9 @@
 export const BASE_URL = 'https://raw.githubusercontent.com/wuhan2020/wuhan2020/master/data';
 
+export const PROJECT_HOMEPAGE = 'http://wuhan2020.github.io';
+
+export const GAODE_SEARCH_PREFIX = 'https://ditu.amap.com/search?query=';
+
 export const FRONT_END_PREFIX = '/fe';
 
 // @todo - remove these when backend better supports data retrieving instead of getting from github directly

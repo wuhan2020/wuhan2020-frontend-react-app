@@ -27,3 +27,7 @@
   color: $main !important;
   border-color: $main !important;
 }
+.fakeDisabled {
+  background-color: $white !important;
+  cursor: default !important;
+}

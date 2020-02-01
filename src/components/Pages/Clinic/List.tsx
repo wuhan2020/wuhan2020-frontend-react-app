@@ -61,7 +61,6 @@ class ClinicList extends React.PureComponent<Props, {}>
 					<div className={styles.pageClinicList}>
 						<header>
 							<div className={styles.title}>{Message('CLINIC_PAGE_TITLE')}</div>
-							<Button shape='round' type='primary' onClick={() => this.onNewClick}>{Message('NEW_DEMAND')}</Button>
 						</header>
 						<section className={styles.filters}>
 							<Row type='flex'>
@@ -124,3 +123,7 @@ export default connect(
 	mapStateToProps,
 	mapActionsToProps
 )(withRouter(ClinicList));
+
+/* Add this button back when needed
+							<Button shape='round' type='primary' onClick={() => this.onNewClick}>{Message('NEW_DEMAND')}</Button>
+							*/

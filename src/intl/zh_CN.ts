@@ -7,7 +7,10 @@ const zh_CN: ILocalization = {
 	CLINIC: '医院',
 	CLINIC_PAGE_TITLE: '医院急需物资',
 	CONTACT_METHODS: '联系方式',
+	COPIED_TO_CLIPBOARD: '已复制到粘贴板',
+	COPY: '复制',
 
+	DEVELOPING: '紧急开发中',
 	DOMESTIC: '国内',
 	DONATE: '捐款',
 
@@ -44,6 +47,7 @@ const zh_CN: ILocalization = {
 
 	VIEW_DATA: '查看数据',
 	VIEW_DETAIL: '查看详情',
+	VIEW_MAP: '查看地图',
 	VIEW_SOURCE: '查看来源',
 
 	WANNA_CONTRIBUTE: '我想贡献力量',

@@ -17,6 +17,9 @@ export class UpdateCityAction extends StrongAction { constructor(public value: n
 @typeName('ADD_CITY' + SUFFIX)
 export class AddCityAction extends StrongAction { constructor(public city: any) { super(); }}
 
+@typeName('RESET' + SUFFIX)
+export class ResetAction extends StrongAction { constructor() { super(); }}
+
 
 export interface Actions
 {
@@ -28,6 +31,7 @@ export interface Actions
 
 export const actionCreators = {
   fetchClinicList: (link: string, index: number): any => async (dispatch) => {
+    dispatch(new ResetAction());
     dispatch(appActionCreators.toggleAppLoading(true));
     try
     {

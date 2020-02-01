@@ -9,6 +9,7 @@ export interface IClinic {
   remark: string;
   contacts: IContact[];
   cityKey?: number;
+  address: string;
 }
 
 export interface IClicnicSupply {

@@ -31,7 +31,7 @@ class NewsFeed extends React.PureComponent<Props, {}>
 			<Layout style={{backgroundColor: '#fff', flex: '1 1 auto', minHeight: 'unset'}}>
 				<Content>
 					<div className={styles.pageNewsFeed}>
-            NewsFeed
+            {Message('DEVELOPING')}
 					</div>
 				</Content>
 			</Layout>
