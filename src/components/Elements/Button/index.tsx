@@ -12,7 +12,11 @@ export default class Button extends React.PureComponent<ButtonProps, {}>
 {
 	render()
 	{
+		const props = {...this.props};
 
-		return React.cloneElement(<AntDButton />, {...AntDButton.defaultProps, ...this.props, className: [this.props.theme || 'main', this.props.fakeDisabled ? 'fakeDisabled' : '']});
+		delete props.theme;
+		delete props.fakeDisabled;
+
+		return React.cloneElement(<AntDButton />, {...AntDButton.defaultProps, ...props, className: `${this.props.theme || 'main'} ${this.props.fakeDisabled ? 'fakeDisabled' : ''}`});
 	}
 }

@@ -35,7 +35,7 @@ export default class ClinicCard extends React.PureComponent<ClinicCardProps, {}>
                 <Row key={`supply_${index}`} type='flex' style={{marginBottom: '20px', alignItems: 'center'}}>
                   {supply.value > URGENT_THRESHOLD ? <UrgentIndicator /> : <div style={{width: '15px', height: '15px'}}></div>}
                   <div className={styles.supplyName}>{supply.key}</div>
-                  <Button disabled fakeDisabled shape='round' style={{width: '90px'}} type='ghost'>{supply.value === 1 ? Message('UNLIMITED') : supply.value}</Button>
+                  <Button disabled fakeDisabled={true} shape='round' style={{width: '90px'}} type='ghost'>{supply.value === 1 ? Message('UNLIMITED') : supply.value}</Button>
                 </Row>
               )
             }

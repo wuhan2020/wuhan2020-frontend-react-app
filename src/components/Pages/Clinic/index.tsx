@@ -41,7 +41,9 @@ class Clinic extends React.PureComponent<Props, State>
 
   componentWillMount() {
     // if data is not loaded (i.e. a direct visit), load them first
-		this.props.app.dataSource && this.props.actions.fetchClinicList(this.props.app.dataSource['hospital']);
+    if (!this.props.clinicsState.list || this.props.clinicsState.list.length === 0) {
+      this.props.app.dataSource && this.props.actions.fetchClinicList(this.props.app.dataSource['hospital']);
+    }
   }
   componentDidMount() {
     this.init();
@@ -61,7 +63,7 @@ class Clinic extends React.PureComponent<Props, State>
     if (clinic) {
       this.setState({clinic});
     } else {
-      console.error('clinic not loaded properly');
+      // console.error('clinic not loaded properly');
     }
   }
 
