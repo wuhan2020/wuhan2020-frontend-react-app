@@ -39,7 +39,7 @@ export default class ClinicCard extends React.PureComponent<ClinicCardProps, {}>
               )
             }
           })}
-          {clinic.supplies.length > 0 && <div className={styles.otherSupplies}>+{clinic.supplies.length - 3 }{Message('OTHER_SUPPLIES')}</div>}
+          {clinic.supplies.length - 3 > 0 && <div className={styles.otherSupplies}>+{clinic.supplies.length - 3 }{Message('OTHER_SUPPLIES')}</div>}
           {clinic.supplies.length === 0 && <div style={{flex: '1 1 auto'}} />}
           <Button
             onClick={this.onViewDetailClick}
