@@ -63,6 +63,9 @@ This is a typical frontend project using typical frontend tech stack:
 - axios
 - moment
 - webpack
+- sass
+- mesh-dev-cli
+  - Written by @oozliuoo, used by Kiwi Inc.
 - rxjs
   - not used yet, but would like to migrate to it at some point, to better manage all redux actions
 

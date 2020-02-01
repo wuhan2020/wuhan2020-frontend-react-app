@@ -64,6 +64,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "./scripts/dev.sh",
+		"build": "rm -rf ./wwwroot/dist/** && mesh build reactapp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

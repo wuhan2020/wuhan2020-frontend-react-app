@@ -38,18 +38,22 @@ class Footer extends React.PureComponent<Props, {}>
         name: Message('DONATE'),
         link: URLS.DONATE
       },
+      /*
       {
         name: Message('PREVENTION_AND_TREATMENT'),
         link: URLS.PREVENTION_AND_TREATMENT
       },
+      */
       {
         name: Message('FREE_CONSULTATION'),
         link: URLS.FREE_CONSULTATION
       },
+      /*
       {
         name: Message('NEWS_FEED'),
         link: URLS.NEWS_FEED
       },
+      */
       {
         name: Message('TRAVEL_HOTEL'),
         link: URLS.TRAVEL_HOTEL,
