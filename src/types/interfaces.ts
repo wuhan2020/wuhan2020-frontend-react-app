@@ -5,7 +5,7 @@ export interface IClinic {
   name: string;
   supplies: IClicnicSupply[];
   url: string,
-  remark: boolean;
+  remark: string;
   contacts: IContact[];
   districtKey?: number;
 }

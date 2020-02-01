@@ -39,6 +39,6 @@ export const mockClinics: IClinic[] = [
       },
     ],
     url: '',
-    remark: false,
+    remark: '',
   },
 ]
