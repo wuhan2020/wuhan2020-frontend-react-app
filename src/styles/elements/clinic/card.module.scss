@@ -18,6 +18,10 @@ $clinic-card-namespace: "elementsClinicCard";
       color: $black0;
       font-size: $px24;
       margin-bottom: 16px;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   
     .supplyName {

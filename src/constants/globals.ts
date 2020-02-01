@@ -1,6 +1,6 @@
-export const baseUrl = 'https://raw.githubusercontent.com/wuhan2020/wuhan2020/master/data/fe';
+export const BASE_URL = 'https://raw.githubusercontent.com/wuhan2020/wuhan2020/master/data';
 
-export const hospitalRootUrl = `${baseUrl}/hospital`;
+export const FRONT_END_PREFIX = '/fe';
 
 // @todo - remove these when backend better supports data retrieving instead of getting from github directly
 export const clinicsLocation = [

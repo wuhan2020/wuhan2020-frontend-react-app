@@ -14,10 +14,13 @@ import ClinicCard from "../../../components/Elements/Clinic/Card";
 import { clinicsLocation } from "../../../constants/globals";
 import Select from "../../../components/Elements/Select";
 import Option from "../../../components/Elements/Select/Option";
-import { makeFilteredClinicsSelector } from "../../../store/Clinic";
+import { makeFilteredClinicsSelector, ClinicsState } from "../../../store/Clinic";
+import { AppState } from "../../../store/App";
 
 interface ConnectedProps {
 	actions: ClinicsActions;
+	app: AppState;
+	clinicsState: ClinicsState;
 	loading: boolean;
 	clinicList: IClinic[];
 }
@@ -36,25 +39,22 @@ class ClinicList extends React.PureComponent<Props, {}>
 	];
 
 	componentDidMount() {
-		clinicsLocation.forEach((location) => {
-			location.districts.forEach((d) => {
-				this.provinces.push({...d});
-				this.props.actions.fetchClinicList(location.province.key, d.value, d.key);
-			})
-		});
+		this.props.app.dataSource && this.props.app.dataSource['hospital'].forEach((link, index) => {
+			this.props.actions.fetchClinicList(link, index);
+		})
 	}
 
 	onNewClick = () => {
 
 	}
 
-	onDistrictFilterChange = (value) => {
-		this.props.actions.updateDistrict(value);
+	onCityFilterChange = (value) => {
+		this.props.actions.updateCity(value);
 	}
 
 	render()
 	{
-		const {clinicList} = this.props;
+		const {clinicList, clinicsState} = this.props;
 		return (
 			<Layout style={{backgroundColor: '#fff', flex: '1 1 auto', minHeight: 'unset'}}>
 				<Content>
@@ -67,12 +67,12 @@ class ClinicList extends React.PureComponent<Props, {}>
 							<Row type='flex'>
 								<Col lg={3} sm={12}>
 									<Select
-										onChange={this.onDistrictFilterChange}
-										className={styles.districtFilter}
-										defaultValue={this.provinces[0].key}>
-										{this.provinces.map((p) => {
+										onChange={this.onCityFilterChange}
+										className={styles.cityFilter}
+										defaultValue={clinicsState.cityList[0].key}>
+										{clinicsState.cityList.map((d) => {
 											return (
-												<Option value={p.key}>{p.name}</Option>
+												<Option value={d.key}>{d.name}</Option>
 											);
 										})}
 									</Select>
@@ -101,7 +101,9 @@ const mapStateToProps = (state: IApplicationState) =>
 {
 	const filteredClinicsSelector = makeFilteredClinicsSelector();
 	return {
+		app: state.app,
 		loading: state.app.loading,
+		clinicsState: state.clinic,
 		clinicList: filteredClinicsSelector(state),
 	};
 };

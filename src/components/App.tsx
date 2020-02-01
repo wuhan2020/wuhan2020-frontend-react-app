@@ -31,12 +31,12 @@ class App extends React.PureComponent<Props, {}>
 	{
 	}
 
-	componentWillMount()
+	async componentWillMount()
 	{
-		const { location } = this.props;
+		const { location, actions } = this.props;
     const params = new URLSearchParams(location.search)
     
-    // @todo - handle any global app request here
+		await actions.fetchAllDataSource();
 	}
 
 	public render()
@@ -45,7 +45,7 @@ class App extends React.PureComponent<Props, {}>
 		return (
 			<div className={styles.main}>
 				<Nav />
-				{this.props.children}
+				{app.dataSource ? this.props.children : <div style={{flex: '1 1 auto'}}/>}
 				<Footer />
 				{app.loading ? <GlobalLoader size='large' /> : null}
 			</div>

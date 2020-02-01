@@ -7,7 +7,7 @@ export interface IClinic {
   url: string,
   remark: string;
   contacts: IContact[];
-  districtKey?: number;
+  cityKey?: number;
 }
 
 export interface IClicnicSupply {

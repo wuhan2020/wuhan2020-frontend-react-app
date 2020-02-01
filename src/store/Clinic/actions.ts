@@ -3,30 +3,37 @@ import { typeName, StrongAction } from "../../common/StrongAction";
 import { actionCreators as appActionCreators } from '../App/actions';
 import { getClinics } from '../../http/Api';
 import { IClinic } from '../../types/interfaces';
-import { mockClinics } from '../../mockData/Clinics';
 
 const SUFFIX = '__CLINICS';
 
 @typeName('UPDATE_LIST' + SUFFIX)
 export class UpdateClinicListActions extends StrongAction { constructor(public list: IClinic[]) { super(); }}
 
-@typeName('UPDATE_DISTRICT' + SUFFIX)
-export class UpdateDistrict extends StrongAction { constructor(public value: number) {super(); }}
+@typeName('UPDATE_CITY' + SUFFIX)
+export class UpdateCityAction extends StrongAction { constructor(public value: number) {super(); }}
+
+// @todo - we could remove this action if cities/districts is returned from backend, right now
+// we have to parse them and add to state treemanually
+@typeName('ADD_CITY' + SUFFIX)
+export class AddCityAction extends StrongAction { constructor(public city: any) { super(); }}
+
 
 export interface Actions
 {
-  fetchClinicList(provinceName: string, districtName: string, index: number);
-  updateDistrict(value: number);
+  fetchClinicList(link: string, index: number);
+  updateCity(value: number);
+  addCity(city: any);
 }
 
 
 export const actionCreators = {
-  fetchClinicList: (provinceName: string, districtName: string, index: number): any => async (dispatch) => {
+  fetchClinicList: (link: string, index: number): any => async (dispatch) => {
     dispatch(appActionCreators.toggleAppLoading(true));
     try
     {
-      const result = await getClinics(provinceName, districtName);
-      const list = result.map((item) => {return {...item, districtKey: index}});
+      const result = await getClinics(link) as any;
+      const list = result.map((item) => {return {...item, cityKey: index}});
+      dispatch(new AddCityAction({key: index, name: result[0].city}));
       dispatch(new UpdateClinicListActions(list));
       // dispatch(new UpdateClinicListActions(mockClinics));
     }
@@ -39,5 +46,6 @@ export const actionCreators = {
       dispatch(appActionCreators.toggleAppLoading(false));
     }
   },
-  updateDistrict: (value: number): any => dispatch => dispatch (new UpdateDistrict(value)),
+  updateCity: (value: number): any => dispatch => dispatch (new UpdateCityAction(value)),
+  addCity: (city: any): any => dispatch => dispatch(new AddCityAction(city)),
 };

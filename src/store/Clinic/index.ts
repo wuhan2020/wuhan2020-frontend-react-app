@@ -10,26 +10,28 @@ import { IApplicationState } from "..";
 export interface ClinicsState
 {
 	list: IClinic[];
-	selectedDistrict: number;
+	selectedCity: number;
+	cityList: {key: number, name: string}[];
 }
 
 export const initialClinicsState: ClinicsState =
 {
 	list: [],
-	selectedDistrict: -1,
+	selectedCity: -1,
+	cityList: [{key: -1, name: '省市'}],
 }
 
 export const clinicsSelector = (state: IApplicationState) => state.clinic.list;
 
-export const clinicsSelectedDistrictSelector = (state: IApplicationState) => state.clinic.selectedDistrict;
+export const clinicsSelectedCitySelector = (state: IApplicationState) => state.clinic.selectedCity;
 
 export const makeFilteredClinicsSelector = () => {
 	return createSelector(
-		[clinicsSelector, clinicsSelectedDistrictSelector],
-		(clinics: IClinic[], selectedDistrict: number) => {
+		[clinicsSelector, clinicsSelectedCitySelector],
+		(clinics: IClinic[], selectedCity: number) => {
 			if (!clinics) return [];
-			if (selectedDistrict === -1) return clinics;
-			return clinics.filter((c) => c.districtKey === selectedDistrict);
+			if (selectedCity === -1) return clinics;
+			return clinics.filter((c) => c.cityKey === selectedCity);
 		}
 	)
 }
@@ -38,8 +40,10 @@ const ClinicReducer: Reducer<ClinicsState> = (state: ClinicsState, act) =>
 {
 	if (isActionType(act, Actions.UpdateClinicListActions)) {
 		return {...state, list: state.list.concat(act.list)};
-	} else if (isActionType(act, Actions.UpdateDistrict)) {
-		return {...state, selectedDistrict: act.value};
+	} else if (isActionType(act, Actions.UpdateCityAction)) {
+		return {...state, selectedCity: act.value};
+	} else if (isActionType(act, Actions.AddCityAction)) {
+		return {...state, cityList: [...state.cityList, act.city]};
 	}
 	return state || initialClinicsState
 }
