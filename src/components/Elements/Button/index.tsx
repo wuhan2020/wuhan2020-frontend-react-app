@@ -4,7 +4,7 @@ import { Button as AntDButton } from "antd";
 import { ButtonProps as AntDButtonProps } from "antd/lib/button";
 
 interface ButtonProps extends AntDButtonProps {
-
+	theme?: 'main' | 'white';
 }
 
 export default class Button extends React.PureComponent<ButtonProps, {}>
@@ -12,6 +12,6 @@ export default class Button extends React.PureComponent<ButtonProps, {}>
 	render()
 	{
 
-		return React.cloneElement(<AntDButton />, {...AntDButton.defaultProps, ...this.props});
+		return React.cloneElement(<AntDButton />, {...AntDButton.defaultProps, ...this.props, className: this.props.theme || 'main'});
 	}
 }

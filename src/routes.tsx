@@ -13,11 +13,13 @@ import ProductionList from './components/Pages/Production/List';
 import FreeConsultationList from './components/Pages/FreeConsultation/List';
 import Treatment from './components/Pages/Treatment';
 import NewsFeed from './components/Pages/NewsFeed';
+import Clinic from './components/Pages/Clinic';
 
 
 export default (store: Store<any>) => (
 	<App>
 		<Route exact path={URLS.HOME} component={Home} />
+		<Route exact path={URLS.CLINIC} component={Clinic} />
 		<Route exact path={URLS.CLINICS} component={ClinicList} />
 		<Route exact path={URLS.DONATE} component={DonateList} />
 		<Route exact path={URLS.FREE_CONSULTATION} component={FreeConsultationList} />

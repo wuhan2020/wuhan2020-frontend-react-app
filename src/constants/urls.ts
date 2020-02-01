@@ -4,6 +4,7 @@ export const URLS = {
 	HOME: ROOT + "/",
 
 	CLINICS: ROOT + "/clinics",
+	CLINIC: ROOT + "/clinic/:cityName/:clinicId",
 
 	DONATE: ROOT + "/donate",
 
@@ -22,4 +23,8 @@ export const URLS = {
 	PREVENTION_AND_TREATMENT: ROOT + "/treatment",
 	PRODUCTION: ROOT + "/production",
 
+}
+
+export const getClinicUrl = (cityName: string, id: number) => {
+	return `${ROOT}/clinic/${cityName}/${id}`;
 }

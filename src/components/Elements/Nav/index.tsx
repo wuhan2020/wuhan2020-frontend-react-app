@@ -80,8 +80,8 @@ class Nav extends React.PureComponent<Props, {}>
               return <MenuItem key={item.link}>{item.name}</MenuItem>;
             })}
           </Menu>
-          <Button type='primary'>{Message('NEED_HELP')}</Button>
-          <Button type='primary'>{Message('WANNA_CONTRIBUTE')}</Button>
+          <Button theme='white' type='primary'>{Message('NEED_HELP')}</Button>
+          <Button theme='white' type='primary'>{Message('WANNA_CONTRIBUTE')}</Button>
         </div>
       </div>
     )

@@ -32,10 +32,12 @@ export const actionCreators = {
     try
     {
       const result = await getClinics(link) as any;
-      const list = result.map((item) => {return {...item, cityKey: index}});
-      dispatch(new AddCityAction({key: index, name: result[0].city}));
-      dispatch(new UpdateClinicListActions(list));
-      // dispatch(new UpdateClinicListActions(mockClinics));
+      if (result.length > 0) {
+        const list = result.map((item) => {return {...item, cityKey: index}});
+        dispatch(new AddCityAction({key: index, name: result[0].city}));
+        dispatch(new UpdateClinicListActions(list));
+        // dispatch(new UpdateClinicListActions(mockClinics));
+      }
     }
     catch (err)
     {

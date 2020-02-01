@@ -1,5 +1,6 @@
 import { IClinic } from "../types/interfaces";
 
+/*
 export const mockClinics: IClinic[] = [
   {
     province: "湖北",
@@ -42,3 +43,4 @@ export const mockClinics: IClinic[] = [
     remark: '',
   },
 ]
+*/

@@ -2,6 +2,10 @@
 
 .ant-btn-link {
   color: $white !important;
+
+  &.main {
+    color: $main !important;
+  }
 }
 
 .ant-btn-primary {

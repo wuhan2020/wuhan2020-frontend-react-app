@@ -1,4 +1,5 @@
 export interface IClinic {
+  id: number;
   province: string;
   city: string;
   district: string;

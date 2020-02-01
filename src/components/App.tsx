@@ -43,12 +43,12 @@ class App extends React.PureComponent<Props, {}>
 	{
 		const { app } = this.props;
 		return (
-			<div className={styles.main}>
+			app.dataSource ? <div className={styles.main}>
 				<Nav />
-				{app.dataSource ? this.props.children : <div style={{flex: '1 1 auto'}}/>}
+				{this.props.children}
 				<Footer />
 				{app.loading ? <GlobalLoader size='large' /> : null}
-			</div>
+			</div> : null
 		);
 	}
 }

@@ -28,7 +28,7 @@ class TravelHotelList extends React.PureComponent<Props, {}>
 	render()
 	{
 		return (
-			<Layout style={{backgroundColor: '#fff'}}>
+			<Layout style={{backgroundColor: '#fff', flex: '1 1 auto', minHeight: 'unset'}}>
 				<Content>
 					<div className={styles.pageTravelHotelList}>
             Travel Hotel List

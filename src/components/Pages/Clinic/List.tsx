@@ -38,10 +38,10 @@ class ClinicList extends React.PureComponent<Props, {}>
 		{key: -1, name: '省市'},
 	];
 
-	componentDidMount() {
+	componentWillMount() {
 		this.props.app.dataSource && this.props.app.dataSource['hospital'].forEach((link, index) => {
 			this.props.actions.fetchClinicList(link, index);
-		})
+		});
 	}
 
 	onNewClick = () => {
@@ -60,7 +60,7 @@ class ClinicList extends React.PureComponent<Props, {}>
 				<Content>
 					<div className={styles.pageClinicList}>
 						<header>
-							<div className={styles.title}>{Message('CLINIC_LIST_PAGE_TITLE')}</div>
+							<div className={styles.title}>{Message('CLINIC_PAGE_TITLE')}</div>
 							<Button shape='round' type='primary' onClick={() => this.onNewClick}>{Message('NEW_DEMAND')}</Button>
 						</header>
 						<section className={styles.filters}>
@@ -70,9 +70,9 @@ class ClinicList extends React.PureComponent<Props, {}>
 										onChange={this.onCityFilterChange}
 										className={styles.cityFilter}
 										defaultValue={clinicsState.cityList[0].key}>
-										{clinicsState.cityList.map((d) => {
+										{clinicsState.cityList.map((d, index) => {
 											return (
-												<Option value={d.key}>{d.name}</Option>
+												<Option key={`city_option_${index}`} value={d.key}>{d.name}</Option>
 											);
 										})}
 									</Select>
@@ -84,7 +84,7 @@ class ClinicList extends React.PureComponent<Props, {}>
 								{clinicList.map((clinic, index) => {
 									return (
 										<Col key={`clinic_${index}`} lg={8} sm={24}>
-											<ClinicCard clinic={clinic} />
+											<ClinicCard history={this.props.history} clinic={clinic} />
 										</Col>
 									);
 								})}
