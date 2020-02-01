@@ -63,7 +63,7 @@ class ClinicList extends React.PureComponent<Props, {}>
 							<div className={styles.title}>{Message('CLINIC_PAGE_TITLE')}</div>
 						</header>
 						<section className={styles.filters}>
-							<Row type='flex'>
+							<Row>
 								<Col lg={3} sm={12}>
 									<Select
 										onChange={this.onCityFilterChange}
@@ -79,10 +79,10 @@ class ClinicList extends React.PureComponent<Props, {}>
 							</Row>
 						</section>
 						<section className={styles.listWrapper}>
-							<Row type='flex'>
+							<Row style={{maxWidth: '100%'}} type='flex'>
 								{clinicList.map((clinic, index) => {
 									return (
-										<Col key={`clinic_${index}`} lg={8} sm={24}>
+										<Col style={{maxWidth: '100%'}} key={`clinic_${index}`} lg={8} sm={24}>
 											<ClinicCard history={this.props.history} clinic={clinic} />
 										</Col>
 									);

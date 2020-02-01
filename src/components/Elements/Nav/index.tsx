@@ -4,17 +4,25 @@ import { IconLogo, IconLogoOrange } from "../../../components/Icons";
 import Button from "../Button";
 import Message from "../../../components/Message";
 import { RouteComponentProps, withRouter } from "react-router";
-import { Menu } from "antd";
 import { URLS } from "../../../constants/urls";
 import MenuItem from "../Menu/Item";
 import { PROJECT_HOMEPAGE } from "../../../constants/globals";
+import Menu from "../Menu";
+import { Icon, Dropdown } from "antd";
 
 interface Props extends RouteComponentProps<{}, {}> {
 
 }
 
-class Nav extends React.PureComponent<Props, {}>
+interface State {
+  collapsed: boolean;
+}
+
+class Nav extends React.PureComponent<Props, State>
 {
+  state: State = {
+    collapsed: false,
+  };
   renderHomeNav = () => {
     return (
       <div className={styles.elementsNav}>
@@ -38,6 +46,12 @@ class Nav extends React.PureComponent<Props, {}>
   onContributeClick = () => {
     window.open(PROJECT_HOMEPAGE);
   }
+
+  toggleCollapsed = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    });
+  };
 
   renderGlobalNav = () => {
     const items: any[] = [
@@ -72,18 +86,38 @@ class Nav extends React.PureComponent<Props, {}>
         link: URLS.TRAVEL_HOTEL,
       },
     ];
+
+    const mobileMenu = (
+      <Menu
+        onClick={this.handleMenuClick}>
+        {items.map((item) => {
+          return <MenuItem key={item.link}>{item.name}</MenuItem>;
+        })}
+      </Menu>
+    )
     return (
       <div className={`${styles.elementsNav} ${styles.transparent}`}>
         <div onClick={() => this.props.history.push(URLS.HOME)} className={styles.left}>
           <IconLogoOrange />
         </div>
         <div className={styles.right}>
-          <Menu selectedKeys={[this.props.location.pathname]} onClick={this.handleMenuClick} mode='horizontal'>
+          <Menu
+            selectedKeys={[this.props.location.pathname]}
+            onClick={this.handleMenuClick} mode='horizontal'>
             {items.map((item) => {
               return <MenuItem key={item.link}>{item.name}</MenuItem>;
             })}
           </Menu>
           <Button onClick={this.onContributeClick} theme='white' type='primary'>{Message('WANNA_CONTRIBUTE')}</Button>
+        </div>
+        <div className={styles.mobileMenu}>
+          <Dropdown overlay={mobileMenu} trigger={['click']}>
+            <Button
+              icon='menu'
+              type='ghost'
+              onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
+            </Button>
+          </Dropdown>
         </div>
       </div>
     )
