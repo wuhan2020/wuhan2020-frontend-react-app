@@ -41,11 +41,7 @@ class Clinic extends React.PureComponent<Props, State>
 
   componentWillMount() {
     // if data is not loaded (i.e. a direct visit), load them first
-    if (!this.props.clinicsState.list || this.props.clinicsState.list.length === 0) {
-      this.props.app.dataSource && this.props.app.dataSource['hospital'].forEach(async (link, index) => {
-        await this.props.actions.fetchClinicList(link, index);
-      });
-    }
+		this.props.app.dataSource && this.props.actions.fetchClinicList(this.props.app.dataSource['hospital']);
   }
   componentDidMount() {
     this.init();

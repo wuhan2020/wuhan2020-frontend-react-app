@@ -23,25 +23,32 @@ export class ResetAction extends StrongAction { constructor() { super(); }}
 
 export interface Actions
 {
-  fetchClinicList(link: string, index: number);
+  fetchClinicList(list: any[]);
   updateCity(value: number);
   addCity(city: any);
 }
 
 
 export const actionCreators = {
-  fetchClinicList: (link: string, index: number): any => async (dispatch) => {
+  fetchClinicList: (list: any[]): any => async (dispatch) => {
     dispatch(new ResetAction());
     dispatch(appActionCreators.toggleAppLoading(true));
     try
     {
-      const result = await getClinics(link) as any;
-      if (result.length > 0) {
-        const list = result.map((item) => {return {...item, cityKey: index}});
-        dispatch(new AddCityAction({key: index, name: result[0].city}));
-        dispatch(new UpdateClinicListActions(list));
-        // dispatch(new UpdateClinicListActions(mockClinics));
-      }
+      const promises: any[] = [];
+      list.forEach((link, index) => {
+        const promise = getClinics(link).then((result) => {
+          dispatch(new AddCityAction({key: index, name: result[0].city}));
+          return result.map((item) => {return {...item, cityKey: index};});
+        }).catch(() => []);;
+        promises.push(promise);
+      });
+
+      const result = await Promise.all(promises);
+      let clinics = [];
+      result.forEach((l) => clinics = clinics.concat(l));
+      dispatch(new UpdateClinicListActions(clinics));
+      // dispatch(new UpdateClinicListActions(mockClinics));
     }
     catch (err)
     {

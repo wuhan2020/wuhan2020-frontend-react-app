@@ -39,9 +39,7 @@ class ClinicList extends React.PureComponent<Props, {}>
 	];
 
 	componentWillMount() {
-		this.props.app.dataSource && this.props.app.dataSource['hospital'].forEach((link, index) => {
-			this.props.actions.fetchClinicList(link, index);
-		});
+		this.props.app.dataSource && this.props.actions.fetchClinicList(this.props.app.dataSource['hospital']);
 	}
 
 	onNewClick = () => {
