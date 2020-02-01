@@ -17,6 +17,8 @@ export const URLS = {
 
 	OPEN_SOURCE_PROJ: "https://github.com/wuhan2020/wuhan2020",
 
+	TRAVEL_HOTEL: ROOT + "/travel_hotel",
+
 	PREVENTION_AND_TREATMENT: ROOT + "/treatment",
 	PRODUCTION: ROOT + "/production",
 

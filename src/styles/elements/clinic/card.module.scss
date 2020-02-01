@@ -13,6 +13,7 @@ $clinic-card-namespace: "elementsClinicCard";
   .contentWrapper {
     display: flex;
     flex-direction: column;
+    height: 100%;
     .name {
       color: $black0;
       font-size: $px24;

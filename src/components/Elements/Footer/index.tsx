@@ -18,18 +18,22 @@ class Footer extends React.PureComponent<Props, {}>
         name: Message('CLINIC'),
         link: URLS.CLINICS
       },
+      /*
       {
         name: Message('HOTEL'),
         link: URLS.HOTELS
       },
+      */
       {
         name: Message('LOGISTICS'),
         link: URLS.LOGISTICS
       },
+      /*
       {
         name: Message('PRODUCTION'),
         link: URLS.PRODUCTION
       },
+      */
       {
         name: Message('DONATE'),
         link: URLS.DONATE
@@ -45,6 +49,10 @@ class Footer extends React.PureComponent<Props, {}>
       {
         name: Message('NEWS_FEED'),
         link: URLS.NEWS_FEED
+      },
+      {
+        name: Message('TRAVEL_HOTEL'),
+        link: URLS.TRAVEL_HOTEL,
       },
       {
         name: Message('OPEN_SOURCE_PROJ'),

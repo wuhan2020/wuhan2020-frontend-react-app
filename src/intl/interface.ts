@@ -25,6 +25,8 @@ interface ILocalization extends Record<string, string>
 	PREVENTION_AND_TREATMENT: string;
 	PRODUCTION: string;
 
+	TRAVEL_HOTEL: string;
+
 	UNLIMITED: string;
 
 	VIEW_DATA: string;

@@ -21,7 +21,7 @@ export default class ClinicCard extends React.PureComponent<ClinicCardProps, {}>
       <Card className={styles.elementsClinicCard}>
         <div className={styles.contentWrapper}>
           <div className={styles.name}>{clinic.name}</div>
-          {clinic.supplies.map((supply, index) => {
+          {clinic.supplies.length > 0 && clinic.supplies.map((supply, index) => {
             if (index < 3) {
               return (
                 <Row type='flex' style={{marginBottom: '20px', alignItems: 'center'}}>
@@ -32,7 +32,8 @@ export default class ClinicCard extends React.PureComponent<ClinicCardProps, {}>
               )
             }
           })}
-          <div className={styles.otherSupplies}>+{clinic.supplies.length - 3 }{Message('OTHER_SUPPLIES')}</div>
+          {clinic.supplies.length > 0 && <div className={styles.otherSupplies}>+{clinic.supplies.length - 3 }{Message('OTHER_SUPPLIES')}</div>}
+          {clinic.supplies.length === 0 && <div style={{flex: '1 1 auto'}} />}
           <Button className={styles.viewDetailBtn} type='ghost' shape='round'>{Message('VIEW_DETAIL')}</Button>
         </div>
       </Card>

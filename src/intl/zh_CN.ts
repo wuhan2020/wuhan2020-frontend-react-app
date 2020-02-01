@@ -26,6 +26,8 @@ const zh_CN: ILocalization = {
 	PREVENTION_AND_TREATMENT: '预防与治疗',
 	PRODUCTION: '生产',
 
+	TRAVEL_HOTEL: '指定接待酒店',
+
 	UNLIMITED: '不限',
 
 	VIEW_DATA: '查看数据',

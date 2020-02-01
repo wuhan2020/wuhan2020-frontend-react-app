@@ -46,6 +46,7 @@ class Nav extends React.PureComponent<Props, {}>
         name: Message('LOGISTICS'),
         link: URLS.LOGISTICS,
       },
+      /*
       {
         name: Message('HOTEL'),
         link: URLS.HOTELS,
@@ -54,6 +55,7 @@ class Nav extends React.PureComponent<Props, {}>
         name: Message('PRODUCTION'),
         link: URLS.PRODUCTION,
       },
+      */
       {
         name: Message('DONATE'),
         link: URLS.DONATE,
@@ -61,6 +63,10 @@ class Nav extends React.PureComponent<Props, {}>
       {
         name: Message('FREE_CONSULTATION'),
         link: URLS.FREE_CONSULTATION,
+      },
+      {
+        name: Message('TRAVEL_HOTEL'),
+        link: URLS.TRAVEL_HOTEL,
       },
     ];
     return (
