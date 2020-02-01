@@ -24,6 +24,7 @@ export default class ClinicCard extends React.PureComponent<ClinicCardProps, {}>
 	{
     const URGENT_THRESHOLD = 100;
     const {clinic} = this.props;
+
     return (
       <Card className={styles.elementsClinicCard}>
         <div className={styles.contentWrapper}>

@@ -91,7 +91,12 @@ class Clinic extends React.PureComponent<Props, State>
 	render()
 	{
     const {clinic} = this.state;
-    console.log(clinic);
+    const supplies = clinic ? clinic.supplies.map((s) => {
+      return {
+        ...s,
+        value: s.value === 1 ? Message('UNLIMITED') : 0,
+      };
+    }) : [];
 		return (
 			<Layout style={{backgroundColor: '#fff', flex: '1 1 auto', minHeight: 'unset'}}>
 				<Content>
@@ -136,7 +141,7 @@ class Clinic extends React.PureComponent<Props, State>
               </Col>
             </Row>
             <Divider />
-            <Table columns={this.getTableColumns()} dataSource={clinic.supplies} />
+            <Table columns={this.getTableColumns()} dataSource={supplies} />
 					</div> : null}
 				</Content>
 			</Layout>
