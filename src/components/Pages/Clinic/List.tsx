@@ -54,7 +54,7 @@ class ClinicList extends React.PureComponent<Props, {}>
 	{
 		const {clinicList, clinicsState} = this.props;
 		return (
-			<Layout style={{backgroundColor: '#fff', flex: '1 1 auto', minHeight: 'unset'}}>
+			<Layout style={{backgroundColor: '#fff', flex: '1 0 auto', minHeight: 'unset'}}>
 				<Content>
 					<div className={styles.pageClinicList}>
 						<header>

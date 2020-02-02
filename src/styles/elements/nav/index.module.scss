@@ -11,6 +11,7 @@ $nav-namespace: "elementsNav";
   background-color: $main;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
 
   &.transparent {
     position: relative;

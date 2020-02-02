@@ -2372,6 +2372,11 @@ csstype@^2.2.0:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.8.tgz#0fb6fc2417ffd2816a418c9336da74d7f07db431"
   integrity sha512-msVS9qTuMT5zwAGCVm4mxfrZ18BNc6Csd0oJAtiFMZ1FAx1CCvy2+5MDmYoix63LM/6NDbNtodCiGYGmFgO0dA==
 
+current-device@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/current-device/-/current-device-0.10.0.tgz#7a6bcf3e6715d751d68096479b3802e77fb42cfb"
+  integrity sha512-JnUzeo6pETQRLZtbB/DjoQCDBDiz5zg7DYJZi3CGGKBxvzK8Uz7Dnn4sZ23e+0sFSrSyeeKws7cotHfSJQpsBA==
+
 currently-unhandled@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/currently-unhandled/-/currently-unhandled-0.4.1.tgz#988df33feab191ef799a61369dd76c17adf957ea"

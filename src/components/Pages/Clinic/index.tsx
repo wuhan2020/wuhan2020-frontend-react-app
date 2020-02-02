@@ -14,6 +14,7 @@ import Button from "../../../components/Elements/Button";
 import { copyStringToClipboard } from "../../../utils/stringHelper";
 import { IntlShape, injectIntl } from "react-intl";
 import { GAODE_SEARCH_PREFIX } from "../../../constants/globals";
+import { isMobile, isTablet } from "../../../utils/deviceHelper";
 
 interface ConnectedProps {
   loading: boolean;
@@ -108,7 +109,7 @@ class Clinic extends React.PureComponent<Props, State>
       };
     }) : [];
 		return (
-			<Layout style={{backgroundColor: '#fff', flex: '1 1 auto', minHeight: 'unset'}}>
+			<Layout style={{backgroundColor: '#fff', flex: '1 0 auto', minHeight: 'unset'}}>
 				<Content>
 					{clinic ? <div className={styles.pageClinic}>
             <Row>
@@ -121,7 +122,7 @@ class Clinic extends React.PureComponent<Props, State>
                 <div className={styles.clinicName}>{clinic.name}</div>
               </Col>
             </Row>
-            <Row gutter={100}>
+            <Row gutter={isMobile || isTablet ? 0 : 100}>
               <Col lg={8} sm={24}>
                 <section className={styles.infoSection}>
                   <div className={styles.infoSectionTitle}>{Message('MAILING_ADDRESS')}</div>

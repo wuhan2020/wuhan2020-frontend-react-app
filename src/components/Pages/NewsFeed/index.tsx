@@ -28,7 +28,7 @@ class NewsFeed extends React.PureComponent<Props, {}>
 	render()
 	{
 		return (
-			<Layout style={{backgroundColor: '#fff', flex: '1 1 auto', minHeight: 'unset'}}>
+			<Layout style={{backgroundColor: '#fff', flex: '1 0 auto', minHeight: 'unset'}}>
 				<Content>
 					<div className={styles.pageNewsFeed}>
             {Message('DEVELOPING')}
