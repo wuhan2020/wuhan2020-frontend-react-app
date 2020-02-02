@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://raw.githubusercontent.com/wuhan2020/wuhan2020/master/data';
+export const BASE_URL = 'https://gitee.com/open-xlab/wuhan2020/raw/master/data';
 
 export const PROJECT_HOMEPAGE = 'http://wuhan2020.github.io';
 
