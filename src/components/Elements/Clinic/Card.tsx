@@ -29,6 +29,9 @@ export default class ClinicCard extends React.PureComponent<ClinicCardProps, {}>
       <Card className={styles.elementsClinicCard}>
         <div className={styles.contentWrapper}>
           <div className={styles.name}>{clinic.name}</div>
+          <div className={styles.subtitle}>
+            <div>{clinic.province} {clinic.city}</div>
+          </div>
           {clinic.supplies.length > 0 && clinic.supplies.map((supply, index) => {
             if (index < 3) {
               return (

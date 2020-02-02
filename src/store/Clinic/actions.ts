@@ -17,6 +17,9 @@ export class UpdateCityAction extends StrongAction { constructor(public value: n
 @typeName('ADD_CITY' + SUFFIX)
 export class AddCityAction extends StrongAction { constructor(public city: any) { super(); }}
 
+@typeName('SEARCH_CLINIC' + SUFFIX)
+export class SearchClinicAction extends StrongAction { constructor(public searchText: string) { super(); }}
+
 @typeName('RESET' + SUFFIX)
 export class ResetAction extends StrongAction { constructor() { super(); }}
 
@@ -26,6 +29,7 @@ export interface Actions
   fetchClinicList(list: any[]);
   updateCity(value: number);
   addCity(city: any);
+  searchClinic(searchText: string);
 }
 
 
@@ -61,4 +65,5 @@ export const actionCreators = {
   },
   updateCity: (value: number): any => dispatch => dispatch (new UpdateCityAction(value)),
   addCity: (city: any): any => dispatch => dispatch(new AddCityAction(city)),
+  searchClinic: (searchText: string): any => dispatch => dispatch(new SearchClinicAction(searchText)),
 };

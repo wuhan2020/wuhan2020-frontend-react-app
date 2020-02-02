@@ -9,6 +9,7 @@ const zh_CN: ILocalization = {
 	CONTACT_METHODS: '联系方式',
 	COPIED_TO_CLIPBOARD: '已复制到粘贴板',
 	COPY: '复制',
+  SEARCH_CLINIC: '搜索医院',
 
 	DEVELOPING: '紧急开发中',
 	DOMESTIC: '国内',

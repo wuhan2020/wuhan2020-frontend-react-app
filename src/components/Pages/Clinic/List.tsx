@@ -16,6 +16,8 @@ import Select from "../../../components/Elements/Select";
 import Option from "../../../components/Elements/Select/Option";
 import { makeFilteredClinicsSelector, ClinicsState } from "../../../store/Clinic";
 import { AppState } from "../../../store/App";
+import { Search } from '../../Elements/Input';
+import { IntlShape, injectIntl } from 'react-intl';
 
 interface ConnectedProps {
 	actions: ClinicsActions;
@@ -23,6 +25,7 @@ interface ConnectedProps {
 	clinicsState: ClinicsState;
 	loading: boolean;
 	clinicList: IClinic[];
+  intl: IntlShape;
 }
 
 interface Props extends RouteComponentProps {
@@ -50,8 +53,11 @@ class ClinicList extends React.PureComponent<Props, {}>
 		this.props.actions.updateCity(value);
 	}
 
-	render()
-	{
+	onClinicSearch = (searchText) => {
+	  this.props.actions.searchClinic(searchText);
+  };
+
+	render() {
 		const {clinicList, clinicsState} = this.props;
 		return (
 			<Layout style={{backgroundColor: '#fff', flex: '1 0 auto', minHeight: 'unset'}}>
@@ -61,7 +67,7 @@ class ClinicList extends React.PureComponent<Props, {}>
 							<div className={styles.title}>{Message('CLINIC_PAGE_TITLE')}</div>
 						</header>
 						<section className={styles.filters}>
-							<Row>
+							<Row gutter={16}>
 								<Col lg={3} sm={12}>
 									<Select
 										onChange={this.onCityFilterChange}
@@ -74,6 +80,12 @@ class ClinicList extends React.PureComponent<Props, {}>
 										})}
 									</Select>
 								</Col>
+                <Col lg={6} sm={12}>
+                  <Search
+                    placeholder={this.props.intl.formatMessage({ id: 'SEARCH_CLINIC' })}
+                    onSearch={this.onClinicSearch}>
+                  </Search>
+                </Col>
 							</Row>
 						</section>
 						<section className={styles.listWrapper}>
@@ -117,10 +129,10 @@ const mapActionsToProps = dispatch =>
 	};
 };
 
-export default connect(
-	mapStateToProps,
-	mapActionsToProps
-)(withRouter(ClinicList));
+export default injectIntl(connect(
+  mapStateToProps,
+  mapActionsToProps
+)(withRouter(ClinicList)) as any) as any;
 
 /* Add this button back when needed
 							<Button shape='round' type='primary' onClick={() => this.onNewClick}>{Message('NEW_DEMAND')}</Button>

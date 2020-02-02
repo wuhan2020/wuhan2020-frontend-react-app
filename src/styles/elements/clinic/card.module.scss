@@ -8,12 +8,12 @@ $clinic-card-namespace: "elementsClinicCard";
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 325px;
 
   .contentWrapper {
     display: flex;
     flex-direction: column;
     height: 100%;
+
     .name {
       color: $black0;
       font-size: $px24;
@@ -22,6 +22,12 @@ $clinic-card-namespace: "elementsClinicCard";
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+    .subtitle {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 16px;
+      color: $grey4;
     }
   
     .supplyName {
