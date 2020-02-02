@@ -77,7 +77,7 @@ class ClinicList extends React.PureComponent<Props, {}>
 							</Row>
 						</section>
 						<section className={styles.listWrapper}>
-							<Row style={{maxWidth: '100%'}} type='flex'>
+							<Row style={{maxWidth: '100%', width: '100%'}} type='flex'>
 								{clinicList.map((clinic, index) => {
 									return (
 										<Col style={{maxWidth: '100%'}} key={`clinic_${index}`} lg={8} sm={24}>
