@@ -3,8 +3,8 @@ export const ROOT = "";
 export const URLS = {
 	HOME: ROOT + "/",
 
-	CLINICS: ROOT + "/clinics",
-	CLINIC: ROOT + "/clinic/:cityName/:clinicId",
+	CLINICS: ROOT + "/hospitals",
+	CLINIC: ROOT + "/hospital/:cityName/:clinicId",
 
 	DONATE: ROOT + "/donate",
 

@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://gitcdn.xyz/repo/wuhan2020/wuhan2020/master/data';
+export const BASE_URL = 'http://wuhan2020.org.cn/data';
 
 export const PROJECT_HOMEPAGE = 'http://wuhan2020.github.io';
 
