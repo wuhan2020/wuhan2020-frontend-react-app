@@ -26,5 +26,5 @@ export const URLS = {
 }
 
 export const getClinicUrl = (cityName: string, id: number) => {
-	return `${ROOT}/clinic/${cityName}/${id}`;
+	return `${ROOT}/hospital/${cityName}/${id}`;
 }
