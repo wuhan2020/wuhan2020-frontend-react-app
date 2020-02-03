@@ -11,13 +11,13 @@ import { getClinicUrl } from "../../../constants/urls";
 
 interface ClinicCardProps {
   clinic: IClinic;
-  history: History;
+  onViewDetailClick: (clinic: IClinic) => void;
 }
 
 export default class ClinicCard extends React.PureComponent<ClinicCardProps, {}>
 {
   onViewDetailClick = () => {
-    this.props.history.push(getClinicUrl(this.props.clinic.city, this.props.clinic.id));
+    this.props.onViewDetailClick && this.props.onViewDetailClick(this.props.clinic);
   }
 
 	render()

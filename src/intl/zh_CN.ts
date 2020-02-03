@@ -17,6 +17,7 @@ const zh_CN: ILocalization = {
 
 	FREE_CONSULTATION: '义诊',
 
+	HOSPITAL_SUPPLY_DETAIL: '医院物资详情',
 	HOTEL: '酒店',
 
 	INTERNATIONAL: '国际',

@@ -30,7 +30,7 @@ const render = () =>
 			<Provider store={store}>
 				<IntlContainer>
 					<ConfigProvider autoInsertSpaceInButton={false}>
-						<BrowserRouter>{routes}</BrowserRouter>
+							<BrowserRouter>{routes}</BrowserRouter>
 					</ConfigProvider>
 				</IntlContainer>
 			</Provider>

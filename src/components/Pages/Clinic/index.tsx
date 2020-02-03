@@ -25,20 +25,13 @@ interface ConnectedProps {
 }
 
 interface Props extends RouteComponentProps {
-
-}
-
-interface State {
   clinic?: IClinic;
 }
 
 const { Content } = Layout;
-class Clinic extends React.PureComponent<Props, State>
+class Clinic extends React.PureComponent<Props, {}>
 {
   public props: ConnectedProps & Props;
-
-  state: State = {
-  }
 
   componentWillMount() {
     // if data is not loaded (i.e. a direct visit), load them first
@@ -55,17 +48,6 @@ class Clinic extends React.PureComponent<Props, State>
   }
   
   init = () => {
-    const cityName = this.props.match.params['cityName'];
-    const id = parseInt(this.props.match.params['clinicId']);
-    const clinic = this.props.clinicsState.list.find((c) => {
-      return c.city === cityName && c.id === id;
-    });
-
-    if (clinic) {
-      this.setState({clinic});
-    } else {
-      // console.error('clinic not loaded properly');
-    }
   }
 
   getTableColumns = (): any[] => {
@@ -101,7 +83,7 @@ class Clinic extends React.PureComponent<Props, State>
 
 	render()
 	{
-    const {clinic} = this.state;
+    const {clinic} = this.props;
     const supplies = clinic ? clinic.supplies.map((s) => {
       return {
         ...s,
