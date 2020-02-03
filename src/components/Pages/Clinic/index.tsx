@@ -68,6 +68,7 @@ class Clinic extends React.PureComponent<Props, {}>
         title: Message('AMOUNT'),
         dataIndex: 'value',
         key: 'value',
+        width: 40,
         render: text => <span>{text}</span>
       },
     ]
@@ -87,7 +88,7 @@ class Clinic extends React.PureComponent<Props, {}>
     const supplies = clinic ? clinic.supplies.map((s) => {
       return {
         ...s,
-        value: s.value === 1 ? Message('UNLIMITED') : 0,
+        value: s.value === 1 ? Message('UNLIMITED') : s.value,
       };
     }) : [];
 		return (
