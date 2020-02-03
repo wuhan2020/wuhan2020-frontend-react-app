@@ -1,0 +1,83 @@
+
+@import '../../colors';
+@import '../../fonts';
+@import '../../media';
+
+$clinic-namespace: "pageClinic";
+
+.#{$clinic-namespace} {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+
+  .title {
+    font-size: $px42;
+    text-align: center;
+    color: $black0;
+    margin-bottom: 30px;
+    @include mobile-and-smaller() {
+      font-size: $px24;
+      margin-bottom: 22px;
+    }
+  }
+
+  .clinicName {
+    font-size: $px30;
+    text-align: center;
+    color: $black0;
+    margin-bottom: 20px;
+
+    @include mobile-and-smaller() {
+      font-size: $px18;
+    }
+  }
+
+  .infoSection {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet-and-smaller() {
+      flex-direction: row;
+    }
+
+    &Title {
+      font-size: $px16;
+      color: $grey4;
+      text-align: center;
+      margin-bottom: 10px;
+
+      @include tablet-and-smaller() {
+        flex: 0 0 auto;
+        text-align: left;
+      }
+    }
+
+    &Body {
+      min-height: 120px;
+      text-align: center;
+      color: $black0;
+      font-size: $px16;
+
+      @include tablet-and-smaller() {
+        min-height: 60px;
+        flex: 1 1 auto;
+        margin-left: 12px;
+        text-align: left;
+        margin-bottom: 8px;
+      }
+
+      & .text {
+      }
+    }
+
+    & .addressActions {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}

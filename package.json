@@ -2,9 +2,8 @@
   "dependencies": {
     "antd": "^3.26.7",
     "axios": "^0.19.2",
+    "current-device": "^0.10.0",
     "intl": "^1.2.5",
-    "moment": "^2.24.0",
-    "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-hot-loader": "^4.12.19",
@@ -16,10 +15,7 @@
     "redux": "^4.0.5",
     "redux-observable": "^1.2.0",
     "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0",
-    "rxjs": "^6.5.4",
-    "rxjs-compat": "^6.5.4",
-    "typescript": "^3.7.5"
+    "reselect": "^4.0.0"
   },
   "devDependencies": {
     "@babel/polyfill": "^7.8.3",
@@ -45,6 +41,7 @@
     "css-loader": "^3.4.2",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.2",
     "source-map-loader": "^0.2.4",
@@ -52,11 +49,13 @@
     "svg-react-loader": "^0.4.6",
     "ts-import-plugin": "^1.6.2",
     "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^3.0.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3.10.1",
+    "webpack-merge": "^4.2.2"
   },
   "name": "wuhan2020-frontend-react-app",
   "description": "Frontend app for data visualization",
@@ -64,6 +63,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "./scripts/dev.sh",
+    "build": "rm -rf ./wwwroot/dist/** && ./node_modules/.bin/webpack --config ./config/webpack.prod.conf.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

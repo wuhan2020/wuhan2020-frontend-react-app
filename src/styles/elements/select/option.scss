@@ -1,0 +1,7 @@
+@import '../../colors';
+
+.ant-select-dropdown-menu-item {
+  &:hover {
+    background-color: $main_light !important;
+  }
+}

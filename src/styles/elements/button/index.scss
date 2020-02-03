@@ -2,6 +2,10 @@
 
 .ant-btn-link {
   color: $white !important;
+
+  &.main {
+    color: $main !important;
+  }
 }
 
 .ant-btn-primary {
@@ -17,4 +21,13 @@
     background-color: $main_dark !important;
     border-color: $main_dark !important;
   }
+}
+
+.ant-btn-ghost {
+  color: $main !important;
+  border-color: $main !important;
+}
+.fakeDisabled {
+  background-color: $white !important;
+  cursor: default !important;
 }

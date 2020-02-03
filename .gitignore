@@ -2,4 +2,6 @@ node_modules
 wwwroot/dist
 data
 .DS_Store
+src/**/.DS_Store
+*.iml
 .idea

@@ -28,10 +28,10 @@ class LogisticsList extends React.PureComponent<Props, {}>
 	render()
 	{
 		return (
-			<Layout style={{backgroundColor: '#fff'}}>
+			<Layout style={{backgroundColor: '#fff', flex: '1 0 auto', minHeight: 'unset'}}>
 				<Content>
 					<div className={styles.pageLogisticsList}>
-            Logistics List
+            {Message('DEVELOPING')}
 					</div>
 				</Content>
 			</Layout>

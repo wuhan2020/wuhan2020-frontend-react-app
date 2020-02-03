@@ -43,7 +43,9 @@ Then you should be able to visit the app under `http://localhost:3001/`
 
 ## Build and Compile
 
-TBD
+```
+yarn build
+``
 
 ## Deploy, CI/CD
 
@@ -63,6 +65,9 @@ This is a typical frontend project using typical frontend tech stack:
 - axios
 - moment
 - webpack
+- sass
+- mesh-dev-cli
+  - Written by @oozliuoo, used by Kiwi Inc.
 - rxjs
   - not used yet, but would like to migrate to it at some point, to better manage all redux actions
 
@@ -85,15 +90,18 @@ This is a typical frontend project using typical frontend tech stack:
     ├── constants/            constants
     ├── http/                 All http request handling logics are here
     ├── images/               static resources (mostly .svg files)
+    ├── intl/                 react-intl configs
+    ├── mockData/             mock data is stored here
     ├── store/                Redux store related
     ├── styles/               All scss files, structures are following those under `components`
     ├── types/                Type definition/Interface definition
+    ├── utils/                Utility functions
     ├── boot-client.tsx       entry file - for webpack
     ├── configureStore.ts     main file to config Redux store
     ├── routes.tsx            defines all routes
 ├── test/                     testing code, hopefully we can get to them at some point :D
 ├── wwwroot/                  built/compiled files, dist files will be under here
-    ├── dist/                files under this directory is ready to deploy
+    ├── dist/                 files under this directory is ready to deploy
     ├── template.html         template for webpack to package the app
 ├── package.json              npm package related
 ├── tsconfig.json             typescript compiler related

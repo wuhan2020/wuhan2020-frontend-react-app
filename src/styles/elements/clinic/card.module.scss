@@ -1,0 +1,56 @@
+@import '../../colors';
+@import '../../media';
+@import '../../fonts';
+
+$clinic-card-namespace: "elementsClinicCard";
+
+.#{$clinic-card-namespace} {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .contentWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .name {
+      color: $black0;
+      font-size: $px24;
+      margin-bottom: 16px;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .subtitle {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 16px;
+      color: $grey4;
+    }
+  
+    .supplyName {
+      flex: 1 1 auto;
+      font-size: $px16;
+      color: $black0;
+      margin-left: 20px;
+      max-width: calc(100% - 145px);
+      margin-right: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  
+    .otherSupplies {
+      font-size: $px16;
+      color: $grey4;
+      margin-bottom: 20px;
+      margin-left: 35px;
+    }
+  
+    .viewDetailBtn {
+      align-self: center;
+    }
+  }
+}

@@ -31,24 +31,24 @@ class App extends React.PureComponent<Props, {}>
 	{
 	}
 
-	componentWillMount()
+	async componentWillMount()
 	{
-		const { location } = this.props;
+		const { location, actions } = this.props;
     const params = new URLSearchParams(location.search)
     
-    // @todo - handle any global app request here
+		await actions.fetchAllDataSource();
 	}
 
 	public render()
 	{
 		const { app } = this.props;
 		return (
-			<div className={styles.main}>
+			app.dataSource ? <div className={styles.main}>
 				<Nav />
 				{this.props.children}
 				<Footer />
 				{app.loading ? <GlobalLoader size='large' /> : null}
-			</div>
+			</div> : null
 		);
 	}
 }

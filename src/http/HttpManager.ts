@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
-import { baseUrl } from '../constants/globals';
+import { BASE_URL } from '../constants/globals';
 
 /**
  * axios single instance manager
@@ -19,7 +19,7 @@ export default class HttpManager
 	constructor()
 	{
 		this.instance = axios.create({
-			baseURL: baseUrl,
+			baseURL: BASE_URL,
 			timeout: 10000,
 			withCredentials: false, // allowed to carry cookies
 		})
@@ -140,7 +140,7 @@ export default class HttpManager
 		this.instance.defaults.timeout = time
 	}
 
-	public setBaseUrl(url: string)
+	public setBASE_URL(url: string)
 	{
 		this.instance.defaults.baseURL = url
 	}

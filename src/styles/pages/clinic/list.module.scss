@@ -19,8 +19,23 @@ $clinic-list-namespace: "pageClinicList";
     justify-content: space-between;;
 
     .title {
-      color: $black;
+      color: $black0;
       font-size: $px30;
+      margin-bottom: 27px;
     }
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: column;
+
+    .cityFilter {
+      width: 100%;
+    }
+  }
+
+  .listWrapper {
+    display: flex;
+    margin-top: 40px;
   }
 }

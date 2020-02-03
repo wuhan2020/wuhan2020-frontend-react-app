@@ -1,4 +1,5 @@
 @import '../../colors';
+@import '../../media';
 
 $nav-namespace: "elementsNav";
 
@@ -10,8 +11,10 @@ $nav-namespace: "elementsNav";
   background-color: $main;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
 
   &.transparent {
+    position: relative;
     flex-direction: row;
     background: $white;
     height: 97px;
@@ -20,7 +23,9 @@ $nav-namespace: "elementsNav";
     z-index: 999;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.13);
 
-
+    @include mobile-and-smaller() {
+      justify-content: center;
+    }
 
     .left {
       cursor: pointer;
@@ -33,8 +38,31 @@ $nav-namespace: "elementsNav";
       align-items: center;
       flex: 0 0 auto;
 
+      @include tablet-and-smaller() {
+        display: none;
+      }
+
       button {
         margin-left: 20px;
+      }
+    }
+
+    & .mobileMenu {
+      display: none;
+
+      @include tablet() {
+        display: block;
+      }
+      @include mobile-and-smaller() {
+        display: block;
+        position: absolute;
+        align-self: center;
+        right: 16px;
+      }
+      ul {
+        position: absolute;
+        width: 120px;
+        right: 0;
       }
     }
   }
@@ -43,7 +71,7 @@ $nav-namespace: "elementsNav";
     display: flex;
     flex-direction: row;
     width: 100%;
-    max-width: 1080x;
+    max-width: 1080px;
     align-items: center;
 
     .column {
