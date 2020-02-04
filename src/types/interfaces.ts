@@ -19,6 +19,11 @@ export interface IClicnicSupply {
 }
 
 export interface IContact {
+  name?: string;
+  tel?: string;
+}
+
+export interface IContacts {
   name: string;
   tel: string;
 }
@@ -49,4 +54,7 @@ export interface IFreeConsultation {
   name: string;
   url: string;
   id: number;
+  contacts: Array<{[key: string]: string}>,
+  date: string,
+  remark: string
 }
