@@ -8,7 +8,7 @@ $epidemic-namespace: "pageEpidemic";
 .#{$epidemic-namespace} {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
   width: 100%;
-  padding: 40px;
+  padding: 0px;
 }

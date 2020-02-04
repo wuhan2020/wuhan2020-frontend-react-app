@@ -67,7 +67,7 @@ class Footer extends React.PureComponent<Props, {}>
 		return (
 			<div className={styles.elementsFooter}>
         <Row type='flex' justify='space-between' style={{width: '100%'}}>
-          <IconMainIcon width={135} height={135} />
+          <IconMainIcon width={100} height={100} />
           <div className={styles.siteMap}>
             <Row className={styles.siteMapItemWrapper} type='flex'>
               {items.map((item, index) => {
