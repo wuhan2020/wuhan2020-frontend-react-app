@@ -68,7 +68,7 @@ class Clinic extends React.PureComponent<Props, {}>
         title: Message('AMOUNT'),
         dataIndex: 'value',
         key: 'value',
-        width: 40,
+        className: styles.lastColumn,
         render: text => <span>{text}</span>
       },
     ]
