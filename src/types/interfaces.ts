@@ -1,4 +1,3 @@
-export * from './travel-hotel';
 export interface IClinic {
   id: number;
   province: string;
@@ -22,4 +21,16 @@ export interface IClicnicSupply {
 export interface IContact {
   name: string;
   tel: string;
+}
+
+export interface ITravelHotel {
+  id: number,
+  province?: string,
+  city?: string,
+  contacts?: IContact[],
+  address?: string,
+  name?: string,
+  date?: string,
+  url?: string,
+  remark?: string | null,
 }

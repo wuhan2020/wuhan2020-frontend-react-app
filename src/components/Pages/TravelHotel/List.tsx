@@ -9,7 +9,8 @@ import { withRouter, RouteComponentProps } from "react-router";
 import { Row, Col, Layout, Tabs } from "antd";
 import Select from "../../../components/Elements/Select";
 import Option from "../../../components/Elements/Select/Option";
-import TravelHotelContext from './Content';
+import TravelHotelContext from "./Content";
+// import TravelHotelCard from "../../../components/Elements/TravelHotel/index";
 
 const { TabPane } = Tabs;
 const tabConfig = [
@@ -29,6 +30,7 @@ interface ConnectedProps {
 
 interface Props extends RouteComponentProps {}
 const { Content } = Layout;
+
 class TravelHotelList extends React.PureComponent<Props, {}> {
   public props: ConnectedProps & Props;
   componentDidMount() {}
@@ -50,19 +52,14 @@ class TravelHotelList extends React.PureComponent<Props, {}> {
               <div className={styles.title}>{Message("CLINIC_PAGE_TITLE")}</div>
             </header>
             <Tabs>
-              {
-								_.map(tabConfig, (config) => {
-									const {key, title} = config;
-									return (
-										<TabPane
-											key = {key}
-											tab={title}
-										>
-											<TravelHotelContext/>
-										</TabPane>
-									)
-								})
-							}
+              {_.map(tabConfig, config => {
+                const { key, title } = config;
+                return (
+                  <TabPane key={key} tab={title}>
+                    <TravelHotelContext />
+                  </TabPane>
+                );
+              })}
             </Tabs>
           </div>
         </Content>

@@ -3,32 +3,32 @@ import * as React from "react";
 import * as Actions from "./actions";
 import { isActionType } from "../../common/StrongAction";
 
-import { IHotel, IContact } from "../../types/interfaces";
+import { ITravelHotel, IContact } from "../../types/interfaces";
 
 export interface TravelHotelState {
   selectedProvice: string;
   selectedCity: string;
   searchedText: string;
-  hotelList: IHotel[];
+  hotelList: ITravelHotel[];
 }
 
 export const initialTravelHotelState: TravelHotelState = {
   selectedProvice: "",
   selectedCity: "",
   searchedText: "",
-  hotelList: [] as IHotel
+  hotelList: [] as ITravelHotel[]
 };
 
 const TravelHotelReducer: Reducer<TravelHotelState> = (
   state: TravelHotelState,
   act
 ) => {
-  if (isActionType(act, Actions.fetchHotels)) {
+  if (isActionType(act, Actions.FetchHotelsAction)) {
     return Object.assign(state, {
-      hotelList: act.value
+      hotelList: []
     });
-  } else if (isActionType(act, Actions.changeFilter)) {
-    return Object.assign(state, act.value);
+  } else if (isActionType(act, Actions.ChangeFilterAction)) {
+    return Object.assign(state, act.filter);
   }
 
   return state || initialTravelHotelState;
