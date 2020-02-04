@@ -22,3 +22,9 @@ export interface IContact {
   name: string;
   tel: string;
 }
+
+export interface IFreeConsultation {
+  name: string;
+  url: string;
+  id: number;
+}

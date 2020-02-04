@@ -5,36 +5,100 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { IApplicationState } from "../../../store";
 import { withRouter, RouteComponentProps } from "react-router";
-import { Layout } from "antd";
-
+import { Row, Col, Input, Layout, Pagination } from "antd";
+import { freeConsulationState } from "../../../store/freeConsultation";
+import { IntlShape, injectIntl } from "react-intl";
+import { actionCreators as freeConsulationActionCreators, Actions as freeConsulationActions } from "../../../store/FreeConsultation/actions";
+import { AppState } from "../../../store/App";
+import { IFreeConsultation } from "../../../types/interfaces";
+import { mockFreeConsultation } from "../../../mockData/freeConsultation";
 interface ConnectedProps {
 	loading: boolean;
+	app: AppState;
+	freeConsultationList: IFreeConsultation[];
+	freeConsultation: freeConsulationState;
+	actions: freeConsulationActions;
+	  intl: IntlShape;
 }
 
 interface Props extends RouteComponentProps {
 
 }
 const { Content } = Layout;
+const { Search } = Input;
+
 class FreeConsultationList extends React.PureComponent<Props, {}>
 {
 	public props: ConnectedProps & Props;
+
+	state = {
+		freeConsultationList: mockFreeConsultation,
+		current: 1,
+		total: mockFreeConsultation.length,
+		pageSize: 6
+	}
+	
+	componentWillMount() {
+		//this.props.app.dataSource && this.props.actions.fetchFreeConsultationList(this.props.app.dataSource['freeConsultation']);
+	}
+
 	componentDidMount() {
+		const { total , pageSize, current} = this.state;
+		this.setState({freeConsultationList: mockFreeConsultation.slice((pageSize * (current - 1)), pageSize * current)})
 	}
 
 	onNewClick = () => {
 
 	}
 
+	handlePageChange = (page) => {
+		this.setState({
+			current: page,
+		});
+		this.getPerPageInfo(page);
+	}
+
+	getPerPageInfo = (current: number) => {
+		const { pageSize} = this.state;
+		this.setState({freeConsultationList: mockFreeConsultation.slice((pageSize * (current - 1)), pageSize * current)})
+	}
+
 	render()
 	{
+		const {current, total, pageSize, freeConsultationList} = this.state;
 		return (
-			<Layout style={{backgroundColor: '#fff', flex: '1 0 auto', minHeight: 'unset'}}>
-				<Content>
-					<div className={styles.pageFreeConsultationList}>
-            {Message('DEVELOPING')}
-					</div>
-				</Content>
-			</Layout>
+			<div className="freeConsultationListContainer">
+				<div className="searchFreeConsultation">
+					<h3>
+						{Message('FREE_CONSULTATION_ONLINE')}
+					</h3>
+					<Search
+						placeholder="input search text"
+						onSearch={value => console.log(value)}
+						style={{ width: 200 }}
+					/>
+				</div>
+				<Layout style={{backgroundColor: '#fff', flex: '1 0 auto', minHeight: 'unset'}}>
+					<Content>
+						<div className={styles.pageFreeConsultationList}>
+							<div className="freeConsultationsContent">
+								<Row style={{maxWidth: '100%'}} type='flex'>
+									{freeConsultationList.map((freeConsultation, index) => {
+										return (
+											<Col style={{maxWidth: '100%'}} key={`clinic_${index}`} lg={8} sm={24}>
+												<div className="">
+												    {JSON.stringify(freeConsultation)}
+												</div>
+											</Col>
+										);
+									})}
+								</Row>
+							</div>
+						</div>
+					</Content>
+				</Layout>
+				<Pagination onChange = {this.handlePageChange} pageSize={pageSize} defaultCurrent={current} total={total} />
+			</div>
 		)
 	}
 }
@@ -43,6 +107,7 @@ const mapStateToProps = (state: IApplicationState) =>
 {
 	return {
 		loading: state.app.loading,
+		freeConsultationList: state.freeConsultation
 	};
 };
 
@@ -51,6 +116,7 @@ const mapActionsToProps = dispatch =>
 	return {
 		actions: bindActionCreators(
 			{
+				...freeConsulationActionCreators
 			},
 			dispatch
 		),
