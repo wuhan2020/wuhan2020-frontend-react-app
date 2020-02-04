@@ -113,9 +113,9 @@ class Clinic extends React.PureComponent<Props, State>
 				<Content>
 					{clinic ? <div className={styles.pageClinic}>
             <Row>
-              <Col lg={24}>
+              {/* <Col lg={24}>
                 <div className={styles.title}>{Message('CLINIC_PAGE_TITLE')}</div>
-              </Col>
+              </Col> */}
             </Row>
             <Row>
               <Col lg={24}>

@@ -22,3 +22,14 @@ export interface IContact {
   name: string;
   tel: string;
 }
+
+export interface IFreeConsultation {
+  id: number;
+  supplies: IClicnicSupply[];
+}
+
+export interface IFreeConsultationSupply {
+  key: string;
+  value: number;
+  specification?: string;
+}
