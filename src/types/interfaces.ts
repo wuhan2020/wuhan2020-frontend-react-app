@@ -1,3 +1,4 @@
+export * from './travel-hotel';
 export interface IClinic {
   id: number;
   province: string;
