@@ -43,6 +43,7 @@ const zh_CN: ILocalization = {
 
   PREVENTION_AND_TREATMENT: "预防与治疗",
   PRODUCTION: "生产",
+  PUBLISHED_ON: "发布于",
 
   THIS_CLINIC: "本院",
   TRAVEL_HOTEL: "指定接待酒店",
@@ -53,6 +54,7 @@ const zh_CN: ILocalization = {
   VIEW_DETAIL: "查看详情",
   VIEW_MAP: "查看地图",
   VIEW_SOURCE: "查看来源",
+  VIEW_CONSULTATION_DETAILS: "查看官方信息",
 
   WANNA_CONTRIBUTE: "我想贡献力量"
 };

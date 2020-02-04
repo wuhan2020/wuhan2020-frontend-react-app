@@ -25,7 +25,12 @@ export interface IContact {
 
 export interface IFreeConsultation {
   id: number;
-  supplies: IClicnicSupply[];
+  name: string;
+  supplies: IFreeConsultationSupply[];
+  url: string;
+  remark: string;
+  contacts: IContact[];
+  date: string;
 }
 
 export interface IFreeConsultationSupply {

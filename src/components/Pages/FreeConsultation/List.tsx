@@ -7,22 +7,26 @@ import { IApplicationState } from "../../../store";
 import { withRouter, RouteComponentProps } from "react-router";
 import { Layout, Col, Row, Card } from "antd";
 import { AppState } from "src/store/App";
-import { FreeConsultationState } from "src/store/FreeConsultation";
-import { IntlShape } from "react-intl";
 import {
   actionCreators as FreeConsultationActionCreators,
   Actions as FreeConsultationActions
 } from "../../../store/FreeConsultation/actions";
+import { IntlShape } from "react-intl";
 import { Search } from "../../Elements/Input";
-// import { IFreeConsultation } from "../../../types/interfaces";
+import {
+  makeFilteredClinicsSelector,
+  ClinicsState
+} from "../../../store/Clinic";
+import FreeConsultationCard from "../../Elements/FreeConsult/Card";
+import { IFreeConsultation, IClinic } from "src/types/interfaces";
 
 interface ConnectedProps {
   loading: boolean;
   app: AppState;
-  freeConsultState: FreeConsultationState;
+  freeConsultState: ClinicsState;
   actions: FreeConsultationActions;
   intl: IntlShape;
-  freeConsultList: []
+  freeConsultList: IFreeConsultation[];
 }
 
 interface Props extends RouteComponentProps {}
@@ -44,14 +48,18 @@ class FreeConsultationList extends React.PureComponent<Props, {}> {
   componentDidMount() {}
 
   componentWillMount() {
-    // this.props.app.dataSource &&
-    //   this.props.actions.fetchFreeConsultationList(this.props.app.dataSource["hospital"]);
+    console.log(this.props.app.dataSource);
+    this.props.app.dataSource &&
+      this.props.actions.fetchFreeConsultationList(
+        this.props.app.dataSource["clinic"]
+      );
   }
 
   onNewClick = () => {};
 
   render() {
     const { freeConsultList, freeConsultState } = this.props;
+
     return (
       <Layout
         style={{
@@ -90,10 +98,10 @@ class FreeConsultationList extends React.PureComponent<Props, {}> {
                       lg={8}
                       sm={24}
                     >
-                      <Card
-                      // history={this.props.history}
-                      // clinic={clinic}
-                      />
+                      <FreeConsultationCard
+                        history={this.props.history}
+                        freeconsult={freeconsult}
+                      ></FreeConsultationCard>
                     </Col>
                   );
                 })}
@@ -107,14 +115,23 @@ class FreeConsultationList extends React.PureComponent<Props, {}> {
 }
 
 const mapStateToProps = (state: IApplicationState) => {
+  const filteredClinicsSelector = makeFilteredClinicsSelector();
   return {
-    loading: state.app.loading
+    app: state.app,
+    loading: state.app.loading,
+    freeConsultState: state.clinic
+    // freeConsultList: filteredClinicsSelector(state)
   };
 };
 
 const mapActionsToProps = dispatch => {
   return {
-    actions: bindActionCreators({}, dispatch)
+    actions: bindActionCreators(
+      {
+        ...FreeConsultationActionCreators
+      },
+      dispatch
+    )
   };
 };
 

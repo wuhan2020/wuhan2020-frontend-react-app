@@ -42,6 +42,7 @@ class ClinicList extends React.PureComponent<Props, {}>
 	];
 
 	componentWillMount() {
+		console.log('this.props.app.dataSource', this.props.app.dataSource);
 		this.props.app.dataSource && this.props.actions.fetchClinicList(this.props.app.dataSource['hospital']);
 	}
 
