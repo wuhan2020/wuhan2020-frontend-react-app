@@ -23,6 +23,7 @@ export interface IContact {
   tel: string;
 }
 
+
 export interface IDonate {
   id: number;
   name: string;
@@ -42,4 +43,10 @@ export interface IDonateBankAccount {
   name: string;
   bank: string;
   number: string;
+}
+
+export interface IFreeConsultation {
+  name: string;
+  url: string;
+  id: number;
 }

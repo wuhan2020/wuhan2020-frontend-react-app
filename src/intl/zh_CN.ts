@@ -31,6 +31,7 @@ const zh_CN: ILocalization = {
   DONATE_REMARK: '捐赠备注',
 
 	FREE_CONSULTATION: '义诊',
+	FREE_CONSULTATION_ONLINE:'在线义诊',
 
 	HOSPITAL_SUPPLY_DETAIL: '医院物资详情',
 	HOTEL: '酒店',
