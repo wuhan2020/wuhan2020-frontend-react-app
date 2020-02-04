@@ -22,3 +22,24 @@ export interface IContact {
   name: string;
   tel: string;
 }
+
+export interface IDonate {
+  id: number;
+  name: string;
+  contacts: IContact[];
+  address: any;
+  email: string;
+  wechat: string;
+  bankAccounts: IDonateBankAccount[];
+  rfb: any;
+  remark: string;
+  date: string;
+  url: string;
+  status: string;
+}
+
+export interface IDonateBankAccount {
+  name: string;
+  bank: string;
+  number: string;
+}
