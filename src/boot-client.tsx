@@ -5,7 +5,7 @@ import { AppContainer } from "react-hot-loader";
 import createRoutes from "./routes";
 import configureStore from "./configureStore";
 import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import IntlContainer from "./components/IntlContainer";
 import { ConfigProvider } from 'antd';
 import '@babel/polyfill'
@@ -30,7 +30,7 @@ const render = () =>
 			<Provider store={store}>
 				<IntlContainer>
 					<ConfigProvider autoInsertSpaceInButton={false}>
-							<BrowserRouter>{routes}</BrowserRouter>
+							<HashRouter type='slash'>{routes}</HashRouter>
 					</ConfigProvider>
 				</IntlContainer>
 			</Provider>
