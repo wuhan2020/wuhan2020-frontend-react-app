@@ -22,3 +22,15 @@ export interface IContact {
   name: string;
   tel: string;
 }
+
+export interface ITravelHotel {
+  id: number,
+  province: string,
+  city: string,
+  contacts: IContact[],
+  address: string,
+  name: string,
+  date: string,
+  url: string,
+  remark: string | null,
+}
