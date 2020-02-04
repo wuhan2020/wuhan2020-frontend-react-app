@@ -12,6 +12,8 @@ interface ILocalization extends Record<string, string>
 	DEVELOPING: string;
 	DOMESTIC: string;
 	DONATE: string;
+	
+	EPIDEMIC_LIVE: string;
 
 	FREE_CONSULTATION: string;
 

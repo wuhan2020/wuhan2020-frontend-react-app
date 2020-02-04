@@ -15,6 +15,8 @@ const zh_CN: ILocalization = {
 	DOMESTIC: '国内',
 	DONATE: '捐款',
 
+	EPIDEMIC_LIVE: '疫情',
+
   DONATE_PAGE_TITLE: '捐款',
   DONATE_PAGE_SUBTITLE: '这里总结了所有审核过的接受为武汉捐款的组织',
   DONATE_METHODS_TITLE: '接受捐款方式',

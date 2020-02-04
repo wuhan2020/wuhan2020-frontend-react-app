@@ -13,7 +13,7 @@ import ProductionList from './components/Pages/Production/List';
 import FreeConsultationList from './components/Pages/FreeConsultation/List';
 import Treatment from './components/Pages/Treatment';
 import NewsFeed from './components/Pages/NewsFeed';
-import Clinic from './components/Pages/Clinic';
+import Epidemic from './components/Pages/Epidemic';
 
 
 export default (store: Store<any>) => (
@@ -21,6 +21,7 @@ export default (store: Store<any>) => (
 		<Route exact path={URLS.HOME} component={ClinicList} />
 		<Route exact path={URLS.CLINIC} component={ClinicList} />
 		<Route exact path={URLS.CLINICS} component={ClinicList} />
+		<Route exact path={URLS.EPIDEMIC_LIVE} component={Epidemic} />
 		<Route exact path={URLS.DONATE} component={DonateList} />
 		<Route exact path={URLS.FREE_CONSULTATION} component={FreeConsultationList} />
 		<Route exact path={URLS.HOTELS} component={HotelList} />

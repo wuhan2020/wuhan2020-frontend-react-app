@@ -8,6 +8,8 @@ export const URLS = {
 
 	DONATE: ROOT + "/donate",
 
+	EPIDEMIC_LIVE: ROOT + "/live_map",
+
 	FREE_CONSULTATION: ROOT + "/free_consultation",
 
 	HOTELS: ROOT + "/hotels",
