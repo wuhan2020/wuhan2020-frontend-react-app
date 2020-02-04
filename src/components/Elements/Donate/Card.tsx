@@ -2,8 +2,15 @@ import * as React from "react";
 import styles from '../../../styles/elements/donate/card.module.scss';
 import Card from "../Card";
 import { IContact, IDonate, IDonateBankAccount } from "../../../types/interfaces";
-import { Row, Col, Icon, Tooltip, Button } from "antd";
+import { Row, Col, Icon, Tooltip, message } from "antd";
 import Message from "../../Message";
+import Button from '../../Elements/Button';
+import { copyStringToClipboard } from "../../../utils/stringHelper";
+import { injectIntl, IntlShape } from "react-intl";
+
+interface ConnectedProps {
+	intl: IntlShape;
+}
 
 interface DonateCardProps {
   donate: IDonate;
@@ -13,7 +20,9 @@ interface DonateCardState {
   expanded: boolean;
 }
 
-export default class DonateCard extends React.PureComponent<DonateCardProps, {}> {
+class DonateCard extends React.PureComponent<DonateCardProps, {}> {
+  public props: ConnectedProps & DonateCardProps;
+
   state: DonateCardState = {
     expanded: false,
   };
@@ -41,9 +50,14 @@ export default class DonateCard extends React.PureComponent<DonateCardProps, {}>
       return <div className={styles.contact} key={`donate_${donate.id}_contact_${i}`}>
         <Icon type="mobile" style={{fontSize: '20px'}} />
         {contact.name && <span>{contact.name}</span>}
-        {contact.tel && <span>{contact.tel}</span>}
+        {contact.tel && <Button type='link' theme='black' href={`tel:${contact.tel}`}>{contact.tel}</Button>}
       </div>;
     });
+  }
+
+  onBankAccountClick = (str: string) => {
+    copyStringToClipboard(str);
+    message.success(this.props.intl.formatMessage({ id: 'COPIED_TO_CLIPBOARD' }));
   }
 
   renderExpandSection() {
@@ -63,7 +77,7 @@ export default class DonateCard extends React.PureComponent<DonateCardProps, {}>
               <div className={styles.expandItemLabel}>{Message('BANK_ACCOUNT_BRANCH')}</div>
               <div className={styles.expandItemValue}>{bankAccount.bank}</div>
             </div>
-            <div className={styles.expandItem}>
+            <div className={`${styles.expandItem} ${styles.clickable}`} onClick={() => this.onBankAccountClick(bankAccount.number)}>
               <div className={styles.expandItemLabel}>{Message('BANK_ACCOUNT_NUMBER')}</div>
               <div className={styles.expandItemValue}>{bankAccount.number}</div>
             </div>
@@ -92,7 +106,7 @@ export default class DonateCard extends React.PureComponent<DonateCardProps, {}>
         <div className={styles.contentWrapper}>
           <Row gutter={16}>
             <Col md={14} xs={24}>
-              <div className={styles.title}>{donate.name}</div>
+            <Button style={{padding: 0}} type='link' target='_blank' theme='black' className={styles.title} href={donate.name}>    {donate.name}</Button>
               <div className={styles.subtitle}>{donate.date || Message('POSTED_JUST_NOW')}</div>
               <div className={styles.contactList}>{this.renderContactList()}</div>
             </Col>
@@ -120,7 +134,7 @@ export default class DonateCard extends React.PureComponent<DonateCardProps, {}>
           </Row>
 
           <section className={styles.expand}>
-            <Button type='link' className='main' onClick={this.onToggleExpand}>
+            <Button type='link' theme='main' onClick={this.onToggleExpand}>
               {this.state.expanded ? Message('COLLAPSE_DONATE_INFO') : Message('EXPAND_DONATE_INFO')}
             </Button>
           </section>
@@ -133,3 +147,5 @@ export default class DonateCard extends React.PureComponent<DonateCardProps, {}>
     );
   }
 }
+
+export default injectIntl(DonateCard as any) as any;

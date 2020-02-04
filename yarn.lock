@@ -2682,6 +2682,13 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
+echarts@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/echarts/-/echarts-4.6.0.tgz#b5a47a1046cec93ceeef954f9ee54751340558ec"
+  integrity sha512-xKkcr6v9UVOSF+PMuj7Ngt3bnzLwN1sSXWCvpvX+jYb3mePYsZnABq7wGkPac/m0nV653uGHXoHK8DCKCprdNg==
+  dependencies:
+    zrender "4.2.0"
+
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
@@ -7695,6 +7702,13 @@ ws@^6.2.1:
   dependencies:
     async-limiter "~1.0.0"
 
+wuhan2020-mapviz@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/wuhan2020-mapviz/-/wuhan2020-mapviz-1.0.5.tgz#a831bca6897cd7ed9bff14deead6fd9a00d9b7e7"
+  integrity sha512-GNbZVHOalsj7bd4qWOfafzSHFPg1dyDTvlxTvndJ6JwhG8YSXD2/nM/LYrMu8W7Tnurh2+iaFKyguXYQFSUcxQ==
+  dependencies:
+    echarts "^4.6.0"
+
 xml2js@0.4.17:
   version "0.4.17"
   resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.4.17.tgz#17be93eaae3f3b779359c795b419705a8817e868"
@@ -7811,3 +7825,8 @@ yargs@^7.0.0:
     which-module "^1.0.0"
     y18n "^3.2.1"
     yargs-parser "^5.0.0"
+
+zrender@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/zrender/-/zrender-4.2.0.tgz#d001302e155f28de1f9fc7fcd5c254bad28471cf"
+  integrity sha512-YJ9hxt5uFincYYU3KK31+Ce+B6PJmYYK0Q9fQ6jOUAoC/VHbe4kCKAPkxKeT7jGTxrK5wYu18R0TLGqj2zbEOA==
