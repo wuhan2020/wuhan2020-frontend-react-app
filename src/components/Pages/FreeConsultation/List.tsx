@@ -12,6 +12,7 @@ import { actionCreators as freeConsulationActionCreators, Actions as freeConsula
 import { AppState } from "../../../store/App";
 import { IFreeConsultation } from "../../../types/interfaces";
 import { mockFreeConsultation } from "../../../mockData/freeConsultation";
+import FreeConsultationCard from "../../../components/Elements/FreeConsultation/Card";
 interface ConnectedProps {
 	loading: boolean;
 	app: AppState;
@@ -44,7 +45,7 @@ class FreeConsultationList extends React.PureComponent<Props, {}>
 
 	componentDidMount() {
 		const { total , pageSize, current} = this.state;
-		this.setState({freeConsultationList: mockFreeConsultation.slice((pageSize * (current - 1)), pageSize * current)})
+		this.setState({freeConsultationList: mockFreeConsultation.slice((pageSize * (current - 1)), pageSize * current > total ? total : pageSize * current)})
 	}
 
 	onNewClick = () => {
@@ -59,8 +60,8 @@ class FreeConsultationList extends React.PureComponent<Props, {}>
 	}
 
 	getPerPageInfo = (current: number) => {
-		const { pageSize} = this.state;
-		this.setState({freeConsultationList: mockFreeConsultation.slice((pageSize * (current - 1)), pageSize * current)})
+		const { pageSize, total } = this.state;
+		this.setState({freeConsultationList: mockFreeConsultation.slice((pageSize * (current - 1)), pageSize * current  > total ? total : pageSize * current)})
 	}
 
 	render()
@@ -86,9 +87,7 @@ class FreeConsultationList extends React.PureComponent<Props, {}>
 									{freeConsultationList.map((freeConsultation, index) => {
 										return (
 											<Col style={{maxWidth: '100%'}} key={`clinic_${index}`} lg={8} sm={24}>
-												<div className="">
-												    {JSON.stringify(freeConsultation)}
-												</div>
+												<FreeConsultationCard data={freeConsultation}/>
 											</Col>
 										);
 									})}

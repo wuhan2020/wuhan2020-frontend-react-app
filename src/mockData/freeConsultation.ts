@@ -168,7 +168,7 @@ export const mockFreeConsultation = [
     contacts: [],
     date: "2020-01-27T16:00:00.000Z",
     url: "https://mp.weixin.qq.com/s/jsAWww7WmBKoQMkU9ID_Bg",
-    remark: null
+    remark: ""
   },
   {
     id: 20,
@@ -176,7 +176,7 @@ export const mockFreeConsultation = [
     contacts: [],
     date: "2020-01-24T16:00:00.000Z",
     url: "https://mp.weixin.qq.com/s/wKUb3VVYmtIvsLAa5AHCAg",
-    remark: null
+    remark: ""
   },
   {
     id: 21,
@@ -184,7 +184,7 @@ export const mockFreeConsultation = [
     contacts: [],
     date: "2020-01-26T16:00:00.000Z",
     url: "https://mp.weixin.qq.com/s/Bc504jHsomxmnrQUrrj_nQ",
-    remark: null
+    remark: ""
   },
   {
     id: 22,
@@ -192,7 +192,7 @@ export const mockFreeConsultation = [
     contacts: [],
     date: "2020-01-26T16:00:00.000Z",
     url: "https://mp.weixin.qq.com/s/5YPwuBuXoLz3eN1YlGeDkw",
-    remark: null
+    remark: ""
   },
   {
     id: 23,
@@ -209,7 +209,7 @@ export const mockFreeConsultation = [
     contacts: [],
     date: "2020-01-25T16:00:00.000Z",
     url: "https://mp.weixin.qq.com/s/aRG2XoQBgKsqO5mvpPvK9w",
-    remark: null
+    remark: ""
   },
   {
     id: 25,
@@ -217,7 +217,7 @@ export const mockFreeConsultation = [
     contacts: [],
     date: "2020-01-29T16:00:00.000Z",
     url: "https://tech.sina.com.cn/i/2020-01-30/doc-iimxyqvy9093429.shtml",
-    remark: null
+    remark: ""
   },
   {
     id: 26,
@@ -226,7 +226,7 @@ export const mockFreeConsultation = [
     date: "2020-01-24T16:00:00.000Z",
     url:
       "https://m.myweimai.com/topic/free_citys.html?subscene=0&scene=126&clicktime=1580384555",
-    remark: null
+    remark: ""
   },
   {
     id: 27,
