@@ -1,45 +1,38 @@
 import { Reducer } from "redux";
-import * as React from "react";
+import * as React from 'react'
 import { isActionType } from "../../common/StrongAction";
-import { IClinic } from "../../types/interfaces";
-// import * as Actions from "./actions";
-import { createSelector } from "reselect";
-import { IApplicationState } from "..";
+import { ILocales } from "../../intl";
+import * as Actions from './actions';
 
-export interface ClinicsState {
-  list: IClinic[];
-  selectedCity: number;
-  searchText: string;
-  cityList: { key: number; name: string }[];
+export interface IDataSource {
+	[key: string]: string[];
 }
 
-export const initialClinicsState: ClinicsState = {
-  list: [],
-  selectedCity: -1,
-  searchText: "",
-  cityList: [{ key: -1, name: "省市" }]
-};
+export interface freeConsulationState
+{
+    pageNum?: number;
+    name: string;
+    url: string;
+    id: number;
+}
 
-export const clinicsSelector = (state: IApplicationState) => state.clinic.list;
+export const initialFreeConsulationStateState: freeConsulationState =
+{
+    pageNum: 1,
+    name: "test",
+    url: 'test',
+    id: 1
+}
 
-export const clinicsSelectedCitySelector = (state: IApplicationState) =>
-  state.clinic.selectedCity;
+const FreeConsultationReducer: Reducer<freeConsulationState> = (state: freeConsulationState, act) =>
+{
+	console.log('Dispatched action: ' + act.type);
+	if (isActionType(act, Actions.GetFreeConsultationActions)) {
+		return {...state, loading: act};
+	} else if (isActionType(act, Actions.ResetAction)) {
+		return {...initialFreeConsulationStateState};
+	}
+	return state || initialFreeConsulationStateState
+}
 
-export const clinicsSearchSelector = (state: IApplicationState) =>
-  state.clinic.searchText;
-
-
-export const makeFilteredClinicsSelector = () => {
-  return createSelector(
-    [clinicsSelector, clinicsSelectedCitySelector, clinicsSearchSelector],
-    (clinics: IClinic[], selectedCity: number, searchText: string) => {
-      if (!clinics) return [];
-      return clinics.filter(c => {
-        const matchCity = selectedCity === -1 || c.cityKey === selectedCity;
-        const matchSearchText = !searchText || c.name.includes(searchText);
-        return matchCity && matchSearchText;
-      });
-    }
-  );
-};
-
+export default FreeConsultationReducer;

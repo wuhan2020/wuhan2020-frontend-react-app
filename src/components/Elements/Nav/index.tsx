@@ -79,7 +79,7 @@ class Nav extends React.PureComponent<Props, State>
       },
       {
         name: Message('FREE_CONSULTATION'),
-        link: URLS.FREE_CONSULTATION,
+        link: URLS.FREE_CONSULTATIONS,
       },
       {
         name: Message('TRAVEL_HOTEL'),

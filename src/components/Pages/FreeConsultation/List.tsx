@@ -5,122 +5,131 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { IApplicationState } from "../../../store";
 import { withRouter, RouteComponentProps } from "react-router";
-import { Layout, Col, Row, Card } from "antd";
-import { AppState } from "src/store/App";
+import { Row, Col, Input, Layout, Pagination } from "antd";
+import { freeConsulationState } from "../../../store/freeConsultation";
+import { IntlShape, injectIntl } from "react-intl";
 import {
-  actionCreators as FreeConsultationActionCreators,
-  Actions as FreeConsultationActions
+  actionCreators as freeConsulationActionCreators,
+  Actions as freeConsulationActions
 } from "../../../store/FreeConsultation/actions";
-import { IntlShape } from "react-intl";
-import { Search } from "../../Elements/Input";
-import {
-  makeFilteredClinicsSelector,
-  ClinicsState
-} from "../../../store/Clinic";
-import FreeConsultationCard from "../../Elements/FreeConsult/Card";
-import { IFreeConsultation, IClinic } from "src/types/interfaces";
-
+import { AppState } from "../../../store/App";
+import { IFreeConsultation } from "../../../types/interfaces";
+import { mockFreeConsultation } from "../../../mockData/freeConsultation";
+import FreeConsultationCard from "../../../components/Elements/FreeConsultation/Card";
 interface ConnectedProps {
   loading: boolean;
   app: AppState;
-  freeConsultState: ClinicsState;
-  actions: FreeConsultationActions;
+  freeConsultationList: IFreeConsultation[];
+  freeConsultation: freeConsulationState;
+  actions: freeConsulationActions;
   intl: IntlShape;
-  freeConsultList: IFreeConsultation[];
 }
 
 interface Props extends RouteComponentProps {}
 const { Content } = Layout;
+const { Search } = Input;
+
 class FreeConsultationList extends React.PureComponent<Props, {}> {
   public props: ConnectedProps & Props;
 
-  onFreeConsultationSearch:
-    | ((
-        value: string,
-        event?:
-          | React.ChangeEvent<HTMLInputElement>
-          | React.MouseEvent<HTMLElement, MouseEvent>
-          | React.KeyboardEvent<HTMLInputElement>
-          | undefined
-      ) => void)
-    | undefined;
-
-  componentDidMount() {}
+  state = {
+    freeConsultationList: mockFreeConsultation,
+    current: 1,
+    total: mockFreeConsultation.length,
+    pageSize: 6
+  };
 
   componentWillMount() {
-    console.log(this.props.app.dataSource);
-    this.props.app.dataSource &&
-      this.props.actions.fetchFreeConsultationList(
-        this.props.app.dataSource["clinic"]
-      );
+    //this.props.app.dataSource && this.props.actions.fetchFreeConsultationList(this.props.app.dataSource['freeConsultation']);
+  }
+
+  componentDidMount() {
+    const { total, pageSize, current } = this.state;
+    this.setState({
+      freeConsultationList: mockFreeConsultation.slice(
+        pageSize * (current - 1),
+        pageSize * current > total ? total : pageSize * current
+      )
+    });
   }
 
   onNewClick = () => {};
 
+  handlePageChange = page => {
+    this.setState({
+      current: page
+    });
+    this.getPerPageInfo(page);
+  };
+
+  getPerPageInfo = (current: number) => {
+    const { pageSize, total } = this.state;
+    this.setState({
+      freeConsultationList: mockFreeConsultation.slice(
+        pageSize * (current - 1),
+        pageSize * current > total ? total : pageSize * current
+      )
+    });
+  };
+
   render() {
-    const { freeConsultList, freeConsultState } = this.props;
-
+    const { current, total, pageSize, freeConsultationList } = this.state;
     return (
-      <Layout
-        style={{
-          backgroundColor: "#fff",
-          flex: "1 0 auto",
-          minHeight: "unset"
-        }}
-      >
-        <Content>
-          <div className={styles.pageFreeConsultationList}>
-            <header>
-              <div className={styles.title}>
-                {Message("FREE_CONSULTATION_PAGE_TITLE")}
+      <div className="freeConsultationListContainer">
+        <div className={styles.searchFreeConsultation}>
+          <h1>{Message("FREE_CONSULTATION_ONLINE")}</h1>
+          <Search
+            placeholder="搜索义诊"
+            onSearch={value => console.log(value)}
+            style={{ width: 600 }}
+          />
+        </div>
+        <Layout
+          style={{
+            backgroundColor: "#fff",
+            flex: "1 0 auto",
+            minHeight: "unset"
+          }}
+        >
+          <Content>
+            <div className={styles.pageFreeConsultationList}>
+              <div className="freeConsultationsContent">
+                <Row style={{ maxWidth: "100%" }} type="flex">
+                  {freeConsultationList.map((freeConsultation, index) => {
+					  console.log(freeConsultation);
+                    return (
+                      <Col
+                        style={{ maxWidth: "100%", paddingBottom:"1rem"}}
+                        key={`clinic_${index}`}
+                        lg={8}
+                        sm={24}
+                      >
+                        <FreeConsultationCard data={freeConsultation} />
+                      </Col>
+                    );
+                  })}
+                </Row>
               </div>
-            </header>
-            <section>
-              <Row gutter={16}>
-                <Col lg={6} sm={12}>
-                  <Search
-                    // placeholder={this.props.intl.formatMessage({
-                    //   id: "SEARCH_FREE_CONSULTATION"
-                    // })}
-                    onSearch={this.onFreeConsultationSearch}
-                  ></Search>
-                </Col>
-              </Row>
-            </section>
-
-            <section className={styles.listWrapper}>
-              <Row style={{ maxWidth: "100%", width: "100%" }} type="flex">
-                {freeConsultList.map((freeconsult, index) => {
-                  return (
-                    <Col
-                      style={{ maxWidth: "100%" }}
-                      key={`free_consult_${index}`}
-                      lg={8}
-                      sm={24}
-                    >
-                      <FreeConsultationCard
-                        history={this.props.history}
-                        freeconsult={freeconsult}
-                      ></FreeConsultationCard>
-                    </Col>
-                  );
-                })}
-              </Row>
-            </section>
-          </div>
-        </Content>
-      </Layout>
+            </div>
+          </Content>
+        </Layout>
+        <Pagination
+          onChange={this.handlePageChange}
+          pageSize={pageSize}
+          defaultCurrent={current}
+          total={total}
+          className={styles.pagenation}
+          style={{ paddingBottom: "2rem"}}
+        />
+      </div>
     );
   }
 }
 
 const mapStateToProps = (state: IApplicationState) => {
-  const filteredClinicsSelector = makeFilteredClinicsSelector();
   return {
-    app: state.app,
     loading: state.app.loading,
-    freeConsultState: state.clinic
-    // freeConsultList: filteredClinicsSelector(state)
+    freeConsultationList: state.freeConsultation
   };
 };
 
@@ -128,7 +137,7 @@ const mapActionsToProps = dispatch => {
   return {
     actions: bindActionCreators(
       {
-        ...FreeConsultationActionCreators
+        ...freeConsulationActionCreators
       },
       dispatch
     )

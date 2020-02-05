@@ -16,7 +16,7 @@ const zh_CN: ILocalization = {
   DONATE: "捐款",
 
   FREE_CONSULTATION: "义诊",
-  FREE_CONSULTATION_PAGE_TITLE: "在线义诊",
+  FREE_CONSULTATION_ONLINE: "在线义诊",
   SEARCH_FREE_CONSULTATION: "搜索义诊",
 
 

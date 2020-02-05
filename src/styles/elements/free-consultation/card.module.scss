@@ -1,0 +1,36 @@
+@import '../../colors';
+@import '../../media';
+@import '../../fonts';
+$freeConsultation-card-namespace: "elementsFreeConsultationListCard";
+.#{$freeConsultation-card-namespace} {
+    width: 443px;
+    height: 210px;
+    .title {
+        font-size: x-large;
+        font-weight: bold;
+        color: $black0;
+    }
+    .date {
+        font-size: smaller;
+        color: $grey3;
+        padding-top: .2rem;
+        padding-bottom: 1rem;
+    }
+    .info_phone {
+        display: flex;
+        position: absolute;
+        box-sizing: border-box;
+        bottom: 1rem;
+        .info {
+            padding-left: 10px;
+            color: $main;
+        }
+        .phone {
+            padding-left: 8em;
+        }
+        .Icon {
+            padding-right: 10px;
+            font-size: 1rem;
+        }
+    }
+}
