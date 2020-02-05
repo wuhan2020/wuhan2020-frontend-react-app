@@ -11,13 +11,13 @@ import { getClinicUrl } from "../../../constants/urls";
 
 interface ClinicCardProps {
   clinic: IClinic;
-  history: History;
+  onViewDetailClick: (clinic: IClinic) => void;
 }
 
 export default class ClinicCard extends React.PureComponent<ClinicCardProps, {}>
 {
   onViewDetailClick = () => {
-    this.props.history.push(getClinicUrl(this.props.clinic.city, this.props.clinic.id));
+    this.props.onViewDetailClick && this.props.onViewDetailClick(this.props.clinic);
   }
 
 	render()
@@ -29,6 +29,9 @@ export default class ClinicCard extends React.PureComponent<ClinicCardProps, {}>
       <Card className={styles.elementsClinicCard}>
         <div className={styles.contentWrapper}>
           <div className={styles.name}>{clinic.name}</div>
+          <div className={styles.subtitle}>
+            <div>{clinic.province} {clinic.city}</div>
+          </div>
           {clinic.supplies.length > 0 && clinic.supplies.map((supply, index) => {
             if (index < 3) {
               return (

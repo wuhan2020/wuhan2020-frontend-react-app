@@ -115,7 +115,7 @@ class Nav extends React.PureComponent<Props, State>
             <Button
               icon='menu'
               type='ghost'
-              onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
+              onClick={this.toggleCollapsed}>
             </Button>
           </Dropdown>
         </div>

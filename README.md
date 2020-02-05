@@ -45,7 +45,7 @@ Then you should be able to visit the app under `http://localhost:3001/`
 
 ```
 yarn build
-``
+```
 
 ## Deploy, CI/CD
 

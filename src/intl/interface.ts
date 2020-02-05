@@ -15,6 +15,7 @@ interface ILocalization extends Record<string, string>
 
 	FREE_CONSULTATION: string;
 
+	HOSPITAL_SUPPLY_DETAIL: string;
 	HOTEL: string;
 
 	INFO_SUBMISSION: string;

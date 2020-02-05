@@ -9,13 +9,31 @@ const zh_CN: ILocalization = {
 	CONTACT_METHODS: '联系方式',
 	COPIED_TO_CLIPBOARD: '已复制到粘贴板',
 	COPY: '复制',
+  SEARCH_CLINIC: '搜索医院',
 
 	DEVELOPING: '紧急开发中',
 	DOMESTIC: '国内',
 	DONATE: '捐款',
 
-	FREE_CONSULTATION: '义诊',
+  DONATE_PAGE_TITLE: '捐款',
+  DONATE_PAGE_SUBTITLE: '这里总结了所有审核过的接受为武汉捐款的组织',
+  DONATE_METHODS_TITLE: '接受捐款方式',
+  BANK_TRANSFER: '银行转账',
+  WECHAT: '微信',
+  EXPAND_DONATE_INFO: '查看官方捐款信息',
+  COLLAPSE_DONATE_INFO: '收起官方捐款信息',
+  POSTED_JUST_NOW: '刚刚发布',
+  NO_CONTACT: '暂无联系信息',
+  NO_BANK_ACCOUNT: '暂无银行信息',
+  BANK_ACCOUNT_BRANCH: '开户行',
+  BANK_ACCOUNT_NUMBER: '银行账号',
+  BANK_ACCOUNT_NAME: '开户名',
+  DONATE_REMARK: '捐赠备注',
 
+	FREE_CONSULTATION: '义诊',
+	FREE_CONSULTATION_ONLINE:'在线义诊',
+
+	HOSPITAL_SUPPLY_DETAIL: '医院物资详情',
 	HOTEL: '酒店',
 
 	INTERNATIONAL: '国际',

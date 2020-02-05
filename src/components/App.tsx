@@ -10,6 +10,7 @@ import Nav from "./Elements/Nav";
 import Footer from "./Elements/Footer";
 import { Spin } from "antd";
 import GlobalLoader from "./Elements/Loader/GloabalLoader";
+import { Provider as KeepAliveProvider } from "react-keep-alive";
 
 interface Props extends RouteComponentProps<{}, {}>
 {
@@ -43,12 +44,14 @@ class App extends React.PureComponent<Props, {}>
 	{
 		const { app } = this.props;
 		return (
-			app.dataSource ? <div className={styles.main}>
-				<Nav />
-				{this.props.children}
-				<Footer />
-				{app.loading ? <GlobalLoader size='large' /> : null}
-			</div> : null
+			app.dataSource ? (
+				<div className={styles.main}>
+					<Nav />
+					{this.props.children}
+					<Footer />
+					{app.loading ? <GlobalLoader size='large' /> : null}
+				</div>
+			): null
 		);
 	}
 }
