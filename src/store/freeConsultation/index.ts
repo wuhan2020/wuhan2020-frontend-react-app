@@ -24,7 +24,6 @@ export const initialFreeConsulationStateState: freeConsulationState =
 
 const FreeConsultationReducer: Reducer<freeConsulationState> = (state: freeConsulationState, act) =>
 {
-	console.log('Dispatched action: ' + act.type);
 	if (isActionType(act, Actions.UpdateFreeConsultationActions)) {
 		return {...state, list: act.list};
 	} else if (isActionType(act, Actions.ResetAction)) {

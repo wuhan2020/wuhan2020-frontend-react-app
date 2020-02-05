@@ -5,6 +5,7 @@ import ClinicReducer from './Clinic';
 import DonateReducer from './Donate';
 import LogisticReducer from './Logistics';
 import freeConsultationReducer from './freeConsultation';
+import LiveMapReducer from './LiveMap';
 
 export const allReducers = combineReducers({
   app: AppReducer,
@@ -12,6 +13,7 @@ export const allReducers = combineReducers({
   donate: DonateReducer,
   routing: routerReducer,
   logistics: LogisticReducer,
+  liveMap: LiveMapReducer,
   freeConsultation: freeConsultationReducer
 });
 
