@@ -9,10 +9,10 @@ import freeConsultationReducer from './freeConsultation';
 export const allReducers = combineReducers({
   app: AppReducer,
   clinic: ClinicReducer,
-  donate: DonateReducer,
   routing: routerReducer,
+  freeConsultation: freeConsultationReducer,
+  donate: DonateReducer,
   logistics: LogisticReducer,
-  freeConsultation: freeConsultationReducer
 });
 
-export type IApplicationState = ReturnType<typeof allReducers>
+export type IApplicationState = ReturnType<typeof allReducers>;

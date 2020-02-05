@@ -5,7 +5,7 @@ export interface IClinic {
   district: string;
   name: string;
   supplies: IClicnicSupply[];
-  url: string,
+  url: string;
   remark: string;
   contacts: IContact[];
   cityKey?: number;
@@ -45,6 +45,14 @@ export interface IContacts {
   tel: string;
 }
 
+export interface IFreeConsultation {
+  name: string;
+  url: string;
+  id: number;
+  contacts: Array<{ [key: string]: string }>;
+  date: string;
+  remark: string;
+}
 export interface IDonate {
   id: number;
   name: string;
