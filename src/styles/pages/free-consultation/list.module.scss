@@ -8,13 +8,21 @@ $free-consultation-list-namespace: "pageFreeConsultationList";
     height: 100%;
     width: 100%;
     padding: 40px;
-}
-
-.searchFreeConsultation {
-    text-align: center;
-}
-
-.pagenation {
-    text-align: center;
-    padding-bottom: 2rem;
+    @include mobile-and-smaller() {
+        align-items: center;
+        padding: 20px 0;
+    }
+    .searchFreeConsultation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h3 {
+            font-size: $px46;
+        }
+    }
+    .freeConsultationsContent {
+        @include mobile-and-smaller() {
+            padding: 0 20px;
+        }
+    }
 }
