@@ -12,6 +12,10 @@ $free-consultation-list-namespace: "pageFreeConsultationList";
         align-items: center;
         padding: 20px 0;
     }
+    .title {
+        text-align: center;
+        font-size: $px46;
+    }
     .searchFreeConsultation {
         display: flex;
         flex-direction: column;
