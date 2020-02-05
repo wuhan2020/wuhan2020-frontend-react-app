@@ -18,9 +18,10 @@ export default class FreeConsultationCard extends React.PureComponent<
 > {
   render() {
     const { data } = this.props;
-    console.log(data);
-    const date_list = data.date.split("T")[0].split("-") ?? "刚刚发布";
-    const date = date_list[0]
+    let date: string
+    const date_list =
+      data.date.split("T")[0].split("-") ?? moment(data.date).fromNow();
+    date = date_list[0]
       .concat("年")
       .concat(date_list[1], "月", date_list[2],"日")
     return (
@@ -28,7 +29,7 @@ export default class FreeConsultationCard extends React.PureComponent<
           <div className={styles.main}>
             <section className={styles.generalInfo}>
               <div className={styles.title}>{data.name}</div>
-              <div className={styles.date}>{moment(data.date).fromNow()}</div>
+              <div className={styles.date}>{date}</div>
               <div className={styles.detail}>{data.remark}</div>
             </section>
             <section className={styles.contactInfo}>
