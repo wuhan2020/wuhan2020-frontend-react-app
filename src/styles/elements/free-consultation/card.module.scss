@@ -1,0 +1,13 @@
+@import '../../colors';
+@import '../../media';
+@import '../../fonts';
+
+$freeConsultation-card-namespace: "elementsFreeConsultationListCard";
+
+.#{$freeConsultation-card-namespace} {
+    width: 443px;
+    height: 210px;
+    .info-phone {
+        display: flex;
+    }
+}
