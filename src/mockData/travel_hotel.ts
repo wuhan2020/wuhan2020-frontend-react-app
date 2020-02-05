@@ -1,4 +1,6 @@
-const hotelData = [
+import { ITravelHotel } from '../types/interfaces';
+
+const hotelData:ITravelHotel[] = [
   {
     id: 0,
     province: "云南",
