@@ -1,5 +1,5 @@
 import * as React from "react";
-import styles from '../../../styles/elements/free-consultation/card.module.scss';
+import styles from "../../../styles/elements/free-consultation/card.module.scss";
 import Card from "../Card";
 import { IFreeConsultation } from "../../../types/interfaces";
 import Message from "../../../components/Message";
@@ -9,20 +9,27 @@ import { Icon } from "antd";
 import { isMobile } from "../../../utils/deviceHelper";
 
 interface FreeConsultationCardProps {
-    data: IFreeConsultation;
+  data: IFreeConsultation;
 }
 
-export default class FreeConsultationCard extends React.PureComponent<FreeConsultationCardProps, {}>
-{
-	render()
-	{
-        const { data } = this.props;
+export default class FreeConsultationCard extends React.PureComponent<
+  FreeConsultationCardProps,
+  {}
+> {
+  render() {
+    const { data } = this.props;
+    let date: string
+    const date_list =
+      data.date.split("T")[0].split("-") ?? moment(data.date).fromNow();
+    date = date_list[0]
+      .concat("年")
+      .concat(date_list[1], "月", date_list[2],"日")
     return (
       <Card className={styles.elementsFreeConsultationListCard}>
           <div className={styles.main}>
             <section className={styles.generalInfo}>
               <div className={styles.title}>{data.name}</div>
-              <div className={styles.date}>{moment(data.date).fromNow()}</div>
+              <div className={styles.date}>{date}</div>
               <div className={styles.detail}>{data.remark}</div>
             </section>
             <section className={styles.contactInfo}>
@@ -39,5 +46,5 @@ export default class FreeConsultationCard extends React.PureComponent<FreeConsul
           </div>
       </Card>
     );
-	}
+  }
 }

@@ -1,25 +1,28 @@
 import * as React from "react";
-import styles from '../../../styles/pages/free-consultation/list.module.scss';
+import styles from "../../../styles/pages/free-consultation/list.module.scss";
 import Message from "../../Message";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { IApplicationState } from "../../../store";
 import { withRouter, RouteComponentProps } from "react-router";
 import { Row, Col, Input, Layout, Pagination } from "antd";
-import { freeConsulationState } from "../../../store/freeConsultation";
+import { freeConsulationState } from "../../../store/FreeConsultations";
 import { IntlShape, injectIntl } from "react-intl";
-import { actionCreators as freeConsulationActionCreators, Actions as freeConsulationActions } from "../../../store/FreeConsultation/actions";
+import {
+  actionCreators as freeConsulationActionCreators,
+  Actions as freeConsulationActions
+} from "../../../store/FreeConsultations/actions";
 import { AppState } from "../../../store/App";
 import { IFreeConsultation } from "../../../types/interfaces";
 import FreeConsultationCard from "../../../components/Elements/FreeConsultation/Card";
 import { isMobile } from "../../../utils/deviceHelper";
 interface ConnectedProps {
-	loading: boolean;
-	app: AppState;
-	freeConsultationList: IFreeConsultation[];
-	freeConsultation: freeConsulationState;
-	actions: freeConsulationActions;
-	intl: IntlShape;
+  loading: boolean;
+  app: AppState;
+  freeConsultationList: IFreeConsultation[];
+  freeConsultation: freeConsulationState;
+  actions: freeConsulationActions;
+  intl: IntlShape;
 }
 
 interface Props extends RouteComponentProps {
@@ -34,9 +37,8 @@ interface State {
 const { Content } = Layout;
 const { Search } = Input;
 
-class FreeConsultationList extends React.PureComponent<Props, {}>
-{
-	public props: ConnectedProps & Props;
+class FreeConsultationList extends React.PureComponent<Props, {}> {
+  public props: ConnectedProps & Props;
 
 	state = {
 		current: 1,
@@ -56,16 +58,14 @@ class FreeConsultationList extends React.PureComponent<Props, {}>
 		this.setState({freeConsultationList: freeConsultationList.slice((pageSize * (current - 1)), pageSize * current > total ? total : pageSize * current)})
 	}
 
-	onNewClick = () => {
+  onNewClick = () => {};
 
-	}
-
-	handlePageChange = (page) => {
-		this.setState({
-			current: page,
-		});
-		this.getPerPageInfo(page);
-	}
+  handlePageChange = page => {
+    this.setState({
+      current: page
+    });
+    this.getPerPageInfo(page);
+  };
 
 	getPerPageInfo = (current: number) => {
 		const { pageSize, total } = this.state;
@@ -116,28 +116,28 @@ class FreeConsultationList extends React.PureComponent<Props, {}>
 	}
 }
 
-const mapStateToProps = (state: IApplicationState) =>
-{
-	return {
-		app: state.app,
-		loading: state.app.loading,
-		freeConsultationList: state.freeConsultation.list,
-	};
+const mapStateToProps = (state: IApplicationState) => {
+  return {
+    app: state.app,
+    loading: state.app.loading,
+    freeConsultationList: state.freeConsultation.list
+  };
 };
 
-const mapActionsToProps = dispatch =>
-{
-	return {
-		actions: bindActionCreators(
-			{
-				...freeConsulationActionCreators
-			},
-			dispatch
-		),
-	};
+const mapActionsToProps = dispatch => {
+  return {
+    actions: bindActionCreators(
+      {
+        ...freeConsulationActionCreators
+      },
+      dispatch
+    )
+  };
 };
 
-export default injectIntl(connect(
-	mapStateToProps,
-	mapActionsToProps
-)(withRouter(FreeConsultationList)) as any) as any;
+export default injectIntl(
+  connect(
+    mapStateToProps,
+    mapActionsToProps
+  )(withRouter(FreeConsultationList)) as any
+) as any;

@@ -1,5 +1,5 @@
 import { Reducer } from "redux";
-import * as React from 'react'
+import * as React from 'react';
 import { isActionType } from "../../common/StrongAction";
 import * as Actions from './actions';
 import { IFreeConsultation } from "../../types/interfaces";

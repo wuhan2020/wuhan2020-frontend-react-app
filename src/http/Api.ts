@@ -7,7 +7,7 @@ export const getClinics = (link: string): Promise<IClinic[]> => {
   const url = `${FRONT_END_PREFIX}/${link}`;
 
   return HttpManager.getInstance().get(url);
-}
+};
 
 export const getDonate = (link: string): Promise<IDonate[]> => {
   const url = `${FRONT_END_PREFIX}/${link}`;
