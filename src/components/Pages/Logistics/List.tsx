@@ -83,7 +83,7 @@ class LogisticsList extends React.PureComponent<Props, {}>
 							</Row>
 					</section>
 					<section>
-						<Row style={{marginTop: '16px', maxWidth: '100%'}} type='flex' gutter={isMobile ? 0 : 24}>
+						<Row style={{marginTop: '26px', maxWidth: '100%'}} type='flex' gutter={isMobile ? 0 : 24}>
 							{
 								logisticList.map((item, index) => {
 									return (
