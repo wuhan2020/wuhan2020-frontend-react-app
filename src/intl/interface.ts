@@ -12,9 +12,12 @@ interface ILocalization extends Record<string, string>
 	DEVELOPING: string;
 	DOMESTIC: string;
 	DONATE: string;
+	
+	EPIDEMIC_LIVE: string;
 
 	FREE_CONSULTATION: string;
 
+	HOSPITAL_SUPPLY_DETAIL: string;
 	HOTEL: string;
 
 	INFO_SUBMISSION: string;

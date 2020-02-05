@@ -5,6 +5,7 @@ import { URLS } from "../../../constants/urls";
 import { Row, Col } from "antd";
 import Button from "../Button";
 import { withRouter, RouteComponentProps } from "react-router";
+import { IconMainIcon } from "../../../components/Icons";
 
 interface Props extends RouteComponentProps {
 
@@ -65,17 +66,20 @@ class Footer extends React.PureComponent<Props, {}>
     ];
 		return (
 			<div className={styles.elementsFooter}>
-        <div className={styles.title}>{Message('VIEW_DATA')}</div>
-        <Row type='flex' justify='center'>
-          {items.map((item, index) => {
-            return <Col key={`footer_item_${index}`} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} lg={2} sm={8}>
-              <Button
-                theme='white'
-                className='grey'
-                onClick={() => item.link === URLS.OPEN_SOURCE_PROJ ? window.open(item.link): this.props.history.push(item.link)}
-                type='link'>{item.name}</Button>
-            </Col>
-          })}
+        <Row type='flex' justify='space-between' style={{width: '100%'}}>
+          <IconMainIcon width={100} height={100} />
+          <div className={styles.siteMap}>
+            <Row className={styles.siteMapItemWrapper} type='flex'>
+              {items.map((item, index) => {
+                return <Button
+                  style={{flex: '0 0 auto'}}
+                  key={`footer_item_${index}`}
+                  className='grey'
+                  onClick={() => item.link === URLS.OPEN_SOURCE_PROJ ? window.open(item.link): this.props.history.push(item.link)}
+                  type='link'>{item.name}</Button>
+              })}
+            </Row>
+          </div>
         </Row>
       </div>
 		)

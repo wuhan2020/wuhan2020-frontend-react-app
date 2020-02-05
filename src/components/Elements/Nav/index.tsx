@@ -56,6 +56,10 @@ class Nav extends React.PureComponent<Props, State>
   renderGlobalNav = () => {
     const items: any[] = [
       {
+        name: Message('EPIDEMIC_LIVE'),
+        link: URLS.EPIDEMIC_LIVE,
+      },
+      {
         name: Message('CLINIC'),
         link: URLS.CLINICS,
       },

@@ -11,13 +11,13 @@ import { getClinicUrl } from "../../../constants/urls";
 
 interface ClinicCardProps {
   clinic: IClinic;
-  history: History;
+  onViewDetailClick: (clinic: IClinic) => void;
 }
 
 export default class ClinicCard extends React.PureComponent<ClinicCardProps, {}>
 {
   onViewDetailClick = () => {
-    this.props.history.push(getClinicUrl(this.props.clinic.city, this.props.clinic.id));
+    this.props.onViewDetailClick && this.props.onViewDetailClick(this.props.clinic);
   }
 
 	render()
@@ -38,7 +38,7 @@ export default class ClinicCard extends React.PureComponent<ClinicCardProps, {}>
                 <Row key={`supply_${index}`} type='flex' style={{marginBottom: '20px', alignItems: 'center'}}>
                   {supply.value > URGENT_THRESHOLD ? <UrgentIndicator /> : <div style={{width: '15px', height: '15px'}}></div>}
                   <div className={styles.supplyName}>{supply.key}</div>
-                  <Button disabled fakeDisabled={true} shape='round' style={{width: '90px'}} type='ghost'>{supply.value === 1 ? Message('UNLIMITED') : supply.value}</Button>
+                  <div>{supply.value === 1 ? Message('UNLIMITED') : supply.value}</div>
                 </Row>
               )
             }

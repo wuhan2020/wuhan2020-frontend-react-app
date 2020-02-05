@@ -1,0 +1,99 @@
+@import '../../colors';
+@import '../../media';
+@import '../../fonts';
+
+$donate-card-namespace: "elementsDonateCard";
+
+.#{$donate-card-namespace} {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .contentWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .title {
+      color: $black0;
+      font-size: $px24;
+      margin-bottom: 8px;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .subtitle {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 16px;
+      color: $grey4;
+      font-size: 14px;
+    }
+    .donateMethodList {
+      display: flex;
+      flex-direction: row;
+      align-items: start;
+      justify-content: start;
+      margin-bottom: 16px;
+
+      .donateMethod {
+        display: block;
+        text-align: center;
+        color: $black1;
+        margin-right: 16px;
+
+        .donateMethodName {
+          font-size: 13px;
+        }
+      }
+    }
+    .contactList {
+      margin-bottom: 16px;
+
+      .contact {
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        justify-content: start;
+        align-items: center;
+        margin-bottom: 8px;
+
+        span {
+          margin-left: 8px;
+        }
+      }
+    }
+    .expand {
+
+      button {
+        padding: 0;
+      }
+    }
+    .expandList {
+      margin: 16px -24px 0 -24px;
+
+      .expandListSection {
+        padding: 16px 0 0 0;
+        border-top: 1px solid #e8e8e8;
+      }
+      .expandItem {
+        margin: 0 0 12px 0;
+
+        &.clickable {
+          cursor: pointer;
+        }
+
+        .expandItemLabel {
+          font-size: 12px;
+          font-weight: bold;
+          margin-bottom: 2px;
+          padding: 0 24px;
+        }
+        .expandItemValue {
+          padding: 0 24px;
+        }
+      }
+    }
+  }
+}

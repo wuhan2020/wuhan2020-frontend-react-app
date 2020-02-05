@@ -1,0 +1,13 @@
+@import '../../colors';
+@import '../../media';
+
+.ant-drawer-content-wrapper {
+  width: 730px !important;
+
+  @include mobile-and-smaller() {
+    width: 100% !important;
+  }
+}
+.ant-drawer-body {
+  padding: 0 !important;
+}
