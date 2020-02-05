@@ -3,6 +3,7 @@ import * as _ from "lodash";
 import { IApplicationState } from "../../../store";
 import { bindActionCreators } from "redux";
 import styles from "../../../styles/pages/travel-hotel/list.module.scss";
+import Message from "../../Message";
 import {
   actionCreators,
   Actions as TravelHotelActions
@@ -46,9 +47,16 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
       selectedCity: ""
     });
     this.props.actions.fetchCities(province);
+    this.fetchHotels({
+      selectedProvince: province,
+      selectedCity: ""
+    });
   };
   onCityFilterChange = city => {
     this.props.actions.changeFilter({
+      selectedCity: city
+    });
+    this.fetchHotels({
       selectedCity: city
     });
   };
@@ -58,11 +66,13 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
     this.props.actions.changeFilter({
       searchedText: value
     });
-    this.fetchHotels();
+    this.fetchHotels({
+      searchedText: value
+    });
   };
 
-  fetchHotels = _.debounce(() => {
-    this.props.actions.fetchHotels();
+  fetchHotels = _.debounce((filter) => {
+    this.props.actions.fetchHotels(filter);
   }, 500);
 
   onSearch = () => {
@@ -91,6 +101,7 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
             <Col lg={6} />
             <Col lg={3} sm={12}>
               <Select
+                placeholder="选择省份"
                 className={styles.selectField}
                 value={selectedProvince}
                 onChange={this.onHotelFilterChange}
@@ -107,6 +118,7 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
             </Col>
             <Col lg={3} sm={12}>
               <Select
+                placeholder="选择城市"
                 className={styles.selectField}
                 value={selectedCity}
                 onChange={this.onCityFilterChange}
@@ -125,7 +137,7 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
               <Search
                 className={styles.searchInput}
                 value={searchedText}
-                placeholder="input search text"
+                placeholder="搜索酒店"
                 onChange={this.onTextChange}
                 onSearch={this.onSearch}
                 style={{ width: 200 }}
@@ -140,11 +152,12 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
               return (
                 <Col
                   style={{ maxWidth: "100%" }}
-                  key={`travelhotel_${index}`}
+                  key={`travelhotel_col_${index}`}
                   lg={8}
                   sm={24}
                 >
                   <TravelHotelCard
+                    key={`travelhotel_${index}`}
                     history={this.props.history}
                     travelhotel={hotel}
                   />

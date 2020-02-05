@@ -11,6 +11,18 @@ $travel-hotel-list-namespace: "pageTravelHotelList";
   height: 100%;
   width: 100%;
   padding: 40px;
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;;
+
+    .title {
+      color: $black0;
+      font-size: $px30;
+      margin-bottom: 27px;
+    }
+  }
   .hotelContainer{
     .filter{
       margin-bottom: 10px;

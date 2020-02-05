@@ -36,7 +36,13 @@ class TravelHotelList extends React.PureComponent<Props, {}> {
   public props: ConnectedProps & Props;
   componentDidMount() {}
 
-  onHotelFilterChange = () => {};
+  getTab(key) {
+    if (key === "doctor") {
+      return <div>{Message("TRAVEL_HOTEL_DEVELOPING")}</div>;
+    } else {
+      return <TravelHotelContext />;
+    }
+  }
 
   render() {
     return (
@@ -50,14 +56,16 @@ class TravelHotelList extends React.PureComponent<Props, {}> {
         <Content>
           <div className={styles.pageTravelHotelList}>
             <header>
-              <div className={styles.title}>{Message("CLINIC_PAGE_TITLE")}</div>
+              <div className={styles.title}>
+                {Message("TRAVEL_HOTEL_TITLE")}
+              </div>
             </header>
-            <Tabs>
+            <Tabs defaultActiveKey={tabConfig[1].key}>
               {_.map(tabConfig, config => {
                 const { key, title } = config;
                 return (
                   <TabPane key={key} tab={title}>
-                    <TravelHotelContext />
+                    {this.getTab(key)}
                   </TabPane>
                 );
               })}

@@ -32,12 +32,33 @@ const provinces = _.uniq(
   })
 );
 
+const provinceMap = {};
+_.each(hotelData, item => {
+  const { province, city } = item;
+
+  if (!provinceMap[province]) {
+    provinceMap[province] = [];
+  }
+  provinceMap[province].push(item);
+});
+_.each(provinceMap, (arr, province) => {
+  provinceMap[province] = _.uniq(
+    _.map(arr, item => {
+      return item.city;
+    })
+  );
+});
+
 const TravelHotelReducer: Reducer<TravelHotelState> = (
   state: TravelHotelState,
   act
 ) => {
   if (isActionType(act, Actions.FetchHotelsAction)) {
-    const { selectedProvince, selectedCity, searchedText } = state;
+    const { selectedProvince, selectedCity, searchedText } = Object.assign(
+      {},
+      state,
+      act.filter
+    );
     const hotels = _.filter(hotelData, hotel => {
       const provinceFilter = selectedProvince
         ? hotel.province === selectedProvince
@@ -63,16 +84,8 @@ const TravelHotelReducer: Reducer<TravelHotelState> = (
     });
   } else if (isActionType(act, Actions.FetchCitiesAction)) {
     const { province } = act;
-    const cities = _.uniq(
-      _.map(
-        _.filter(hotelData, item => {
-          return (item.province = province);
-        }),
-        obj => {
-          return obj.city;
-        }
-      )
-    );
+    const cities = provinceMap[province];
+
     return Object.assign({}, state, {
       cityList: _.map(cities, city => {
         return {
