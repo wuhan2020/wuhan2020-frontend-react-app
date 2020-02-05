@@ -12,9 +12,10 @@ import { connect } from "react-redux";
 import { Row, Col, Layout, Tabs, Input } from "antd";
 import Select from "../../../components/Elements/Select";
 import Option from "../../../components/Elements/Select/Option";
-import { hotelData } from "../../../mockData/travel_hotel";
 import { IOption, ITravelHotel } from "../../../types/interfaces";
 import TravelHotelCard from "../../Elements/TravelHotel";
+import { injectIntl, IntlShape } from "react-intl";
+import { isMobile } from "../../../utils/deviceHelper";
 
 const { Search } = Input;
 
@@ -26,6 +27,7 @@ interface ConnectedProps {
   cityList: IOption[];
   hotelList: ITravelHotel[];
   actions: TravelHotelActions;
+  intl: IntlShape;
 }
 
 type InternalProps = ConnectedProps & RouteComponentProps;
@@ -87,10 +89,10 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
     return (
       <div className={styles.hotelContainer}>
         <div className={styles.filter}>
-          <Row>
-            <Col lg={6} />
-            <Col lg={3} sm={12}>
+          <Row gutter={20}>
+            <Col lg={4} sm={12} xs={12}>
               <Select
+                defaultValue="0"
                 className={styles.selectField}
                 value={selectedProvince}
                 onChange={this.onHotelFilterChange}
@@ -105,8 +107,9 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
                 })}
               </Select>
             </Col>
-            <Col lg={3} sm={12}>
+            <Col lg={4} sm={12} xs={12}>
               <Select
+                defaultValue="0"
                 className={styles.selectField}
                 value={selectedCity}
                 onChange={this.onCityFilterChange}
@@ -121,11 +124,11 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
                 })}
               </Select>
             </Col>
-            <Col lg={6} sm={12}>
+            <Col lg={8} sm={24} xs={24}>
               <Search
                 className={styles.searchInput}
                 value={searchedText}
-                placeholder="input search text"
+                placeholder={this.props.intl.formatMessage({id: 'SEARCH_TRAVEL_HOTEL'})}
                 onChange={this.onTextChange}
                 onSearch={this.onSearch}
                 style={{ width: 200 }}
@@ -135,14 +138,15 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
           </Row>
         </div>
         <div className={styles.listWrapper}>
-          <Row style={{ maxWidth: "100%" }} type="flex">
+          <Row style={{ maxWidth: "100%", marginBottom: '30px' }} type="flex" gutter={isMobile ? 0 : 30}>
             {_.map(hotelList, (hotel, index) => {
               return (
                 <Col
-                  style={{ maxWidth: "100%" }}
+                  style={{ maxWidth: "100%", marginBottom: '30px' }}
                   key={`travelhotel_${index}`}
                   lg={8}
                   sm={24}
+                  xs={24}
                 >
                   <TravelHotelCard
                     history={this.props.history}
@@ -183,7 +187,7 @@ const mapActionsToProps = dispatch => {
   };
 };
 
-export default connect(
+export default injectIntl(connect(
   mapStateToProps,
   mapActionsToProps
-)(withRouter(TravelHotelContext));
+)(withRouter(TravelHotelContext)) as any) as any;

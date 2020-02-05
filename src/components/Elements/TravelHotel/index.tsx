@@ -4,6 +4,10 @@ import Card from '../Card';
 import { ITravelHotel } from '../../../types/interfaces';
 import { History } from 'history';
 import { Icon, Row } from 'antd';
+import Message from '../../../components/Message';
+import moment from 'moment';
+import { isMobile } from '../../../utils/deviceHelper';
+import Button from '../Button';
 
 interface TravelHotelProps {
 	travelhotel: ITravelHotel;
@@ -20,7 +24,7 @@ export default class TravelHotelCard extends React.PureComponent<TravelHotelProp
 						<div className={styles.name}>{travelhotel.name}</div>
 						<Icon type="right-circle" />
 					</Row>
-					<Row className={styles.lineInfo + ' ' + styles.greyFont}>
+					<Row style={{ marginBottom: '10px'}} className={styles.lineInfo + ' ' + styles.greyFont}>
 						{travelhotel.city ?
 						<div style={{ marginRight: '20px' }}>
 							{travelhotel.city.split('-').map((el) => <span>{el}</span>)}
@@ -28,27 +32,28 @@ export default class TravelHotelCard extends React.PureComponent<TravelHotelProp
 						: null}
 						{
 							travelhotel.date ? <div>
-								发布于{new Date(travelhotel.date).getFullYear()}年
-								{new Date(travelhotel.date).getMonth() + 1}月
-								{new Date(travelhotel.date).getDate()}日
+								{Message('POSTED_AT')}{moment(travelhotel.date).fromNow()}
 								</div>
 							: null
 						}
 
 					</Row>
-					<Row style={{ fontSize: '16px', marginBottom: '10px' }}>
-						<Icon type="bank" style={{ marginRight: '19px' }} />
-						<span style={{ marginRight: '10px' }}>{travelhotel.address}</span>
-						<span className={styles.viewMap}>查看地图</span>
+					<Row type='flex' style={{ fontSize: '16px', marginBottom: '10px' }}>
+						<div className={styles.addressWrapper}>
+							<Icon type="bank" style={{ marginRight: '19px' }} />
+							<span style={{ marginRight: '10px' }}>{travelhotel.address}</span>
+						</div>
+						<span className={styles.viewMap}>{Message('VIEW_MAP')}</span>
 					</Row>
 					{
 						travelhotel.contacts ?
 							<Row style={{ fontSize: '16px' }}>
 							<Icon type="phone" style={{ marginRight: '19px' }} />
 							{travelhotel.contacts[0].name ? (
-								<span style={{ marginRight: '10px' }}>travelhotel.contacts[0].name</span>
+								<span style={{ marginRight: '10px' }}>{travelhotel.contacts[0].name}</span>
 							) : null}
-							<span>{travelhotel.contacts[0].tel}</span>
+							{!isMobile ? <span>{travelhotel.contacts[0].tel}</span> : null}
+							{isMobile ? <Button type='link' href={`tel:${travelhotel.contacts[0].tel}`}>{travelhotel.contacts[0].tel}</Button> : null}
 							</Row>
 						: null
 					}

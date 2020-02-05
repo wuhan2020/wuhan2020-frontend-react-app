@@ -23,6 +23,7 @@ import { Search } from "../../Elements/Input";
 import { IntlShape, injectIntl } from "react-intl";
 import Drawer from "../../../components/Elements/Drawer";
 import Clinic from ".";
+import { isMobile } from "../../../utils/deviceHelper";
 
 interface ConnectedProps {
   actions: ClinicsActions;
@@ -122,7 +123,7 @@ class ClinicList extends React.PureComponent<Props, State>
 							</Row>
 						</section>
 						<section className={styles.listWrapper}>
-							<Row type='flex' justify='space-between' gutter={[20, 20]}>
+							<Row type='flex' style={{width: '100%'}} justify='space-between' gutter={isMobile ? [0, 20] : [20, 20]}>
 								{clinicList.map((clinic, index) => {
 									return (
 										<Col style={{maxWidth: '100%'}} key={`clinic_${index}`} lg={8} md={12} sm={24} xs={24}>

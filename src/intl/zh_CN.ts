@@ -59,8 +59,11 @@ const zh_CN: ILocalization = {
 	PREVENTION_AND_TREATMENT: '预防与治疗',
 	PRODUCTION: '生产',
 
+	SEARCH_CITIES: '搜索城市',
   SEARCH_CLINIC: '搜索医院',
 	SEARCH_CONSULTATION: '搜索义诊',
+	SEARCH_PROVINCES: '搜索省份',
+	SEARCH_TRAVEL_HOTEL: '搜索湖北省外指定接待酒店',
 	SEARCH_LOGISTICS: '搜索物流关键词',
 	SEND_FROM: '寄出',
 	SEND_TO: '寄入',
@@ -69,6 +72,7 @@ const zh_CN: ILocalization = {
 
 	THIS_CLINIC: '本院',
 	TRAVEL_HOTEL: '指定接待酒店',
+	TRAVEL_HOTEL_PAGE_TITLE: '湖北省外指定接待酒店',
 
 	UNLIMITED: '不限',
 

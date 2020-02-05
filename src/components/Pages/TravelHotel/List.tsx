@@ -50,9 +50,9 @@ class TravelHotelList extends React.PureComponent<Props, {}> {
         <Content>
           <div className={styles.pageTravelHotelList}>
             <header>
-              <div className={styles.title}>{Message("CLINIC_PAGE_TITLE")}</div>
+              <div className={styles.title}>{Message("TRAVEL_HOTEL_PAGE_TITLE")}</div>
             </header>
-            <Tabs>
+            <Tabs tabBarStyle={{width: '100%'}}>
               {_.map(tabConfig, config => {
                 const { key, title } = config;
                 return (
