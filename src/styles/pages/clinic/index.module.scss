@@ -80,4 +80,9 @@ $clinic-namespace: "pageClinic";
       flex-direction: row;
     }
   }
+
+  .lastColumn { 
+    width: 40px;
+    box-sizing: content-box;
+  }
 }

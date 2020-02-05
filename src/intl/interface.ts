@@ -10,8 +10,11 @@ interface ILocalization extends Record<string, string>
 	COPY: string;
 
 	DEVELOPING: string;
+	DIAL_PHONE: string;
 	DOMESTIC: string;
 	DONATE: string;
+	
+	EPIDEMIC_LIVE: string;
 
 	FREE_CONSULTATION: string;
 
@@ -34,9 +37,12 @@ interface ILocalization extends Record<string, string>
 	OTHER_SUPPLIES: string;
 	OVERVIEW: string;
 
+	POSTED_AT: string;
 	PREVENTION_AND_TREATMENT: string;
 	PRODUCTION: string;
 
+	SEARCH_CLINIC: string;
+	SEARCH_CONSULTATION: string;
 	SPECIFICATION: string;
 	SUPPLY_NAME: string;
 
@@ -48,6 +54,7 @@ interface ILocalization extends Record<string, string>
 	VIEW_DATA: string;
 	VIEW_DETAIL: string;
 	VIEW_MAP: string;
+	VIEW_OFFICIAL_INFO: string;
 	VIEW_SOURCE: string;
 
 	WANNA_CONTRIBUTE: string;

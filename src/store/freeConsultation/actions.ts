@@ -9,8 +9,8 @@ const SUFFIX = '__CLINICS';
 @typeName('RESET' + SUFFIX)
 export class ResetAction extends StrongAction { constructor() { super(); }}
 
-@typeName('GET_FREE_CONSULTATION' + SUFFIX)
-export class GetFreeConsultationActions extends StrongAction { constructor(public list: IFreeConsultation[]) {super(); }}
+@typeName('UPDATE_FREE_CONSULTATION' + SUFFIX)
+export class UpdateFreeConsultationActions extends StrongAction { constructor(public list: IFreeConsultation[]) {super(); }}
 
 export interface Actions
 {
@@ -35,7 +35,7 @@ export const actionCreators = {
       const result = await Promise.all(promises);
       let freeCinsultation = [];
       result.forEach((l) => freeCinsultation = freeCinsultation.concat(l));
-      dispatch(new GetFreeConsultationActions(freeCinsultation));
+      dispatch(new UpdateFreeConsultationActions(freeCinsultation));
     }
     catch (err)
     {

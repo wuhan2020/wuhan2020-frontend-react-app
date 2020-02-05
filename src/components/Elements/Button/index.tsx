@@ -4,7 +4,7 @@ import { Button as AntDButton } from "antd";
 import { ButtonProps as AntDButtonProps } from "antd/lib/button";
 
 interface ButtonProps extends AntDButtonProps {
-	theme?: 'main' | 'white';
+	theme?: 'main' | 'white' | 'black';
 	fakeDisabled?: boolean;
 }
 

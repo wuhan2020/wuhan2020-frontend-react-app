@@ -18,7 +18,8 @@
     "redux": "^4.0.5",
     "redux-observable": "^1.2.0",
     "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0"
+    "reselect": "^4.0.0",
+    "wuhan2020-mapviz": "^1.0.5"
   },
   "devDependencies": {
     "@babel/polyfill": "^7.8.3",

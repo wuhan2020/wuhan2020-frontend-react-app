@@ -56,6 +56,7 @@ $donate-card-namespace: "elementsDonateCard";
         flex-direction: row;
         align-items: start;
         justify-content: start;
+        align-items: center;
         margin-bottom: 8px;
 
         span {
@@ -78,6 +79,10 @@ $donate-card-namespace: "elementsDonateCard";
       }
       .expandItem {
         margin: 0 0 12px 0;
+
+        &.clickable {
+          cursor: pointer;
+        }
 
         .expandItemLabel {
           font-size: 12px;
