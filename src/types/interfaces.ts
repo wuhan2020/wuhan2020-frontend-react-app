@@ -29,7 +29,7 @@ export interface ITravelHotel {
   city?: string,
   contacts?: IContact[],
   address?: string,
-  name?: string,
+  name?: string | null,
   date?: string,
   url?: string,
   remark?: string | null,

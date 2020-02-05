@@ -10,7 +10,8 @@ import { Row, Col, Layout, Tabs } from "antd";
 import Select from "../../../components/Elements/Select";
 import Option from "../../../components/Elements/Select/Option";
 import TravelHotelContext from "./Content";
-// import TravelHotelCard from "../../../components/Elements/TravelHotel/index";
+import TravelHotelCard from "../../../components/Elements/TravelHotel/index";
+import { hotelData } from "../../../mockData/travel_hotel";
 
 const { TabPane } = Tabs;
 const tabConfig = [
@@ -56,6 +57,17 @@ class TravelHotelList extends React.PureComponent<Props, {}> {
                 const { key, title } = config;
                 return (
                   <TabPane key={key} tab={title}>
+                    <section className={styles.listWrapper}>
+                      <Row style={{maxWidth: '100%'}} type='flex'>
+                        {hotelData.map((hotel, index) => {
+                          return (
+                            <Col style={{maxWidth: '100%'}} key={`travelhotel_${index}`} lg={8} sm={24}>
+                              <TravelHotelCard history={this.props.history} travelhotel={hotel} />
+                            </Col>
+                          );
+                        })}
+                      </Row>
+                    </section>
                     <TravelHotelContext />
                   </TabPane>
                 );
