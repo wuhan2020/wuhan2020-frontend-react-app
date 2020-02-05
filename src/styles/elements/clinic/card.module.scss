@@ -7,7 +7,6 @@ $clinic-card-namespace: "elementsClinicCard";
 .#{$clinic-card-namespace} {
   display: flex;
   flex-direction: column;
-  width: 100%;
 
   .contentWrapper {
     display: flex;
@@ -23,20 +22,17 @@ $clinic-card-namespace: "elementsClinicCard";
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+
     .subtitle {
       display: flex;
       flex-direction: row;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
       color: $grey4;
     }
   
     .supplyName {
-      flex: 1 1 auto;
       font-size: $px16;
       color: $black0;
-      margin-left: 20px;
-      max-width: calc(100% - 145px);
-      margin-right: 20px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -45,12 +41,6 @@ $clinic-card-namespace: "elementsClinicCard";
     .otherSupplies {
       font-size: $px16;
       color: $grey4;
-      margin-bottom: 20px;
-      margin-left: 35px;
-    }
-  
-    .viewDetailBtn {
-      align-self: center;
     }
   }
 }

@@ -158,6 +158,16 @@ module.exports = {
 				enforce: "pre",
 				test: /\.js$/,
 				loader: "source-map-loader"
+			},
+			{
+				loader: 'less-loader',
+				options: {
+					modifyVars: {
+						'primary-color': '#FF6340',
+						'link': '#FF6340'
+					},
+					javascriptEnabled: true
+				}
 			}
 		]
 	},

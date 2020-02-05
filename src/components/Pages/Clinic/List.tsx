@@ -82,8 +82,20 @@ class ClinicList extends React.PureComponent<Props, State>
 							<div className={styles.title}>{Message('CLINIC_PAGE_TITLE')}</div>
 						</header>
 						<section className={styles.filters}>
-							<Row type='flex' justify='center' gutter={16}>
-								<Col lg={3} md={12} sm={12} xs={12}>
+							<Row type='flex' justify='center'
+								gutter={[{ xs: 11, sm: 11, md: 20, lg: 20 }, { xs: 13, sm: 13, md: 20, lg: 20 }]}>
+								<Col lg={3} md={3} sm={12} xs={12}>
+									<Select
+										className={styles.cityFilter}
+										defaultValue='1'>
+										{[{key:'1', name: '全部省份'}, {key: '2', name: '湖北省'}].map((d, index) => {
+											return (
+												<Option key={`province_option_${index}`} value={d.key}>{d.name}</Option>
+											);
+										})}
+									</Select>
+								</Col>
+								<Col lg={3} md={3} sm={12} xs={12}>
 									<Select
 										onChange={this.onCityFilterChange}
 										className={styles.cityFilter}
@@ -95,7 +107,7 @@ class ClinicList extends React.PureComponent<Props, State>
 										})}
 									</Select>
 								</Col>
-                <Col lg={6} md={12} sm={12} xs={12}>
+                <Col lg={6} md={12} sm={24} xs={24}>
                   <Search
                     placeholder={this.props.intl.formatMessage({ id: 'SEARCH_CLINIC' })}
                     onSearch={this.onClinicSearch}>
@@ -104,10 +116,10 @@ class ClinicList extends React.PureComponent<Props, State>
 							</Row>
 						</section>
 						<section className={styles.listWrapper}>
-							<Row style={{maxWidth: '100%', width: '100%'}} type='flex'>
+							<Row type='flex' justify='space-between' gutter={[20, 20]}>
 								{clinicList.map((clinic, index) => {
 									return (
-										<Col style={{maxWidth: '100%'}} key={`clinic_${index}`} lg={8} sm={24} xs={24}>
+										<Col style={{maxWidth: '100%'}} key={`clinic_${index}`} lg={8} md={8} sm={24} xs={24}>
 											<ClinicCard onViewDetailClick={this.onViewDetailClick} clinic={clinic} />
 										</Col>
 									);
