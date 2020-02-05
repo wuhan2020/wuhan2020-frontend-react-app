@@ -7702,10 +7702,10 @@ ws@^6.2.1:
   dependencies:
     async-limiter "~1.0.0"
 
-wuhan2020-mapviz@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/wuhan2020-mapviz/-/wuhan2020-mapviz-1.0.5.tgz#a831bca6897cd7ed9bff14deead6fd9a00d9b7e7"
-  integrity sha512-GNbZVHOalsj7bd4qWOfafzSHFPg1dyDTvlxTvndJ6JwhG8YSXD2/nM/LYrMu8W7Tnurh2+iaFKyguXYQFSUcxQ==
+wuhan2020-mapviz@1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/wuhan2020-mapviz/-/wuhan2020-mapviz-1.0.7.tgz#0c4dcbccb9841082ac5efa2afef329794b1c633e"
+  integrity sha512-3AFvsjMf4gd/IgRIXr4gCVvtHWZ225tkunCpqRDas0R8YPEbksIbPePRCH4im8lsCbUccHzs3JptDJVZs+34BQ==
   dependencies:
     echarts "^4.6.0"
 

@@ -37,7 +37,7 @@ class Epidemic extends React.PureComponent<Props, {}>
 				<Content>
 					<div className={styles.pageEpidemic}>
             <div className="virus-map" style={{width: '100vw', height: '100%', padding: '20px'}}>
-              <HierarchicalVirusMap data={data} resolution={RESOLUTION} type={'overview'} />
+              <HierarchicalVirusMap data={data} resolution={RESOLUTION} type={isMobile ? 'mobile' : 'pc'} />
             </div>
 					</div>
 				</Content>
