@@ -56,3 +56,12 @@ export interface IDonateBankAccount {
   bank: string;
   number: string;
 }
+
+export interface IFreeConsultation {
+  name: string;
+  url: string;
+  id: number;
+  contacts: Array<{[key: string]: string}>,
+  date: string,
+  remark: string
+}
