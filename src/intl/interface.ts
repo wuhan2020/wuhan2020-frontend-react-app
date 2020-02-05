@@ -25,6 +25,7 @@ interface ILocalization extends Record<string, string>
 	INTERNATIONAL: string;
 
 	LOGISTICS: string;
+	LOGISTICS_TITLE: string;
 
 	MAILING_ADDRESS: string;
 
@@ -43,6 +44,9 @@ interface ILocalization extends Record<string, string>
 
 	SEARCH_CLINIC: string;
 	SEARCH_CONSULTATION: string;
+	SEARCH_LOGISTICS: string;
+	SEND_FROM: string;
+	SEND_TO: string;
 	SPECIFICATION: string;
 	SUPPLY_NAME: string;
 

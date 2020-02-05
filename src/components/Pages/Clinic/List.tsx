@@ -40,75 +40,78 @@ interface State {
 }
 
 const { Content } = Layout;
-class ClinicList extends React.PureComponent<Props, State> {
-  public props: ConnectedProps & Props;
+class ClinicList extends React.PureComponent<Props, State>
+{
+	public props: ConnectedProps & Props;
 
-  state: State = {};
+	state: State = {
+	}
 
-  provinces: { key: number; name: string }[] = [{ key: -1, name: "省市" }];
+	provinces: {key: number, name: string}[] = [
+		{key: -1, name: '省市'},
+	];
 
-  componentWillMount() {
-    // @todo - should allow refreshing??
-    if (
-      !this.props.clinicsState.list ||
-      this.props.clinicsState.list.length === 0
-    ) {
-      this.props.app.dataSource &&
-        this.props.actions.fetchClinicList(
-          this.props.app.dataSource["hospital"]
-        );
-    }
-  }
+	componentWillMount() {
+		// @todo - should allow refreshing??
+    if (!this.props.clinicsState.list || this.props.clinicsState.list.length === 0) {
+			this.props.app.dataSource && this.props.actions.fetchClinicList(this.props.app.dataSource['hospital']);
+		}
+	}
 
-  onNewClick = () => {};
+	onNewClick = () => {
 
-  onCityFilterChange = value => {
-    this.props.actions.updateCity(value);
-  };
+	}
 
-  onClinicSearch = searchText => {
-    this.props.actions.searchClinic(searchText);
-  };
-  onViewDetailClick = (clinic: IClinic) => {
-    this.setState({ selectedClinic: clinic });
-  };
-  onDrawerClose = () => {
-    this.setState({ selectedClinic: undefined });
-  };
+	onCityFilterChange = (value) => {
+		this.props.actions.updateCity(value);
+	}
 
-  render() {
-    const { clinicList, clinicsState } = this.props;
-    return (
-      <Layout
-        style={{
-          backgroundColor: "#fff",
-          flex: "1 0 auto",
-          minHeight: "unset"
-        }}
-      >
-        <Content>
-          <div className={styles.pageClinicList}>
-            <header>
-              <div className={styles.title}>{Message("CLINIC_PAGE_TITLE")}</div>
-            </header>
-            <section className={styles.filters}>
-              <Row type="flex" justify="center" gutter={16}>
-                <Col lg={3} md={12} sm={12} xs={12}>
-                  <Select
-                    onChange={this.onCityFilterChange}
-                    className={styles.cityFilter}
-                    defaultValue={clinicsState.cityList[0].key}
-                  >
-                    {clinicsState.cityList.map((d, index) => {
-                      return (
-                        <Option key={`city_option_${index}`} value={d.key}>
-                          {d.name}
-                        </Option>
-                      );
-                    })}
-                  </Select>
-                </Col>
-                <Col lg={6} md={12} sm={12} xs={12}>
+	onClinicSearch = (searchText) => {
+		this.props.actions.searchClinic(searchText);
+	};
+	onViewDetailClick = (clinic: IClinic) => {
+		this.setState({selectedClinic: clinic});
+	}
+	onDrawerClose = () => {
+		this.setState({selectedClinic: undefined});
+	}
+
+	render() {
+		const {clinicList, clinicsState} = this.props;
+		return (
+			<Layout style={{backgroundColor: '#fff', flex: '1 0 auto', minHeight: 'unset'}}>
+				<Content>
+					<div className={styles.pageClinicList}>
+						<header>
+							<div className={styles.title}>{Message('CLINIC_PAGE_TITLE')}</div>
+						</header>
+						<section className={styles.filters}>
+							<Row type='flex' justify='center'
+								gutter={[{ xs: 11, sm: 11, md: 20, lg: 20 }, { xs: 13, sm: 13, md: 20, lg: 20 }]}>
+								<Col lg={3} md={3} sm={12} xs={12}>
+									<Select
+										className={styles.cityFilter}
+										defaultValue='1'>
+										{[{key:'1', name: '全部省份'}, {key: '2', name: '湖北省'}].map((d, index) => {
+											return (
+												<Option key={`province_option_${index}`} value={d.key}>{d.name}</Option>
+											);
+										})}
+									</Select>
+								</Col>
+								<Col lg={3} md={3} sm={12} xs={12}>
+									<Select
+										onChange={this.onCityFilterChange}
+										className={styles.cityFilter}
+										defaultValue={clinicsState.cityList[0].key}>
+										{clinicsState.cityList.map((d, index) => {
+											return (
+												<Option key={`city_option_${index}`} value={d.key}>{d.name}</Option>
+											);
+										})}
+									</Select>
+								</Col>
+                <Col lg={6} md={12} sm={24} xs={24}>
                   <Search
                     placeholder={this.props.intl.formatMessage({
                       id: "SEARCH_CLINIC"
@@ -116,42 +119,32 @@ class ClinicList extends React.PureComponent<Props, State> {
                     onSearch={this.onClinicSearch}
                   ></Search>
                 </Col>
-              </Row>
-            </section>
-            <section className={styles.listWrapper}>
-              <Row style={{ maxWidth: "100%", width: "100%" }} type="flex">
-                {clinicList.map((clinic, index) => {
-                  return (
-                    <Col
-                      style={{ maxWidth: "100%" }}
-                      key={`clinic_${index}`}
-                      lg={8}
-                      sm={24}
-                      xs={24}
-                    >
-                      <ClinicCard
-                        onViewDetailClick={this.onViewDetailClick}
-                        clinic={clinic}
-                      />
-                    </Col>
-                  );
-                })}
-              </Row>
-            </section>
-          </div>
-          <Drawer
-            title={Message("HOSPITAL_SUPPLY_DETAIL")}
-            placement="right"
-            closable={true}
-            onClose={this.onDrawerClose}
-            visible={!!this.state.selectedClinic}
-          >
-            <Clinic clinic={this.state.selectedClinic} />
-          </Drawer>
-        </Content>
-      </Layout>
-    );
-  }
+							</Row>
+						</section>
+						<section className={styles.listWrapper}>
+							<Row type='flex' justify='space-between' gutter={[20, 20]}>
+								{clinicList.map((clinic, index) => {
+									return (
+										<Col style={{maxWidth: '100%'}} key={`clinic_${index}`} lg={8} md={12} sm={24} xs={24}>
+											<ClinicCard onViewDetailClick={this.onViewDetailClick} clinic={clinic} />
+										</Col>
+									);
+								})}
+							</Row>
+						</section>
+					</div>
+					<Drawer
+						title={Message('HOSPITAL_SUPPLY_DETAIL')}
+						placement="right"
+						closable={true}
+						onClose={this.onDrawerClose}
+						visible={!!this.state.selectedClinic}>
+							<Clinic clinic={this.state.selectedClinic} />
+					</Drawer>
+				</Content>
+			</Layout>
+		)
+	}
 }
 
 const mapStateToProps = (state: IApplicationState) => {
