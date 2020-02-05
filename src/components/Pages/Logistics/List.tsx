@@ -67,13 +67,12 @@ class LogisticsList extends React.PureComponent<Props, {}>
 										className={styles.select}
 										onChange={this.onUpdateSendPlaceChange}
 										>
-													{/* {this.searchOpts()} */}
-										{logisticState.sendPlaceList.map((d, index) => {
-													return (
-													<Option key={d.value} value={d.value}>{d.description}</Option>
-													);
-												})}
-												</Select>
+											{logisticState.sendPlaceList.map((d, index) => {
+												return (
+												<Option key={d.value} value={d.value}>{d.description}</Option>
+												);
+											})}
+										</Select>
 										<Search
 											className={styles.search}
 											placeholder={this.props.intl.formatMessage({ id: 'SEARCH_LOGISTICS' })}
