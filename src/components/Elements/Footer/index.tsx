@@ -47,7 +47,7 @@ class Footer extends React.PureComponent<Props, {}>
       */
       {
         name: Message('FREE_CONSULTATION'),
-        link: URLS.FREE_CONSULTATIONS
+        link: URLS.FREE_CONSULTATION
       },
       /*
       {
