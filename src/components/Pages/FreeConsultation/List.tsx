@@ -106,7 +106,7 @@ const mapStateToProps = (state: IApplicationState) =>
 {
 	return {
 		loading: state.app.loading,
-		//freeConsultationList: state.freeConsultation
+		freeConsultationList: state.freeConsultation
 	};
 };
 

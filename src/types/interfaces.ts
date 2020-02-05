@@ -28,7 +28,6 @@ export interface IContacts {
   tel: string;
 }
 
-
 export interface IDonate {
   id: number;
   name: string;
