@@ -37,9 +37,9 @@ export default class ClinicCard extends React.PureComponent<ClinicCardProps, {}>
           {clinic.supplies.length > 0 && clinic.supplies.map((supply, index) => {
             if (index < 3) {
               return (
-                <Row key={`supply_${index}`} type='flex' justify='space-between' style={{marginBottom: '20px'}}>
-                  <Col span={16} className={styles.supplyName}>{supply.value > URGENT_THRESHOLD ? <UrgentIndicator /> : <div></div>}{supply.key}</Col>
-                  <Col span={8} style={{textAlign: 'end'}}>{supply.value === 1 ? Message('UNLIMITED') : supply.value}</Col>
+                <Row key={`supply_${index}`} type='flex' justify='space-between' style={{marginBottom: '20px', alignItems: 'center'}}>
+                  <div className={styles.supplyName}>{supply.key}</div>
+                  <div>{supply.value === 1 ? Message('UNLIMITED') : supply.value}</div>
                 </Row>
               )
             }

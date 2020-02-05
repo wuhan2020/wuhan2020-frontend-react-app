@@ -14,6 +14,12 @@ export const getDonate = (link: string): Promise<IDonate[]> => {
   return HttpManager.getInstance().get(url);
 };
 
+export const getFreeConsultation = (link: string): Promise <any> => {
+  const url = `${FRONT_END_PREFIX}/${link}`;
+
+  return HttpManager.getInstance().get(url);
+}
+
 export const getDataSources = (): Promise<IDataSource> => {
   const url = `index.json`;
 

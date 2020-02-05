@@ -119,7 +119,7 @@ class ClinicList extends React.PureComponent<Props, State>
 							<Row type='flex' justify='space-between' gutter={[20, 20]}>
 								{clinicList.map((clinic, index) => {
 									return (
-										<Col style={{maxWidth: '100%'}} key={`clinic_${index}`} lg={8} md={8} sm={24} xs={24}>
+										<Col style={{maxWidth: '100%'}} key={`clinic_${index}`} lg={8} md={12} sm={24} xs={24}>
 											<ClinicCard onViewDetailClick={this.onViewDetailClick} clinic={clinic} />
 										</Col>
 									);
