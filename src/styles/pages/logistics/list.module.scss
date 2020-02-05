@@ -11,4 +11,27 @@ $logistics-list-namespace: "pageLogisticsList";
   height: 100%;
   width: 100%;
   padding: 40px;
+
+  h3 {
+    color: $black0;
+    font-size: $px46;
+    margin: 0 auto;
+    margin-bottom: 26px;
+  }
+
+  .select {
+    width: 20% !important;
+
+    @include mobile-and-smaller() {
+      width: 50% !important;
+    }
+  }
+
+  .search {
+    width: 80% !important;
+
+    @include mobile-and-smaller() {
+      width: 50% !important;
+    }
+  }
 }

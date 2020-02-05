@@ -25,6 +25,12 @@ interface ConnectedProps {
 interface Props extends RouteComponentProps {
 
 }
+interface State {
+	current: number;
+	total: number;
+	pageSize: 6;
+	freeConsultationList: IFreeConsultation[];
+}
 const { Content } = Layout;
 const { Search } = Input;
 
@@ -35,7 +41,8 @@ class FreeConsultationList extends React.PureComponent<Props, {}>
 	state = {
 		current: 1,
 		total: 0,
-		pageSize: 6
+		pageSize: 6,
+		freeConsultationList: []
 	}
 	
 	componentWillMount() {
@@ -43,6 +50,10 @@ class FreeConsultationList extends React.PureComponent<Props, {}>
 	}
 
 	componentDidMount() {
+		const { total , pageSize, current} = this.state;
+		const { freeConsultationList } = this.props;
+		
+		this.setState({freeConsultationList: freeConsultationList.slice((pageSize * (current - 1)), pageSize * current > total ? total : pageSize * current)})
 	}
 
 	onNewClick = () => {
@@ -57,6 +68,10 @@ class FreeConsultationList extends React.PureComponent<Props, {}>
 	}
 
 	getPerPageInfo = (current: number) => {
+		const { pageSize, total } = this.state;
+		const { freeConsultationList } = this.props;
+
+		this.setState({freeConsultationList: freeConsultationList.slice((pageSize * (current - 1)), pageSize * current  > total ? total : pageSize * current)})
 	}
 
 	render()
@@ -65,19 +80,19 @@ class FreeConsultationList extends React.PureComponent<Props, {}>
 		const {freeConsultationList} = this.props;
 		return (
 			<div className={styles.pageFreeConsultationList}>
-				<header className={styles.searchFreeConsultation}>
-					<h3>{Message('FREE_CONSULTATION_ONLINE')}</h3>
-					<Row type='flex' justify='center' style={{width: '100%'}}>
-						<Col lg={8} sm={24} xs={24}>
-							<Search
-								placeholder={this.props.intl.formatMessage({ id: 'SEARCH_CONSULTATION' })}
-								onSearch={value => console.log(value)}
-							/>
-						</Col>
-					</Row>
-				</header>
 				<Layout style={{backgroundColor: '#fff', flex: '1 0 auto', minHeight: 'unset'}}>
 					<Content>
+						<header className={styles.searchFreeConsultation}>
+							<h3>{Message('FREE_CONSULTATION_ONLINE')}</h3>
+							<Row type='flex' justify='center' style={{width: '100%'}}>
+								<Col lg={8} sm={24} xs={24}>
+									<Search
+										placeholder={this.props.intl.formatMessage({ id: 'SEARCH_CONSULTATION' })}
+										onSearch={value => console.log(value)}
+									/>
+								</Col>
+							</Row>
+						</header>
 						<div className={styles.pageFreeConsultationList}>
 							<div className={styles.freeConsultationsContent}>
 								<Row style={{maxWidth: '100%'}} type='flex' gutter={isMobile ? 0 : 24}>
@@ -93,7 +108,9 @@ class FreeConsultationList extends React.PureComponent<Props, {}>
 						</div>
 					</Content>
 				</Layout>
-				<Pagination onChange = {this.handlePageChange} pageSize={pageSize} defaultCurrent={current} total={total} />
+				<div className={styles.paginationWrapper}>
+					<Pagination onChange={this.handlePageChange} pageSize={pageSize} defaultCurrent={current} total={total} />
+					</div>
 			</div>
 		)
 	}

@@ -39,6 +39,7 @@ const zh_CN: ILocalization = {
 	INFO_SUBMISSION: '发布信息',
 
 	LOGISTICS: '物流',
+	LOGISTICS_TITLE: '物流方案',
 
 	MAILING_ADDRESS: '邮寄地址',
 
@@ -60,6 +61,9 @@ const zh_CN: ILocalization = {
 
   SEARCH_CLINIC: '搜索医院',
 	SEARCH_CONSULTATION: '搜索义诊',
+	SEARCH_LOGISTICS: '搜索物流关键词',
+	SEND_FROM: '寄出',
+	SEND_TO: '寄入',
 	SPECIFICATION: '规格',
 	SUPPLY_NAME: '需求物资名称',
 

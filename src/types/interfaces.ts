@@ -11,6 +11,23 @@ export interface IClinic {
   cityKey?: number;
   address: string;
 }
+export interface ILogistic {
+  id: number;
+  name: string;
+  from: string;
+  dest: string;
+  contacts: ILogisticContact[];
+  date: string;
+  allowPersonal: string;
+  url: string;
+  remark: string;
+  sendPlaceKey?: number;
+}
+
+export interface ILogisticContact {
+  name: string;
+  tel: string;
+}
 
 export interface IClicnicSupply {
   key: string;
