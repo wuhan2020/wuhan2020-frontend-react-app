@@ -6,12 +6,12 @@ import { bindActionCreators } from "redux";
 import { IApplicationState } from "../../../store";
 import { withRouter, RouteComponentProps } from "react-router";
 import { Row, Col, Input, Layout, Pagination } from "antd";
-import { freeConsulationState } from "../../../store/FreeConsultation";
+import { freeConsulationState } from "../../../store/FreeConsultations";
 import { IntlShape, injectIntl } from "react-intl";
 import {
   actionCreators as freeConsulationActionCreators,
   Actions as freeConsulationActions
-} from "../../../store/FreeConsultation/actions";
+} from "../../../store/FreeConsultations/actions";
 import { AppState } from "../../../store/App";
 import { IFreeConsultation } from "../../../types/interfaces";
 import FreeConsultationCard from "../../../components/Elements/FreeConsultation/Card";
