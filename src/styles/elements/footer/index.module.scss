@@ -6,11 +6,12 @@ $footer-namespace: "elementsFooter";
 
 .#{$footer-namespace} {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   padding: 32px 160px;
-  padding-bottom: 57px;
-  background-color: $black1;
+  background-color: $white;
+  border-top: 1px solid $main;
+  border-bottom: 1px solid $main;
   flex: 0 0 auto;
 
   .title {
@@ -21,7 +22,28 @@ $footer-namespace: "elementsFooter";
     margin-bottom: 32px;
   }
 
+  .siteMap { 
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    align-items: center;
+  }
+
   @include tablet-and-smaller() {
+    flex-direction: column;
     padding: 32px;
+  }
+
+  svg {
+    @include tablet-and-smaller() {
+      margin: 0 auto;
+      margin-bottom: 16px;
+    }
+  }
+
+  .siteMapItemWrapper {
+    @include tablet-and-smaller() {
+      justify-content: center;
+    }
   }
 }

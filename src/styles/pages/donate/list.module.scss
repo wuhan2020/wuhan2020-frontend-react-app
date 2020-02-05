@@ -15,11 +15,11 @@ $page-donate-namespace: "pageDonateList";
   header {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
 
     .title {
       color: $black0;
-      font-size: $px30;
+      font-size: $px46;
       margin-bottom: 16px;
     }
     .subtitle {

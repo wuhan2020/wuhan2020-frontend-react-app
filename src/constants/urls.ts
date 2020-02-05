@@ -1,30 +1,35 @@
 export const ROOT = "";
 
 export const URLS = {
-	HOME: ROOT + "/",
+  HOME: ROOT + "/",
 
-	CLINICS: ROOT + "/hospitals",
-	CLINIC: ROOT + "/hospital/:cityName/:clinicId",
+  CLINICS: ROOT + "/hospitals",
+  CLINIC: ROOT + "/hospital/:cityName/:clinicId",
 
-	DONATE: ROOT + "/donate",
+  DONATE: ROOT + "/donate",
+
+	EPIDEMIC_LIVE: ROOT + "/live_map",
 
 	FREE_CONSULTATION: ROOT + "/free_consultation",
 
-	HOTELS: ROOT + "/hotels",
+  HOTELS: ROOT + "/hotels",
 
-	LOGISTICS: ROOT + "/logistics",
+  LOGISTICS: ROOT + "/logistics",
 
-	NEWS_FEED: ROOT + "/news_feed",
+  NEWS_FEED: ROOT + "/news_feed",
 
-	OPEN_SOURCE_PROJ: "https://github.com/wuhan2020/wuhan2020",
+  OPEN_SOURCE_PROJ: "https://github.com/wuhan2020/wuhan2020",
 
-	TRAVEL_HOTEL: ROOT + "/travel_hotel",
+  TRAVEL_HOTEL: ROOT + "/travel_hotel",
 
-	PREVENTION_AND_TREATMENT: ROOT + "/treatment",
-	PRODUCTION: ROOT + "/production",
-
-}
+  PREVENTION_AND_TREATMENT: ROOT + "/treatment",
+  PRODUCTION: ROOT + "/production"
+};
 
 export const getClinicUrl = (cityName: string, id: number) => {
-	return `${ROOT}/hospital/${cityName}/${id}`;
-}
+  return `${ROOT}/hospital/${cityName}/${id}`;
+};
+
+export const getConsultationUrl = (id: number) => {
+  return `${ROOT}/free_consultation/${id}`;
+};

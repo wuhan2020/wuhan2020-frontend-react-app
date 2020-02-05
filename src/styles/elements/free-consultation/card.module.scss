@@ -1,13 +1,99 @@
-@import '../../colors';
-@import '../../media';
-@import '../../fonts';
-
-$freeConsultation-card-namespace: "elementsFreeConsultationListCard";
-
-.#{$freeConsultation-card-namespace} {
-    width: 443px;
-    height: 210px;
-    .info-phone {
-        display: flex;
+    @import '../../colors';
+    @import '../../media';
+    @import '../../fonts';
+    $freeConsultation-card-namespace: "elementsFreeConsultationListCard";
+    .#{$freeConsultation-card-namespace} {
+        height: 210px;
+        margin-bottom: 24px !important;
+        border-radius: 10px !important;
+        justify-content: space-between !important;
+        background-color: $white;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+        @include mobile-and-smaller() {
+            width: 100%;
+            height: auto;
+        }
+        .main {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            .generalInfo {
+                .title {
+                    color: $black0;
+                    font-size: $px24;
+                }
+                .date {
+                    font-size: $px14;
+                    color: $grey3;
+                }
+                .detail {
+                    color: $black0;
+                    font-size: $px16;
+                    margin-top: 8px;
+                }
+            }
+            .main {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+                .generalInfo {
+                    .title {
+                        color: $black0;
+                        font-size: $px24;
+                    }
+                    .date {
+                        font-size: $px14;
+                        color: $grey3;
+                    }
+                    .detail {
+                        color: $black0;
+                        font-size: $px16;
+                        margin-top: 8px;
+                    }
+                }
+                .contactInfo {
+                    flex: 0 0 auto;
+                    display: flex;
+                    flex-direction: row;
+                    @include mobile-and-smaller() {
+                        flex-direction: column;
+                    }
+                    .info {
+                        display: flex;
+                        flex-direction: row;
+                    }
+                    .phone {
+                        display: flex;
+                        flex-direction: row;
+                        margin-left: 16px;
+                        align-items: center;
+                    }
+                    .infoItem {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: row;
+                        &:last-child:not(:first-child) {
+                            margin-left: 16px;
+                            @include mobile-and-smaller() {
+                                margin-left: 0;
+                                margin-top: 16px;
+                            }
+                        }
+                        @include mobile-and-smaller() {
+                            margin-top: 16px;
+                        }
+                        i {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            color: rgba(0, 0, 0, 0.65);
+                            font-size: 24px;
+                        }
+                    }
+                }
+            }
+        }
     }
-}

@@ -1,14 +1,44 @@
-
-@import '../../colors';
-@import '../../fonts';
-@import '../../media';
-
+@import "../../colors";
+@import "../../fonts";
+@import "../../media";
 $free-consultation-list-namespace: "pageFreeConsultationList";
-
 .#{$free-consultation-list-namespace} {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  padding: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 40px;
+    flex: 1 1 auto;
+    @include mobile-and-smaller() {
+        align-items: center;
+        padding: 20px 0;
+    }
+    .searchFreeConsultation {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        padding: 40px;
+        @include mobile-and-smaller() {
+            align-items: center;
+            padding: 20px 0;
+        }
+        .searchFreeConsultation {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h3 {
+                font-size: $px46;
+            }
+        }
+        .freeConsultationsContent {
+            @include mobile-and-smaller() {
+                padding: 0 20px;
+            }
+        }
+    }
+    .paginationWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

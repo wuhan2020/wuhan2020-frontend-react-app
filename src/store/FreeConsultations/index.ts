@@ -1,12 +1,8 @@
 import { Reducer } from "redux";
-import * as React from 'react'
+import * as React from 'react';
 import { isActionType } from "../../common/StrongAction";
-import { ILocales } from "../../intl";
 import * as Actions from './actions';
-
-export interface IDataSource {
-	[key: string]: string[];
-}
+import { IFreeConsultation } from "../../types/interfaces";
 
 export interface freeConsulationState
 {
@@ -14,6 +10,7 @@ export interface freeConsulationState
     name: string;
     url: string;
     id: number;
+    list: IFreeConsultation[];
 }
 
 export const initialFreeConsulationStateState: freeConsulationState =
@@ -21,14 +18,15 @@ export const initialFreeConsulationStateState: freeConsulationState =
     pageNum: 1,
     name: "test",
     url: 'test',
-    id: 1
+    id: 1,
+    list: [],
 }
 
 const FreeConsultationReducer: Reducer<freeConsulationState> = (state: freeConsulationState, act) =>
 {
 	console.log('Dispatched action: ' + act.type);
-	if (isActionType(act, Actions.GetFreeConsultationActions)) {
-		return {...state, loading: act};
+	if (isActionType(act, Actions.UpdateFreeConsultationActions)) {
+		return {...state, list: act.list};
 	} else if (isActionType(act, Actions.ResetAction)) {
 		return {...initialFreeConsulationStateState};
 	}

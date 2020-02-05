@@ -1,10 +1,12 @@
-import { combineReducers } from "redux";
-import { routerReducer } from "react-router-redux";
-import AppReducer from "./App";
-import ClinicReducer from "./Clinic";
-import TravelHotelReducer from "./TravelHotel";
-import DonateReducer from "./Donate";
-import freeConsultationReducer from "./freeConsultation";
+import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
+import AppReducer from './App';
+import ClinicReducer from './Clinic';
+import DonateReducer from './Donate';
+import LogisticReducer from './Logistics';
+
+import TravelHotelReducer from './TravelHotel';
+import freeConsultationReducer from './FreeConsultations';
 
 export const allReducers = combineReducers({
   app: AppReducer,
@@ -12,7 +14,8 @@ export const allReducers = combineReducers({
   travelHotel: TravelHotelReducer,
   donate: DonateReducer,
   routing: routerReducer,
-  freeConsultation: freeConsultationReducer
+  freeConsultation: freeConsultationReducer,
+  logistics: LogisticReducer,
 });
 
 export type IApplicationState = ReturnType<typeof allReducers>;

@@ -1,0 +1,14 @@
+
+@import '../../colors';
+@import '../../fonts';
+@import '../../media';
+
+$epidemic-namespace: "pageEpidemic";
+
+.#{$epidemic-namespace} {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  padding: 0px;
+}

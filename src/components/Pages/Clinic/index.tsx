@@ -68,7 +68,7 @@ class Clinic extends React.PureComponent<Props, {}>
         title: Message('AMOUNT'),
         dataIndex: 'value',
         key: 'value',
-        width: 40,
+        className: styles.lastColumn,
         render: text => <span>{text}</span>
       },
     ]
@@ -96,9 +96,9 @@ class Clinic extends React.PureComponent<Props, {}>
 				<Content>
 					{clinic ? <div className={styles.pageClinic}>
             <Row>
-              <Col lg={24}>
+              {/* <Col lg={24}>
                 <div className={styles.title}>{Message('CLINIC_PAGE_TITLE')}</div>
-              </Col>
+              </Col> */}
             </Row>
             <Row>
               <Col lg={24}>

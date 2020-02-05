@@ -5,11 +5,28 @@ export interface IClinic {
   district: string;
   name: string;
   supplies: IClicnicSupply[];
-  url: string,
+  url: string;
   remark: string;
   contacts: IContact[];
   cityKey?: number;
   address: string;
+}
+export interface ILogistic {
+  id: number;
+  name: string;
+  from: string;
+  dest: string;
+  contacts: ILogisticContact[];
+  date: string;
+  allowPersonal: string;
+  url: string;
+  remark: string;
+  sendPlaceKey?: number;
+}
+
+export interface ILogisticContact {
+  name: string;
+  tel: string;
 }
 
 export interface IClicnicSupply {
@@ -28,6 +45,14 @@ export interface IContacts {
   tel: string;
 }
 
+export interface IFreeConsultation {
+  name: string;
+  url: string;
+  id: number;
+  contacts: Array<{ [key: string]: string }>;
+  date: string;
+  remark: string;
+}
 export interface ITravelHotel {
   id: number,
   province?: string,
