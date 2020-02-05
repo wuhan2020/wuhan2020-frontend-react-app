@@ -28,6 +28,23 @@ export interface IContacts {
   tel: string;
 }
 
+export interface ITravelHotel {
+  id: number,
+  province?: string,
+  city?: string,
+  contacts?: IContact[],
+  address?: string,
+  name?: string | null,
+  date?: string,
+  url?: string,
+  remark?: string | null,
+}
+
+export interface IOption {
+  key: string,
+  value: string,
+}
+
 export interface IDonate {
   id: number;
   name: string;

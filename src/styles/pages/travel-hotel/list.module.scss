@@ -11,4 +11,15 @@ $travel-hotel-list-namespace: "pageTravelHotelList";
   height: 100%;
   width: 100%;
   padding: 40px;
+  .hotelContainer{
+    .filter{
+      margin-bottom: 10px;
+    }
+    .selectField{
+      min-width: 120px;
+    }
+    .searchInput{
+      width: 100%
+    }
+  }
 }
