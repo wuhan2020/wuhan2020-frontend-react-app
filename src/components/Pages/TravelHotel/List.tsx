@@ -52,16 +52,7 @@ class TravelHotelList extends React.PureComponent<Props, {}> {
             <header>
               <div className={styles.title}>{Message("TRAVEL_HOTEL_PAGE_TITLE")}</div>
             </header>
-            <Tabs tabBarStyle={{width: '100%'}}>
-              {_.map(tabConfig, config => {
-                const { key, title } = config;
-                return (
-                  <TabPane key={key} tab={title}>
-                    <TravelHotelContext />
-                  </TabPane>
-                );
-              })}
-            </Tabs>
+            <TravelHotelContext />
           </div>
         </Content>
       </Layout>
@@ -85,3 +76,16 @@ export default connect(
   mapStateToProps,
   mapActionsToProps
 )(withRouter(TravelHotelList));
+
+/*
+
+            <Tabs tabBarStyle={{width: '100%'}}>
+              {_.map(tabConfig, config => {
+                const { key, title } = config;
+                return (
+                  <TabPane key={key} tab={title}>
+                  </TabPane>
+                );
+              })}
+            </Tabs>
+*/

@@ -8,6 +8,7 @@ import Message from '../../../components/Message';
 import moment from 'moment';
 import { isMobile } from '../../../utils/deviceHelper';
 import Button from '../Button';
+import { GAODE_SEARCH_PREFIX } from '../../../constants/globals';
 
 interface TravelHotelProps {
 	travelhotel: ITravelHotel;
@@ -15,6 +16,10 @@ interface TravelHotelProps {
 }
 
 export default class TravelHotelCard extends React.PureComponent<TravelHotelProps, {}> {
+  onViewMap = (address: string) => {
+    window.open(`${GAODE_SEARCH_PREFIX}${address}`);
+	}
+	
 	render() {
 		const { travelhotel } = this.props;
 		return (
@@ -43,7 +48,7 @@ export default class TravelHotelCard extends React.PureComponent<TravelHotelProp
 							<Icon type="bank" style={{ marginRight: '19px' }} />
 							<span style={{ marginRight: '10px' }}>{travelhotel.address}</span>
 						</div>
-						<span className={styles.viewMap}>{Message('VIEW_MAP')}</span>
+						<Button type='link' className={styles.viewMap} onClick={() => this.onViewMap(travelhotel.address || '')}>{Message('VIEW_MAP')}</Button>
 					</Row>
 					{
 						travelhotel.contacts ?
