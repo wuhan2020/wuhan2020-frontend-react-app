@@ -26,9 +26,7 @@ export default class ClinicCard extends React.PureComponent<ClinicCardProps, {}>
     const {clinic} = this.props;
 
     return (
-      <Card className={styles.elementsClinicCard} bodyStyle={{padding: '20px'}}
-        style={{width: '100%', height: '340px', background: '#FFFFFF',
-        boxShadow: '0px 1px 4px rgba(0, 0, 0, 0.2)', borderRadius: '5px'}}>
+      <Card className={styles.elementsClinicCard} bodyStyle={{padding: '20px'}}>
         <div className={styles.contentWrapper}>
           <div className={styles.name}>{clinic.name}</div>
           <div className={styles.subtitle}>
