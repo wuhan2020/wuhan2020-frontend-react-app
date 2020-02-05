@@ -21,11 +21,11 @@ export default class TravelHotelCard extends React.PureComponent<TravelHotelProp
 						<Icon type="right-circle" />
 					</Row>
 					<Row className={styles.lineInfo + ' ' + styles.greyFont}>
-						{travelhotel.city ? 
+						{travelhotel.city ?
 						<div style={{ marginRight: '20px' }}>
 							{travelhotel.city.split('-').map((el) => <span>{el}</span>)}
 						</div>
-						: null} 
+						: null}
 						{
 							travelhotel.date ? <div>
 								发布于{new Date(travelhotel.date).getFullYear()}年
@@ -34,7 +34,7 @@ export default class TravelHotelCard extends React.PureComponent<TravelHotelProp
 								</div>
 							: null
 						}
-						
+
 					</Row>
 					<Row style={{ fontSize: '16px', marginBottom: '10px' }}>
 						<Icon type="bank" style={{ marginRight: '19px' }} />
@@ -42,7 +42,7 @@ export default class TravelHotelCard extends React.PureComponent<TravelHotelProp
 						<span className={styles.viewMap}>查看地图</span>
 					</Row>
 					{
-						travelhotel.contacts ? 
+						travelhotel.contacts ?
 							<Row style={{ fontSize: '16px' }}>
 							<Icon type="phone" style={{ marginRight: '19px' }} />
 							{travelhotel.contacts[0].name ? (
@@ -52,7 +52,7 @@ export default class TravelHotelCard extends React.PureComponent<TravelHotelProp
 							</Row>
 						: null
 					}
-					
+
 				</div>
 			</Card>
 		);

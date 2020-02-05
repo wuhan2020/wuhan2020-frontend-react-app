@@ -37,8 +37,20 @@ const TravelHotelReducer: Reducer<TravelHotelState> = (
   act
 ) => {
   if (isActionType(act, Actions.FetchHotelsAction)) {
+    const { selectedProvince, selectedCity, searchedText } = state;
+    const hotels = _.filter(hotelData, hotel => {
+      const provinceFilter = selectedProvince
+        ? hotel.province === selectedProvince
+        : true;
+      const cityFilter = selectedCity ? hotel.city === selectedCity : true;
+      const textFilter = searchedText
+        ? _.includes(JSON.stringify(hotel), searchedText)
+        : true;
+
+      return provinceFilter && cityFilter && textFilter;
+    });
     return Object.assign({}, state, {
-      hotelList: []
+      hotelList: hotels
     });
   } else if (isActionType(act, Actions.FetchProvincesAction)) {
     return Object.assign({}, state, {
@@ -70,6 +82,7 @@ const TravelHotelReducer: Reducer<TravelHotelState> = (
       })
     });
   } else if (isActionType(act, Actions.ChangeFilterAction)) {
+    const { selectedProvince, selectedCity, searchedText } = state;
     return Object.assign({}, state, act.filter);
   }
 

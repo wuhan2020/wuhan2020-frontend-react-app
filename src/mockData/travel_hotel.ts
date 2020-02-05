@@ -1136,7 +1136,7 @@ const hotelData:ITravelHotel[] = [
     city: "西安市-灞桥区",
     contacts: [{ name: "", tel: "029-62739000" }],
     address: "-",
-    name: null,
+    name: "-",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
     remark:
@@ -1148,7 +1148,7 @@ const hotelData:ITravelHotel[] = [
     city: "西安市-未央区",
     contacts: [{ name: "", tel: "029-89572210\n029-86278488" }],
     address: "-",
-    name: null,
+    name: "-",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
     remark:

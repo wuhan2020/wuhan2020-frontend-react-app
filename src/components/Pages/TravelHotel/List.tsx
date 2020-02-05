@@ -57,17 +57,6 @@ class TravelHotelList extends React.PureComponent<Props, {}> {
                 const { key, title } = config;
                 return (
                   <TabPane key={key} tab={title}>
-                    <section className={styles.listWrapper}>
-                      <Row style={{maxWidth: '100%'}} type='flex'>
-                        {hotelData.map((hotel, index) => {
-                          return (
-                            <Col style={{maxWidth: '100%'}} key={`travelhotel_${index}`} lg={8} sm={24}>
-                              <TravelHotelCard history={this.props.history} travelhotel={hotel} />
-                            </Col>
-                          );
-                        })}
-                      </Row>
-                    </section>
                     <TravelHotelContext />
                   </TabPane>
                 );

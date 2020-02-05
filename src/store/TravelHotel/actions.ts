@@ -34,11 +34,7 @@ export class FetchCitiesAction extends StrongAction {
 export interface Actions {
   fetchProvinces();
   fetchCities(province: string);
-  fetchHotels(filter: {
-    selectedProvince?: string;
-    selectedCity?: string;
-    searchedText?: string;
-  });
+  fetchHotels();
   changeFilter(filter: {
     selectedProvince?: string;
     selectedCity?: string;
@@ -57,20 +53,16 @@ export const actionCreators = {
       dispatch(new FetchCitiesAction(province));
     };
   },
-  fetchHotels: (filter: {
-    selectedProvince?: string;
-    selectedCity?: string;
-    searchedText?: string;
-  }): any => {
+  fetchHotels() {
     return dispatch => {
-      dispatch(new FetchHotelsAction(filter));
+      dispatch(new FetchHotelsAction());
     };
   },
-  changeFilter: (filter: {
+  changeFilter(filter: {
     selectedProvince?: string;
     selectedCity?: string;
     searchedText?: string;
-  }): any => {
+  }) {
     return dispatch => {
       dispatch(new ChangeFilterAction(filter));
     };
