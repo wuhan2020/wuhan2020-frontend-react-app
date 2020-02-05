@@ -34,3 +34,8 @@ export interface ITravelHotel {
   url?: string,
   remark?: string | null,
 }
+
+export interface IOption {
+  key: string,
+  value: string,
+}

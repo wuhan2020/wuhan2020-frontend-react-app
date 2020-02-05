@@ -18,20 +18,56 @@ export class FetchHotelsAction extends StrongAction {
     super();
   }
 }
+@typeName("FETCH_PROVINCES" + SUFFIX)
+export class FetchProvincesAction extends StrongAction {
+  constructor() {
+    super();
+  }
+}
+@typeName("FETCH_CITIES" + SUFFIX)
+export class FetchCitiesAction extends StrongAction {
+  constructor(public province = "") {
+    super();
+  }
+}
+
+export interface Actions {
+  fetchProvinces();
+  fetchCities(province: string);
+  fetchHotels(filter: {
+    selectedProvince?: string;
+    selectedCity?: string;
+    searchedText?: string;
+  });
+  changeFilter(filter: {
+    selectedProvince?: string;
+    selectedCity?: string;
+    searchedText?: string;
+  });
+}
 
 export const actionCreators = {
+  fetchProvinces() {
+    return dispatch => {
+      dispatch(new FetchProvincesAction());
+    };
+  },
+  fetchCities(province) {
+    return dispatch => {
+      dispatch(new FetchCitiesAction(province));
+    };
+  },
   fetchHotels: (filter: {
-    selectedProvice?: string;
+    selectedProvince?: string;
     selectedCity?: string;
     searchedText?: string;
   }): any => {
     return dispatch => {
       dispatch(new FetchHotelsAction(filter));
     };
-    return hotelData as ITravelHotel[];
   },
   changeFilter: (filter: {
-    selectedProvice?: string;
+    selectedProvince?: string;
     selectedCity?: string;
     searchedText?: string;
   }): any => {
