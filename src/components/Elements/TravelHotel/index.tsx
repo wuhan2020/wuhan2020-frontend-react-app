@@ -31,6 +31,9 @@ export default class TravelHotelCard extends React.PureComponent<
     }
   };
 
+  openPanel = () => {
+  }
+
   render() {
     const { travelhotel } = this.props;
     return (
@@ -38,7 +41,7 @@ export default class TravelHotelCard extends React.PureComponent<
         <div className={styles.contentWrapper}>
           <Row className={styles.lineInfo}>
             <div className={styles.name}>{travelhotel.name}</div>
-            <Icon type="right-circle" />
+            <Icon type="right-circle" onClick={this.openPanel}/>
           </Row>
           <Row className={styles.lineInfo + " " + styles.greyFont}>
             {travelhotel.city ? (
@@ -50,9 +53,7 @@ export default class TravelHotelCard extends React.PureComponent<
             ) : null}
             {travelhotel.date ? (
               <div>
-                发布于{new Date(travelhotel.date).getFullYear()}年
-                {new Date(travelhotel.date).getMonth() + 1}月
-                {new Date(travelhotel.date).getDate()}日
+                {moment(new Date(travelhotel.date)).format('YYYY年MM月DD日')}
               </div>
             ) : null}
           </Row>
@@ -64,7 +65,7 @@ export default class TravelHotelCard extends React.PureComponent<
             </span>
           </Row>
           {travelhotel.contacts ? (
-            <Row style={{ fontSize: "16px" }}>
+            <Row className={styles.telLine + ' ' + styles.telLineOpen}>
               <Icon type="phone" style={{ marginRight: "19px" }} />
               {travelhotel.contacts[0].name ? (
                 <span style={{ marginRight: "10px" }}>
@@ -74,6 +75,25 @@ export default class TravelHotelCard extends React.PureComponent<
               <span>{travelhotel.contacts[0].tel}</span>
             </Row>
           ) : null}
+          <Row style={{ fontSize: "16px", color: '#000',}}>
+            <div style={{marginBottom: '10px'}}>免费可接待一线医护人员</div>
+            <div className={styles.freeContact}>
+              <div className={styles.contactProfile + ' ' + styles.contactPosition}>
+                <Icon type="user" className={styles.freeContactIcon}/>
+                <div>
+                  <div className={styles.cardPanel}>可接待</div>
+                  <div>人</div>
+                </div>
+              </div>
+              <div className={styles.contactProfile}>
+                <Icon type="home" className={styles.freeContactIcon}/>
+                <div>
+                  <div className={styles.cardPanel}>可提供房间</div>
+                  <div>人</div>
+                </div>
+              </div>
+            </div>
+          </Row>
         </div>
       </Card>
     );
