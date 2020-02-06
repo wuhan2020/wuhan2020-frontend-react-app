@@ -5,7 +5,7 @@ import { URLS } from "../../../constants/urls";
 import { Row, Col } from "antd";
 import Button from "../Button";
 import { withRouter, RouteComponentProps } from "react-router";
-import { IconMainIcon } from "../../../components/Icons";
+import { IconLogoWhiteImg } from "../../../components/Icons";
 
 interface Props extends RouteComponentProps {
 
@@ -67,11 +67,12 @@ class Footer extends React.PureComponent<Props, {}>
 		return (
 			<div className={styles.elementsFooter}>
         <Row type='flex' justify='space-between' style={{width: '100%'}}>
-          <IconMainIcon width={100} height={100} />
+          <IconLogoWhiteImg width={100} height={100} />
           <div className={styles.siteMap}>
             <Row className={styles.siteMapItemWrapper} type='flex'>
               {items.map((item, index) => {
                 return <Button
+                  theme='white'
                   style={{flex: '0 0 auto'}}
                   key={`footer_item_${index}`}
                   className='grey'

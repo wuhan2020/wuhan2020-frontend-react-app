@@ -32,6 +32,7 @@ export const IconLogo = Icon(require('../images/icons/logo.svg'));
 export const IconLogoOrange = Icon(require('../images/icons/logo-orange.svg'));
 export const IconLogoWhite = Icon(require('../images/icons/logo-white.svg'));
 export const IconMainIcon = Icon(require('../images/icons/icon.svg'));
+export const IconLogoWhiteImg = Icon(require('../images/icons/logo-white-img.svg'));
 
 export enum IconNames
 {
@@ -53,5 +54,7 @@ export const renderIcon = (name: IconNames, width: string, height: string, class
 			return <IconLogoWhite className={className} width={width} height={height} />;
 		case (IconNames.MAIN_ICON):
 			return <IconMainIcon className={className} width={width} height={height} />;
+		case (IconNames.MAIN_ICON):
+			return <IconLogoWhiteImg className={className} width={width} height={height} />;
 	}
 }
