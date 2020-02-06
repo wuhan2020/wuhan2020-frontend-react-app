@@ -30,6 +30,9 @@ interface ConnectedProps {
 }
 
 interface ContentState {
+  selectedProvince: string;
+  selectedCity: string;
+  searchedText: string;
   current: number;
   pageSize: number;
   total: number;
@@ -45,6 +48,9 @@ class TravelHotelContext extends React.PureComponent<
   constructor(props: InternalProps) {
     super(props);
     this.state = {
+      selectedProvince: "",
+      selectedCity: "",
+      searchedText: "",
       current: 1,
       pageSize: 6,
       total: 0
@@ -68,17 +74,36 @@ class TravelHotelContext extends React.PureComponent<
     nextProps: InternalProps,
     prevState: ContentState
   ) {
-    const { hotelList } = nextProps;
+    const {
+      hotelList,
+      selectedProvince,
+      selectedCity,
+      searchedText
+    } = nextProps;
     const { current, pageSize } = prevState;
     const newList = hotelList.slice(
       (current - 1) * pageSize,
       current * pageSize
     );
-
-    return {
+    const newState = {
+      selectedProvince,
+      selectedCity,
+      searchedText,
       showedHotels: newList,
       total: hotelList.length
     };
+
+    if (
+      selectedProvince !== prevState.selectedProvince ||
+      selectedCity !== prevState.selectedCity ||
+      searchedText !== searchedText
+    ) {
+      Object.assign(newState, {
+        current: 1
+      });
+    }
+
+    return newState;
   }
 
   onHotelFilterChange = province => {

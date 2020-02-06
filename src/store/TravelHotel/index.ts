@@ -63,7 +63,9 @@ const TravelHotelReducer: Reducer<TravelHotelState> = (
       const provinceFilter = selectedProvince
         ? hotel.province === selectedProvince
         : true;
-      const cityFilter = selectedCity ? hotel.city === selectedCity : true;
+      const cityFilter = selectedCity
+        ? _.includes(hotel.city, selectedCity)
+        : true;
       const textFilter = searchedText
         ? _.includes(JSON.stringify(hotel), searchedText)
         : true;
