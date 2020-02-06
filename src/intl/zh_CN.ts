@@ -11,7 +11,6 @@ const zh_CN: ILocalization = {
 
 	CLINIC: '医院',
 	CLINIC_PAGE_TITLE: '医院急需物资',
-  COLLAPSE_DONATE_INFO: '收起官方捐款信息',
 	CONTACT_METHODS: '联系方式',
 	COPIED_TO_CLIPBOARD: '已复制到粘贴板',
 	COPY: '复制',
@@ -23,7 +22,6 @@ const zh_CN: ILocalization = {
   DONATE_REMARK: '捐赠备注',
 
 	EPIDEMIC_LIVE: '疫情',
-  EXPAND_DONATE_INFO: '查看官方捐款信息',
 
   DONATE_METHODS_TITLE: '接受捐款方式',
   DONATE_PAGE_SUBTITLE: '这里总结了所有审核过的接受为武汉捐款的组织',
@@ -46,7 +44,7 @@ const zh_CN: ILocalization = {
 	NEED_HELP: "我需要帮助",
 	NEW_DEMAND: '发布需求',
 	NEWS_FEED: '动态',
-  NO_BANK_ACCOUNT: '暂无银行信息',
+  NO_EXTRA_INFO: '暂无其他信息',
   NO_CONTACT: '暂无联系信息',
 	NONE: '暂无',
 
@@ -80,6 +78,7 @@ const zh_CN: ILocalization = {
 	VIEW_DETAIL: '查看详情',
 	VIEW_MAP: '查看地图',
 	VIEW_OFFICIAL_INFO: '查看官方信息',
+  VIEW_OFFICIAL_DONATE_INFO: '查看官方捐款信息',
 	VIEW_SOURCE: '查看来源',
 
 	WANNA_CONTRIBUTE: '我想贡献力量',
