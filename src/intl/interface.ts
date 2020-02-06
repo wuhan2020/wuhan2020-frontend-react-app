@@ -42,8 +42,11 @@ interface ILocalization extends Record<string, string>
 	PREVENTION_AND_TREATMENT: string;
 	PRODUCTION: string;
 
+	SEARCH_CITIES: string;
 	SEARCH_CLINIC: string;
 	SEARCH_CONSULTATION: string;
+	SEARCH_PROVINCES: string;
+	SEARCH_TRAVEL_HOTEL: string;
 	SEARCH_LOGISTICS: string;
 	SEND_FROM: string;
 	SEND_TO: string;
@@ -52,6 +55,7 @@ interface ILocalization extends Record<string, string>
 
 	THIS_CLINIC: string;
 	TRAVEL_HOTEL: string;
+	TRAVEL_HOTEL_PAGE_TITLE: string;
 
 	UNLIMITED: string;
 

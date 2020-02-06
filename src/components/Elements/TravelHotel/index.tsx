@@ -4,6 +4,11 @@ import Card from "../Card";
 import { ITravelHotel } from "../../../types/interfaces";
 import { History } from "history";
 import { Icon, Row } from "antd";
+import Message from "../../../components/Message";
+import moment from "moment";
+import { isMobile } from "../../../utils/deviceHelper";
+import Button from "../Button";
+import { GAODE_SEARCH_PREFIX } from "../../../constants/globals";
 
 interface TravelHotelProps {
   travelhotel: ITravelHotel;
@@ -16,19 +21,14 @@ export default class TravelHotelCard extends React.PureComponent<
 > {
   openMap = () => {
     const { travelhotel } = this.props;
-		const { address = "", province = "", city="", name="" }  = travelhotel;
+    const { address = "", province = "", city = "", name = "" } = travelhotel;
 
-    if (address && address !== '-') {
-      window.open(
-        ["https://ditu.amap.com/search?query=", address].join("")
-      );
-    }else if(name && name!== '-'){
-			const address = [province, city, name].join(" ");
-
-			window.open(
-        ["https://ditu.amap.com/search?query=", address].join("")
-      );
-		}
+    if (address && address !== "-") {
+      window.open(`${GAODE_SEARCH_PREFIX}${address}`);
+    } else if (name && name !== "-") {
+      const address = [province, city, name].join(" ");
+      window.open(`${GAODE_SEARCH_PREFIX}${address}`);
+    }
   };
 
   render() {

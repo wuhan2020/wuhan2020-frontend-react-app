@@ -4,9 +4,9 @@ import AppReducer from './App';
 import ClinicReducer from './Clinic';
 import DonateReducer from './Donate';
 import LogisticReducer from './Logistics';
-
-import TravelHotelReducer from './TravelHotel';
 import freeConsultationReducer from './FreeConsultations';
+import LiveMapReducer from './LiveMap';
+import TravelHotelReducer from './TravelHotel';
 
 export const allReducers = combineReducers({
   app: AppReducer,
@@ -16,6 +16,7 @@ export const allReducers = combineReducers({
   routing: routerReducer,
   freeConsultation: freeConsultationReducer,
   logistics: LogisticReducer,
+  liveMap: LiveMapReducer,
 });
 
 export type IApplicationState = ReturnType<typeof allReducers>;

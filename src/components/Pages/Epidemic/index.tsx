@@ -7,11 +7,37 @@ import { IApplicationState } from "../../../store";
 import { withRouter, RouteComponentProps } from "react-router";
 import { Layout } from "antd";
 import { HierarchicalVirusMap } from 'wuhan2020-mapviz';
-import {data} from '../../../mockData/Epidemic';
 import { isMobile } from "../../../utils/deviceHelper";
+import { actionCreators, Actions } from "../../../store/LiveMap/actions";
+import { convertProvincesSeries, convertCountry, convertCountrySeries } from "../../../utils/isacclin";
+
+const patch = [
+  {
+    "provinceName": "青海省",
+    "provinceShortName": "青海",
+    "confirmedCount": 1,
+    "suspectedCount": 0,
+    "curedCount": 0,
+    "deadCount": 0,
+    "comment": "",
+    "cities": [
+      {
+        "cityName": "西宁",
+        "confirmedCount": 1,
+        "suspectedCount": 0,
+        "curedCount": 0,
+        "deadCount": 0
+      }
+    ],
+    "country": "中国",
+    "updateTime": 1580001790159
+  }
+]
 
 interface ConnectedProps {
-	loading: boolean;
+  actions: Actions;
+  loading: boolean;
+  data: any;
 }
 
 interface Props extends RouteComponentProps {
@@ -22,7 +48,12 @@ const { Content } = Layout;
 const RESOLUTION = 3600000 * 24;
 class Epidemic extends React.PureComponent<Props, {}>
 {
-	public props: ConnectedProps & Props;
+  public props: ConnectedProps & Props;
+  
+  componentWillMount() {
+    this.props.actions.fetchData();
+  }
+
 	componentDidMount() {
 	}
 
@@ -32,6 +63,17 @@ class Epidemic extends React.PureComponent<Props, {}>
 
 	render()
 	{
+    if (!this.props.data) return (
+			<Layout style={{backgroundColor: '#fff', flex: '1 0 auto', minHeight: 'unset'}}>
+        <Content></Content>
+      </Layout>
+    );
+    console.log(this.props.data);
+    const data = {
+      provincesSeries: convertProvincesSeries([...this.props.data['history'], ...patch], RESOLUTION, true),
+      countrySeries: convertCountrySeries(this.props.data['overall'], RESOLUTION),
+      countryData: convertCountry(this.props.data['current']),
+    }
 		return (
 			<Layout style={{backgroundColor: '#fff', flex: '1 0 auto', minHeight: 'unset'}}>
 				<Content>
@@ -49,7 +91,8 @@ class Epidemic extends React.PureComponent<Props, {}>
 const mapStateToProps = (state: IApplicationState) =>
 {
 	return {
-		loading: state.app.loading,
+    loading: state.app.loading,
+    data: state.liveMap.data,
 	};
 };
 
@@ -58,8 +101,9 @@ const mapActionsToProps = dispatch =>
 	return {
 		actions: bindActionCreators(
 			{
+        ...actionCreators,
 			},
-			dispatch
+			dispatch,
 		),
 	};
 };

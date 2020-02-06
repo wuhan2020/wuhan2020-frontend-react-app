@@ -7702,12 +7702,14 @@ ws@^6.2.1:
   dependencies:
     async-limiter "~1.0.0"
 
-wuhan2020-mapviz@1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/wuhan2020-mapviz/-/wuhan2020-mapviz-1.0.7.tgz#0c4dcbccb9841082ac5efa2afef329794b1c633e"
-  integrity sha512-3AFvsjMf4gd/IgRIXr4gCVvtHWZ225tkunCpqRDas0R8YPEbksIbPePRCH4im8lsCbUccHzs3JptDJVZs+34BQ==
+wuhan2020-mapviz@1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/wuhan2020-mapviz/-/wuhan2020-mapviz-1.0.8.tgz#f377fc510022b6ba711b883f5e6570f54cc5a901"
+  integrity sha512-/9jluOO00mxsSTiUjBopYohJQ4ezX+KHjRPd/ydTRztbhDtNwQq2ukyRkdKxFTHKbfVWxvDwzw2JKcgk//sKWw==
   dependencies:
     echarts "^4.6.0"
+    react "^16.12.0"
+    react-dom "^16.12.0"
 
 xml2js@0.4.17:
   version "0.4.17"

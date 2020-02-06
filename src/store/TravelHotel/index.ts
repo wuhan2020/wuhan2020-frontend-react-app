@@ -82,7 +82,7 @@ const TravelHotelReducer: Reducer<TravelHotelState> = (
           key: province,
           value: province
         } as IOption;
-      })
+      }),
     });
   } else if (isActionType(act, Actions.FetchCitiesAction)) {
     const { province } = act;

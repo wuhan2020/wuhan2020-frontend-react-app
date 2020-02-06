@@ -93,3 +93,16 @@ export default connect(
   mapStateToProps,
   mapActionsToProps
 )(withRouter(TravelHotelList));
+
+/*
+
+            <Tabs tabBarStyle={{width: '100%'}}>
+              {_.map(tabConfig, config => {
+                const { key, title } = config;
+                return (
+                  <TabPane key={key} tab={title}>
+                  </TabPane>
+                );
+              })}
+            </Tabs>
+*/

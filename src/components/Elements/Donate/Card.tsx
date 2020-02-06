@@ -58,7 +58,7 @@ class DonateCard extends React.PureComponent<DonateCardProps, {}> {
   onBankAccountClick = (str: string) => {
     copyStringToClipboard(str);
     message.success(this.props.intl.formatMessage({ id: 'COPIED_TO_CLIPBOARD' }));
-  }
+  };
 
   renderExpandSection() {
     const { donate } = this.props;
@@ -67,7 +67,13 @@ class DonateCard extends React.PureComponent<DonateCardProps, {}> {
       return;
     }
     if (!donate.bankAccounts || donate.bankAccounts.length <= 0) {
-      return <div>{Message('NO_BANK_ACCOUNT')}</div>;
+      return <div className={styles.expandList}>
+        <section className={styles.expandListSection}>
+          <div className={styles.expandItem}>
+            <div className={styles.expandItemValue}>{Message('NO_EXTRA_INFO')}</div>
+          </div>
+        </section>
+      </div>;
     }
     return <div className={styles.expandList}>
       {
@@ -101,14 +107,22 @@ class DonateCard extends React.PureComponent<DonateCardProps, {}> {
 
   render() {
     const { donate } = this.props;
+    const { expanded } = this.state;
     return (
       <Card className={styles.elementsDonateCard} key={`donate_${donate.id}`}>
         <div className={styles.contentWrapper}>
+          <div className={styles.expandButtonWrapper}>
+            <Button type='link' onClick={this.onToggleExpand}
+                    theme='black'
+                    style={{transform: `rotate(${expanded ? 90 : 0 }deg)`, transition: '0.3s ease'}}>
+              <Icon type="right-circle" style={{fontSize: '24px'}} />
+            </Button>
+          </div>
           <Row gutter={16}>
-            <Col md={14} xs={24}>
-            <Button style={{padding: 0}} type='link' target='_blank' theme='black' className={styles.title} href={donate.name}>    {donate.name}</Button>
+            <Col md={14} xs={22}>
+              <div className={styles.title}>{donate.name}</div>
               <div className={styles.subtitle}>{donate.date || Message('POSTED_JUST_NOW')}</div>
-              <div className={styles.contactList}>{this.renderContactList()}</div>
+              <section className={styles.contactList}>{this.renderContactList()}</section>
             </Col>
             <Col md={10} xs={24}>
               <div style={{marginBottom: '12px'}}>{Message('DONATE_METHODS_TITLE')}</div>
@@ -132,13 +146,11 @@ class DonateCard extends React.PureComponent<DonateCardProps, {}> {
               </div>
             </Col>
           </Row>
-
-          <section className={styles.expand}>
-            <Button type='link' theme='main' onClick={this.onToggleExpand}>
-              {this.state.expanded ? Message('COLLAPSE_DONATE_INFO') : Message('EXPAND_DONATE_INFO')}
+          <section className={styles.readMore}>
+            <Button type='link' theme='main' target='_blank' href={donate.url}>
+              {Message('VIEW_OFFICIAL_DONATE_INFO')}
             </Button>
           </section>
-
           {
             this.renderExpandSection()
           }

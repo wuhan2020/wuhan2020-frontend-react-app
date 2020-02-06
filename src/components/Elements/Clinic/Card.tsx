@@ -47,7 +47,8 @@ export default class ClinicCard extends React.PureComponent<ClinicCardProps, {}>
           <Button
             onClick={this.onViewDetailClick}
             style={{alignSelf: 'center', width: '89px', height: '28px', fontSize: '12px', marginTop: '26px', marginBottom: '6px'}}
-            type='primary' block={false}>
+            type='ghost'
+            shape='round'>
               {Message('VIEW_DETAIL')}
             </Button>
         </div>

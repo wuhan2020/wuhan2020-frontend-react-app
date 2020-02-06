@@ -1,7 +1,6 @@
-
-@import '../../colors';
-@import '../../fonts';
-@import '../../media';
+@import "../../colors";
+@import "../../fonts";
+@import "../../media";
 
 $travel-hotel-list-namespace: "pageTravelHotelList";
 
@@ -15,30 +14,33 @@ $travel-hotel-list-namespace: "pageTravelHotelList";
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;;
+    justify-content: space-between;
 
     .title {
       color: $black0;
-      font-size: $px30;
+      font-size: $px46;
       margin-bottom: 27px;
     }
   }
-  .hotelContainer{
-    .filter{
-      margin-bottom: 10px;
+
+  .hotelContainer {
+    .filter {
+      margin-bottom: 30px;
     }
-    .selectField{
+    .selectField {
       min-width: 120px;
+      width: 100%;
+      margin-bottom: 20px;
     }
-    .searchInput{
-      width: 100%
+    .searchInput {
+      width: 100%;
     }
-    .listWrapper{
-      .cardCol{
+    .listWrapper {
+      .cardCol {
         padding: 5px;
       }
     }
-    .pagination{
+    .pagination {
       padding-right: 5px;
       text-align: right;
     }

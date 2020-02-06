@@ -31,3 +31,9 @@ export const getLogistics = (link: string): Promise<ILogistic[]> => {
 
   return HttpManager.getInstance().get(url);
 }
+
+export const getMapData = (filename: string): Promise<any> => {
+  const url = `map-viz/${filename}.json`;
+
+  return HttpManager.getInstance().get(url);
+}
