@@ -27,7 +27,6 @@ export default class TravelHotelCard extends React.PureComponent<TravelHotelProp
 				<div className={styles.contentWrapper}>
 					<Row className={styles.lineInfo}>
 						<div className={styles.name}>{travelhotel.name}</div>
-						<Icon type="right-circle" />
 					</Row>
 					<Row style={{ marginBottom: '10px'}} className={styles.lineInfo + ' ' + styles.greyFont}>
 						{travelhotel.city ?
