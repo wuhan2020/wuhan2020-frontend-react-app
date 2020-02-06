@@ -3,13 +3,14 @@ import * as _ from "lodash";
 import { IApplicationState } from "../../../store";
 import { bindActionCreators } from "redux";
 import styles from "../../../styles/pages/travel-hotel/list.module.scss";
+import Message from "../../Message";
 import {
   actionCreators,
   Actions as TravelHotelActions
 } from "../../../store/TravelHotel/actions";
 import { withRouter, RouteComponentProps } from "react-router";
 import { connect } from "react-redux";
-import { Row, Col, Layout, Tabs, Input } from "antd";
+import { Row, Col, Layout, Tabs, Input, Pagination } from "antd";
 import Select from "../../../components/Elements/Select";
 import Option from "../../../components/Elements/Select/Option";
 import { IOption, ITravelHotel } from "../../../types/interfaces";
@@ -30,9 +31,33 @@ interface ConnectedProps {
   intl: IntlShape;
 }
 
+interface ContentState {
+  selectedProvince: string;
+  selectedCity: string;
+  searchedText: string;
+  current: number;
+  pageSize: number;
+  total: number;
+  showedHotels: ITravelHotel[];
+}
+
 type InternalProps = ConnectedProps & RouteComponentProps;
 
-class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
+class TravelHotelContext extends React.PureComponent<
+  InternalProps,
+  ContentState
+> {
+  constructor(props: InternalProps) {
+    super(props);
+    this.state = {
+      selectedProvince: "",
+      selectedCity: "",
+      searchedText: "",
+      current: 1,
+      pageSize: 6,
+      total: 0
+    } as ContentState;
+  }
   static defaultProps: Partial<InternalProps> = {
     selectedProvince: "",
     selectedCity: "",
@@ -42,15 +67,63 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
     hotelList: [] as ITravelHotel[]
   };
 
+  componentDidMount() {
+    this.props.actions.fetchProvinces();
+    this.props.actions.fetchHotels();
+  }
+
+  static getDerivedStateFromProps(
+    nextProps: InternalProps,
+    prevState: ContentState
+  ) {
+    const {
+      hotelList,
+      selectedProvince,
+      selectedCity,
+      searchedText
+    } = nextProps;
+    const { current, pageSize } = prevState;
+    const newList = hotelList.slice(
+      (current - 1) * pageSize,
+      current * pageSize
+    );
+    const newState = {
+      selectedProvince,
+      selectedCity,
+      searchedText,
+      showedHotels: newList,
+      total: hotelList.length
+    };
+
+    if (
+      selectedProvince !== prevState.selectedProvince ||
+      selectedCity !== prevState.selectedCity ||
+      searchedText !== searchedText
+    ) {
+      Object.assign(newState, {
+        current: 1
+      });
+    }
+
+    return newState;
+  }
+
   onHotelFilterChange = province => {
     this.props.actions.changeFilter({
       selectedProvince: province,
       selectedCity: ""
     });
     this.props.actions.fetchCities(province);
+    this.fetchHotels({
+      selectedProvince: province,
+      selectedCity: ""
+    });
   };
   onCityFilterChange = city => {
     this.props.actions.changeFilter({
+      selectedCity: city
+    });
+    this.fetchHotels({
       selectedCity: city
     });
   };
@@ -60,21 +133,25 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
     this.props.actions.changeFilter({
       searchedText: value
     });
-    this.fetchHotels();
+    this.fetchHotels({
+      searchedText: value
+    });
   };
 
-  fetchHotels = _.debounce(() => {
-    this.props.actions.fetchHotels();
+  fetchHotels = _.debounce(filter => {
+    this.props.actions.fetchHotels(filter);
   }, 500);
 
   onSearch = () => {
     this.props.actions.fetchHotels();
   };
 
-  componentDidMount() {
-    this.props.actions.fetchProvinces();
-    this.props.actions.fetchHotels();
-  }
+  handleChangePage = (page, pageSize) => {
+    this.setState({
+      current: page,
+      pageSize
+    });
+  };
 
   render() {
     const {
@@ -85,6 +162,7 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
       cityList,
       hotelList
     } = this.props;
+    const { current, pageSize, total, showedHotels } = this.state;
 
     return (
       <div className={styles.hotelContainer}>
@@ -128,7 +206,9 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
               <Search
                 className={styles.searchInput}
                 value={searchedText}
-                placeholder={this.props.intl.formatMessage({id: 'SEARCH_TRAVEL_HOTEL'})}
+                placeholder={this.props.intl.formatMessage({
+                  id: "SEARCH_TRAVEL_HOTEL"
+                })}
                 onChange={this.onTextChange}
                 onSearch={this.onSearch}
                 style={{ width: 200 }}
@@ -138,17 +218,23 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
           </Row>
         </div>
         <div className={styles.listWrapper}>
-          <Row style={{ maxWidth: "100%", marginBottom: '30px' }} type="flex" gutter={isMobile ? 0 : 30}>
-            {_.map(hotelList, (hotel, index) => {
+          <Row
+            style={{ maxWidth: "100%", marginBottom: "30px" }}
+            type="flex"
+            gutter={isMobile ? 0 : 30}
+          >
+            {_.map(showedHotels, (hotel, index) => {
               return (
                 <Col
-                  style={{ maxWidth: "100%", marginBottom: '30px' }}
-                  key={`travelhotel_${index}`}
+                  style={{padding: '5px'}}
+                  className={styles.cardCol}
+                  key={`travelhotel_col_${index}`}
                   lg={8}
                   sm={24}
                   xs={24}
                 >
                   <TravelHotelCard
+                    key={`travelhotel_${index}`}
                     history={this.props.history}
                     travelhotel={hotel}
                   />
@@ -156,6 +242,14 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
               );
             })}
           </Row>
+        </div>
+        <div className={styles.pagination}>
+          <Pagination
+            current={current}
+            pageSize={pageSize}
+            total={total}
+            onChange={this.handleChangePage}
+          />
         </div>
       </div>
     );

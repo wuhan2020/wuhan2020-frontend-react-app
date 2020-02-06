@@ -70,6 +70,11 @@ const zh_CN: ILocalization = {
 
 	THIS_CLINIC: '本院',
 	TRAVEL_HOTEL: '指定接待酒店',
+	TRAVEL_HOTEL_TITLE: '住宿',
+	TRAVEL_HOTEL_DEVELOPING: '正在开发中...',
+	TRAVEL_HOTEL_PROVINCE: '选择省份',
+	TRAVEL_HOTEL_CITY: '选择城市',
+	TRAVEL_HOTEL_SEARCH: '搜索酒店',
 	TRAVEL_HOTEL_PAGE_TITLE: '湖北省在指定接待酒店',
 
 	UNLIMITED: '不限',
@@ -82,6 +87,7 @@ const zh_CN: ILocalization = {
 	VIEW_SOURCE: '查看来源',
 
 	WANNA_CONTRIBUTE: '我想贡献力量',
+
   WECHAT: '微信',
 }
-export default zh_CN;  
+export default zh_CN;
