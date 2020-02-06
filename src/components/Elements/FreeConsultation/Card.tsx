@@ -36,7 +36,7 @@ export default class FreeConsultationCard extends React.PureComponent<FreeConsul
                   <Button type='link' href={data.url} target='_blank'>{Message('VIEW_OFFICIAL_INFO')}</Button>
                 </div>
                 {data.contacts[0] && data.contacts[0].tel ? <div className={styles.infoItem}>
-                  <Icon type="mobile" />
+                  <Icon type="phone" />
                   <div className={styles.phone}>{data.contacts.length > 0 ? this.formatTels(data.contacts as Array<{ tel: string}>) : ""}</div>
                   {isMobile ? <Button type='link' href={`tel:${data.contacts[0].tel}`}>{Message('DIAL_PHONE')}</Button> : null}
                 </div> : null}
