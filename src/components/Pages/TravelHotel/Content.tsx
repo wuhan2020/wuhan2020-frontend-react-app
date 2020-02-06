@@ -151,7 +151,7 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
             {_.map(hotelList, (hotel, index) => {
               return (
                 <Col
-                  style={{ maxWidth: "100%" }}
+                  className={styles.cardCol}
                   key={`travelhotel_col_${index}`}
                   lg={8}
                   sm={24}

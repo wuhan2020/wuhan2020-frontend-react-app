@@ -33,5 +33,10 @@ $travel-hotel-list-namespace: "pageTravelHotelList";
     .searchInput{
       width: 100%
     }
+    .listWrapper{
+      .cardCol{
+        padding: 5px;
+      }
+    }
   }
 }
