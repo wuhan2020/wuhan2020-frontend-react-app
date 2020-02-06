@@ -32,7 +32,7 @@ export default class TravelHotelCard extends React.PureComponent<TravelHotelProp
 					<Row style={{ marginBottom: '10px'}} className={styles.lineInfo + ' ' + styles.greyFont}>
 						{travelhotel.city ?
 						<div style={{ marginRight: '20px' }}>
-							{travelhotel.city.split('-').map((el) => <span>{el}</span>)}
+							{travelhotel.city.split('-').map((el) => <span >{el}</span>)}
 						</div>
 						: null}
 						{
@@ -45,7 +45,7 @@ export default class TravelHotelCard extends React.PureComponent<TravelHotelProp
 					</Row>
 					<Row type='flex' style={{ fontSize: '16px', marginBottom: '10px' }}>
 						<div className={styles.addressWrapper}>
-							<Icon type="bank" style={{ marginRight: '19px' }} />
+							<Icon type="bank" style={{ marginRight: '10px' }} />
 							<span style={{ marginRight: '10px' }}>{travelhotel.address}</span>
 						</div>
 						<Button type='link' className={styles.viewMap} onClick={() => this.onViewMap(travelhotel.address || '')}>{Message('VIEW_MAP')}</Button>
@@ -53,12 +53,20 @@ export default class TravelHotelCard extends React.PureComponent<TravelHotelProp
 					{
 						travelhotel.contacts ?
 							<Row style={{ fontSize: '16px' }}>
-							<Icon type="phone" style={{ marginRight: '19px' }} />
-							{travelhotel.contacts[0].name ? (
-								<span style={{ marginRight: '10px' }}>{travelhotel.contacts[0].name}</span>
-							) : null}
-							{!isMobile ? <span>{travelhotel.contacts[0].tel}</span> : null}
-							{isMobile ? <Button type='link' href={`tel:${travelhotel.contacts[0].tel}`}>{travelhotel.contacts[0].tel}</Button> : null}
+							<Icon type="phone" style={{ marginRight: '10px' }} />
+							{
+								travelhotel.contacts.filter(contact => contact.name).map((contact, index) => {
+									return (
+										<span key={`travel_hotel_contact_name_${index}`} style={{ marginRight: index !== 0 ? '0' : '10px' }}>{contact.name}</span>
+									)
+								})
+							}
+							{
+								travelhotel.contacts.filter(contact => contact.tel).map((contact, index)  => {
+									return isMobile ? <span  style={{ marginRight: index !== 0 ? '0' : '10px' }} key={`travel_hotel_contact_tel_${index}_mobile`}>{contact.tel}</span> : <Button key={`travel_hotel_contact_tel_${index}_no_mobile`} style={{ marginRight: index !== 0 ? '0' : '10px' }} type='link' href={`tel:${contact.tel}`}>{contact.tel}</Button>
+								})				
+							}
+			
 							</Row>
 						: null
 					}
