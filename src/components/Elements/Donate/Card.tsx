@@ -77,8 +77,8 @@ class DonateCard extends React.PureComponent<DonateCardProps, {}> {
     }
     return <div className={styles.expandList}>
       {
-        donate.bankAccounts.map((bankAccount: IDonateBankAccount) => {
-          return <section className={styles.expandListSection}>
+        donate.bankAccounts.map((bankAccount: IDonateBankAccount, i: number) => {
+          return <section className={styles.expandListSection} key={`donate_${donate.id}_bankAccount_${i}`}>
             <div className={styles.expandItem}>
               <div className={styles.expandItemLabel}>{Message('BANK_ACCOUNT_BRANCH')}</div>
               <div className={styles.expandItemValue}>{bankAccount.bank}</div>
