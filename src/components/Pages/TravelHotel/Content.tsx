@@ -10,7 +10,7 @@ import {
 } from "../../../store/TravelHotel/actions";
 import { withRouter, RouteComponentProps } from "react-router";
 import { connect } from "react-redux";
-import { Row, Col, Layout, Tabs, Input } from "antd";
+import { Row, Col, Layout, Tabs, Input, Pagination } from "antd";
 import Select from "../../../components/Elements/Select";
 import Option from "../../../components/Elements/Select/Option";
 import { hotelData } from "../../../mockData/travel_hotel";
@@ -29,9 +29,27 @@ interface ConnectedProps {
   actions: TravelHotelActions;
 }
 
+interface ContentState {
+  current: number;
+  pageSize: number;
+  total: number;
+  showedHotels: ITravelHotel[];
+}
+
 type InternalProps = ConnectedProps & RouteComponentProps;
 
-class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
+class TravelHotelContext extends React.PureComponent<
+  InternalProps,
+  ContentState
+> {
+  constructor(props: InternalProps) {
+    super(props);
+    this.state = {
+      current: 1,
+      pageSize: 6,
+      total: 0
+    } as ContentState;
+  }
   static defaultProps: Partial<InternalProps> = {
     selectedProvince: "",
     selectedCity: "",
@@ -40,6 +58,28 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
     cityList: [] as IOption[],
     hotelList: [] as ITravelHotel[]
   };
+
+  componentDidMount() {
+    this.props.actions.fetchProvinces();
+    this.props.actions.fetchHotels();
+  }
+
+  static getDerivedStateFromProps(
+    nextProps: InternalProps,
+    prevState: ContentState
+  ) {
+    const { hotelList } = nextProps;
+    const { current, pageSize } = prevState;
+    const newList = hotelList.slice(
+      (current - 1) * pageSize,
+      current * pageSize
+    );
+
+    return {
+      showedHotels: newList,
+      total: hotelList.length
+    };
+  }
 
   onHotelFilterChange = province => {
     this.props.actions.changeFilter({
@@ -71,7 +111,7 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
     });
   };
 
-  fetchHotels = _.debounce((filter) => {
+  fetchHotels = _.debounce(filter => {
     this.props.actions.fetchHotels(filter);
   }, 500);
 
@@ -79,10 +119,12 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
     this.props.actions.fetchHotels();
   };
 
-  componentDidMount() {
-    this.props.actions.fetchProvinces();
-    this.props.actions.fetchHotels();
-  }
+  handleChangePage = (page, pageSize) => {
+    this.setState({
+      current: page,
+      pageSize
+    });
+  };
 
   render() {
     const {
@@ -93,6 +135,7 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
       cityList,
       hotelList
     } = this.props;
+    const { current, pageSize, total, showedHotels } = this.state;
 
     return (
       <div className={styles.hotelContainer}>
@@ -148,7 +191,7 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
         </div>
         <div className={styles.listWrapper}>
           <Row style={{ maxWidth: "100%" }} type="flex">
-            {_.map(hotelList, (hotel, index) => {
+            {_.map(showedHotels, (hotel, index) => {
               return (
                 <Col
                   className={styles.cardCol}
@@ -165,6 +208,14 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
               );
             })}
           </Row>
+        </div>
+        <div className={styles.pagination}>
+          <Pagination
+            current={current}
+            pageSize={pageSize}
+            total={total}
+            onChange={this.handleChangePage}
+          />
         </div>
       </div>
     );
