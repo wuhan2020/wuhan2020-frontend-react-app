@@ -70,7 +70,7 @@ const zh_CN: ILocalization = {
 
 	THIS_CLINIC: '本院',
 	TRAVEL_HOTEL: '指定接待酒店',
-	TRAVEL_HOTEL_PAGE_TITLE: '湖北省在指定接待酒店',
+	TRAVEL_HOTEL_PAGE_TITLE: '湖北省在外旅客指定接待酒店',
 
 	UNLIMITED: '不限',
 

@@ -1,36 +1,62 @@
 import { Reducer } from "redux";
-import * as React from "react";
 import * as Actions from "./actions";
 import * as _ from "lodash";
 import { isActionType } from "../../common/StrongAction";
 import { IOption } from "../../types/interfaces";
 import { hotelData } from "../../mockData/travel_hotel";
 
-import { ITravelHotel, IContact } from "../../types/interfaces";
+import { ITravelHotel } from "../../types/interfaces";
+
+function generateProvinceMap() {
+  const provinceMap: any = {
+    [DEFAULT_PROVINCE.key]: DEFAULT_PROVINCE,
+  };
+  hotelData.forEach((hotel: ITravelHotel) => {
+    const { province, city } = hotel;
+    if (!provinceMap[province]) {
+      provinceMap[province] = {
+        key: province,
+        value: province,
+        cityMap: {
+          [DEFAULT_CITY.key]: DEFAULT_CITY,
+        },
+        cityList: [],
+      };
+    }
+    provinceMap[province].cityMap[city] = {
+      key: city,
+      value: city,
+    };
+  });
+  Object.values(provinceMap).forEach((province: any) => {
+    const { cityMap = {} } = province;
+    province.cityList = Object.values(cityMap);
+  });
+  return provinceMap;
+}
+
+export const DEFAULT_CITY = {key: '全部市区', value: '全部市区'};
+export const DEFAULT_PROVINCE = {key: '全部省份', value: '全部省份', cityList: [DEFAULT_CITY]};
+const provinceMap: any = generateProvinceMap();
+const provinceList = Object.values(provinceMap);
 
 export interface TravelHotelState {
   selectedProvince: string;
   selectedCity: string;
   searchedText: string;
-  provinceList: Array<IOption>;
-  cityList: Array<IOption>;
+  provinceList: IOption[];
+  cityList: IOption[];
   hotelList: ITravelHotel[];
 }
 
 export const initialTravelHotelState: TravelHotelState = {
-  selectedProvince: "",
-  selectedCity: "",
+  selectedProvince: DEFAULT_PROVINCE.key,
+  selectedCity: DEFAULT_CITY.key,
   searchedText: "",
-  provinceList: [],
-  cityList: [],
+  provinceList: [DEFAULT_PROVINCE],
+  cityList: [DEFAULT_CITY],
   hotelList: [] as ITravelHotel[]
 };
-
-const provinces = _.uniq(
-  _.map(hotelData, item => {
-    return item.province;
-  })
-);
 
 const TravelHotelReducer: Reducer<TravelHotelState> = (
   state: TravelHotelState,
@@ -39,14 +65,9 @@ const TravelHotelReducer: Reducer<TravelHotelState> = (
   if (isActionType(act, Actions.FetchHotelsAction)) {
     const { selectedProvince, selectedCity, searchedText } = state;
     const hotels = _.filter(hotelData, hotel => {
-      const provinceFilter = selectedProvince
-        ? hotel.province === selectedProvince
-        : true;
-      const cityFilter = selectedCity ? hotel.city === selectedCity : true;
-      const textFilter = searchedText
-        ? _.includes(JSON.stringify(hotel), searchedText)
-        : true;
-
+      const provinceFilter = selectedProvince === DEFAULT_PROVINCE.key || hotel.province === selectedProvince;
+      const cityFilter = selectedCity === DEFAULT_CITY.key || hotel.city === selectedCity;
+      const textFilter = !searchedText || _.includes(JSON.stringify(hotel), searchedText);
       return provinceFilter && cityFilter && textFilter;
     });
     return Object.assign({}, state, {
@@ -54,35 +75,18 @@ const TravelHotelReducer: Reducer<TravelHotelState> = (
     });
   } else if (isActionType(act, Actions.FetchProvincesAction)) {
     return Object.assign({}, state, {
-      provinceList: _.map(provinces, province => {
-        return {
-          key: province,
-          value: province
-        } as IOption;
-      }),
+      provinceList,
     });
   } else if (isActionType(act, Actions.FetchCitiesAction)) {
-    const { province } = act;
-    const cities = _.uniq(
-      _.map(
-        _.filter(hotelData, item => {
-          return (item.province = province);
-        }),
-        obj => {
-          return obj.city;
-        }
-      )
-    );
+    if (!provinceMap[act.province]) {
+      return Object.assign({}, state, {
+        cityList: [DEFAULT_CITY],
+      });
+    }
     return Object.assign({}, state, {
-      cityList: _.map(cities, city => {
-        return {
-          key: city,
-          value: city
-        } as IOption;
-      })
+      cityList: provinceMap[act.province].cityList,
     });
   } else if (isActionType(act, Actions.ChangeFilterAction)) {
-    const { selectedProvince, selectedCity, searchedText } = state;
     return Object.assign({}, state, act.filter);
   }
 

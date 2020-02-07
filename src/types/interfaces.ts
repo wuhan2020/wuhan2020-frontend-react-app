@@ -40,11 +40,6 @@ export interface IContact {
   tel?: string;
 }
 
-export interface IContacts {
-  name: string;
-  tel: string;
-}
-
 export interface IFreeConsultation {
   name: string;
   url: string;
@@ -55,14 +50,14 @@ export interface IFreeConsultation {
 }
 export interface ITravelHotel {
   id: number,
-  province?: string,
-  city?: string,
-  contacts?: IContact[],
-  address?: string,
-  name?: string | null,
-  date?: string,
-  url?: string,
-  remark?: string | null,
+  province: string,
+  city: string,
+  contacts: IContact[],
+  address: string,
+  name: string,
+  date: string,
+  url: string,
+  remark: string,
 }
 
 export interface IOption {

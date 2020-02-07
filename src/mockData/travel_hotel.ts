@@ -10,7 +10,7 @@ const hotelData:ITravelHotel[] = [
     name: "维也纳智好酒店机场店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 1,
@@ -21,7 +21,7 @@ const hotelData:ITravelHotel[] = [
     name: "昆明云水星际大酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ const hotelData:ITravelHotel[] = [
     name: "紫光大酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ const hotelData:ITravelHotel[] = [
     name: "云康国际大酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 4,
@@ -54,7 +54,7 @@ const hotelData:ITravelHotel[] = [
     name: "蓝天里花园酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 5,
@@ -65,7 +65,7 @@ const hotelData:ITravelHotel[] = [
     name: "昆明市文化和旅游局",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 6,
@@ -79,7 +79,7 @@ const hotelData:ITravelHotel[] = [
     name: "昭通市文化和旅游局",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 7,
@@ -90,7 +90,7 @@ const hotelData:ITravelHotel[] = [
     name: "曲靖市文化和旅游局",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 8,
@@ -104,7 +104,7 @@ const hotelData:ITravelHotel[] = [
     name: "玉溪市文化和旅游局",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 9,
@@ -115,7 +115,7 @@ const hotelData:ITravelHotel[] = [
     name: "保山市文化和旅游局",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 10,
@@ -126,7 +126,7 @@ const hotelData:ITravelHotel[] = [
     name: "望澜宾馆",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 11,
@@ -137,7 +137,7 @@ const hotelData:ITravelHotel[] = [
     name: "腾冲空港观光酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 12,
@@ -148,7 +148,7 @@ const hotelData:ITravelHotel[] = [
     name: "腾冲市万家灯火酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 13,
@@ -159,7 +159,7 @@ const hotelData:ITravelHotel[] = [
     name: "楚雄州文化和旅游局",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 14,
@@ -170,7 +170,7 @@ const hotelData:ITravelHotel[] = [
     name: "紫云酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 15,
@@ -181,7 +181,7 @@ const hotelData:ITravelHotel[] = [
     name: "红河州文化和旅游局",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 16,
@@ -192,7 +192,7 @@ const hotelData:ITravelHotel[] = [
     name: "天马大酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 17,
@@ -203,7 +203,7 @@ const hotelData:ITravelHotel[] = [
     name: "红河州农业科技培训服务中心",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 18,
@@ -214,7 +214,7 @@ const hotelData:ITravelHotel[] = [
     name: "开远市委党校宾馆",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 19,
@@ -225,7 +225,7 @@ const hotelData:ITravelHotel[] = [
     name: "金周温泉酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 20,
@@ -236,7 +236,7 @@ const hotelData:ITravelHotel[] = [
     name: "金利大酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 21,
@@ -247,7 +247,7 @@ const hotelData:ITravelHotel[] = [
     name: "建水陶窝窝度假酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 22,
@@ -258,7 +258,7 @@ const hotelData:ITravelHotel[] = [
     name: "天恒酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 23,
@@ -269,7 +269,7 @@ const hotelData:ITravelHotel[] = [
     name: "侨乡园酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 24,
@@ -280,7 +280,7 @@ const hotelData:ITravelHotel[] = [
     name: "元阳红叶温泉酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 25,
@@ -291,7 +291,7 @@ const hotelData:ITravelHotel[] = [
     name: "全胜宾馆",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 26,
@@ -302,7 +302,7 @@ const hotelData:ITravelHotel[] = [
     name: "绿宝西隆酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 27,
@@ -313,7 +313,7 @@ const hotelData:ITravelHotel[] = [
     name: "河口滇南大酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 28,
@@ -324,7 +324,7 @@ const hotelData:ITravelHotel[] = [
     name: "大围山休闲度假酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 29,
@@ -335,7 +335,7 @@ const hotelData:ITravelHotel[] = [
     name: "文山州文化和旅游局",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 30,
@@ -346,7 +346,7 @@ const hotelData:ITravelHotel[] = [
     name: "诗达酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 31,
@@ -357,7 +357,7 @@ const hotelData:ITravelHotel[] = [
     name: "西双版纳州文化和旅游局",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 32,
@@ -368,7 +368,7 @@ const hotelData:ITravelHotel[] = [
     name: "景兰会展大酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 33,
@@ -379,7 +379,7 @@ const hotelData:ITravelHotel[] = [
     name: "勐腊温水休闲酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 34,
@@ -390,7 +390,7 @@ const hotelData:ITravelHotel[] = [
     name: "世全宾馆",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 35,
@@ -401,7 +401,7 @@ const hotelData:ITravelHotel[] = [
     name: "大理州文化和旅游局",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 36,
@@ -412,7 +412,7 @@ const hotelData:ITravelHotel[] = [
     name: "金沙半岛海景养生酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 37,
@@ -423,7 +423,7 @@ const hotelData:ITravelHotel[] = [
     name: "普洱市文化和旅游局",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 38,
@@ -434,7 +434,7 @@ const hotelData:ITravelHotel[] = [
     name: "圣安迪大酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 39,
@@ -445,7 +445,7 @@ const hotelData:ITravelHotel[] = [
     name: "普洱西凤大酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 40,
@@ -456,7 +456,7 @@ const hotelData:ITravelHotel[] = [
     name: "德宏州文化和旅游局",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 41,
@@ -467,7 +467,7 @@ const hotelData:ITravelHotel[] = [
     name: "芒市滇缅大酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 42,
@@ -478,7 +478,7 @@ const hotelData:ITravelHotel[] = [
     name: "福康招待所",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 43,
@@ -489,7 +489,7 @@ const hotelData:ITravelHotel[] = [
     name: "丽江市文化和旅游局",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 44,
@@ -500,7 +500,7 @@ const hotelData:ITravelHotel[] = [
     name: "大港旺宝酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 45,
@@ -511,7 +511,7 @@ const hotelData:ITravelHotel[] = [
     name: "琦萍酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 46,
@@ -522,7 +522,7 @@ const hotelData:ITravelHotel[] = [
     name: "丽庭酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 47,
@@ -533,7 +533,7 @@ const hotelData:ITravelHotel[] = [
     name: "王朝大酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 48,
@@ -544,7 +544,7 @@ const hotelData:ITravelHotel[] = [
     name: "宁蒗大酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 49,
@@ -555,7 +555,7 @@ const hotelData:ITravelHotel[] = [
     name: "怒江州文化和旅游局",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 50,
@@ -566,7 +566,7 @@ const hotelData:ITravelHotel[] = [
     name: "怒江大酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 51,
@@ -577,7 +577,7 @@ const hotelData:ITravelHotel[] = [
     name: "迪庆州文化和旅游局",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 52,
@@ -588,7 +588,7 @@ const hotelData:ITravelHotel[] = [
     name: "唐香嘉秀酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 53,
@@ -599,7 +599,7 @@ const hotelData:ITravelHotel[] = [
     name: "临沧市文化和旅游局",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 54,
@@ -610,7 +610,7 @@ const hotelData:ITravelHotel[] = [
     name: "云晨大酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 55,
@@ -644,7 +644,7 @@ const hotelData:ITravelHotel[] = [
     name: "南宁市菩提山庄",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 58,
@@ -655,7 +655,7 @@ const hotelData:ITravelHotel[] = [
     name: "南宁市银林山庄",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 59,
@@ -678,7 +678,7 @@ const hotelData:ITravelHotel[] = [
     name: "旅泰商务酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 61,
@@ -689,7 +689,7 @@ const hotelData:ITravelHotel[] = [
     name: "嘉愉假日酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 62,
@@ -703,7 +703,7 @@ const hotelData:ITravelHotel[] = [
     name: "中英国际酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 63,
@@ -714,7 +714,7 @@ const hotelData:ITravelHotel[] = [
     name: "南油迎宾馆",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 64,
@@ -725,7 +725,7 @@ const hotelData:ITravelHotel[] = [
     name: "本舍",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 65,
@@ -739,7 +739,7 @@ const hotelData:ITravelHotel[] = [
     name: "丽波公寓",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 66,
@@ -750,7 +750,7 @@ const hotelData:ITravelHotel[] = [
     name: "螺岗小镇",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 67,
@@ -761,7 +761,7 @@ const hotelData:ITravelHotel[] = [
     name: "汇景湾度假村",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 68,
@@ -772,7 +772,7 @@ const hotelData:ITravelHotel[] = [
     name: "裕康度假村",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 69,
@@ -783,7 +783,7 @@ const hotelData:ITravelHotel[] = [
     name: "华侨假日大酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 70,
@@ -794,7 +794,7 @@ const hotelData:ITravelHotel[] = [
     name: "徐闻县华通酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 71,
@@ -820,7 +820,7 @@ const hotelData:ITravelHotel[] = [
     name: "长沙市疾控中心",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 73,
@@ -831,7 +831,7 @@ const hotelData:ITravelHotel[] = [
     name: "芙蓉区防病工作领导小组办公室",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 74,
@@ -842,7 +842,7 @@ const hotelData:ITravelHotel[] = [
     name: "芙蓉区疾控中心",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 75,
@@ -853,7 +853,7 @@ const hotelData:ITravelHotel[] = [
     name: "天心区防病工作领导小组办公室",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 76,
@@ -864,7 +864,7 @@ const hotelData:ITravelHotel[] = [
     name: "天心区疾控中心",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 77,
@@ -875,7 +875,7 @@ const hotelData:ITravelHotel[] = [
     name: "岳麓区防病工作领导小组办公室",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 78,
@@ -886,7 +886,7 @@ const hotelData:ITravelHotel[] = [
     name: "岳麓区疾控中心",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 79,
@@ -897,7 +897,7 @@ const hotelData:ITravelHotel[] = [
     name: "开福区防病工作领导小组办公室",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 80,
@@ -908,7 +908,7 @@ const hotelData:ITravelHotel[] = [
     name: "开福区疾控中心",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 81,
@@ -919,7 +919,7 @@ const hotelData:ITravelHotel[] = [
     name: "雨花区防病工作领导小组办公室",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 82,
@@ -930,7 +930,7 @@ const hotelData:ITravelHotel[] = [
     name: "雨花区疾控中心",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 83,
@@ -941,7 +941,7 @@ const hotelData:ITravelHotel[] = [
     name: "望城区防病工作领导小组办公室",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 84,
@@ -952,7 +952,7 @@ const hotelData:ITravelHotel[] = [
     name: "望城区疾控中心",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 85,
@@ -963,7 +963,7 @@ const hotelData:ITravelHotel[] = [
     name: "长沙县防病工作领导小组办公室",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 86,
@@ -974,7 +974,7 @@ const hotelData:ITravelHotel[] = [
     name: "长沙县疾控中心",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 87,
@@ -985,7 +985,7 @@ const hotelData:ITravelHotel[] = [
     name: "浏阳市防病工作领导小组办公室",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 88,
@@ -996,7 +996,7 @@ const hotelData:ITravelHotel[] = [
     name: "浏阳市疾控中心",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 89,
@@ -1007,7 +1007,7 @@ const hotelData:ITravelHotel[] = [
     name: "宁乡市防病工作领导小组办公室",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 90,
@@ -1018,7 +1018,7 @@ const hotelData:ITravelHotel[] = [
     name: "宁乡市疾控中心",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 91,
@@ -1041,7 +1041,7 @@ const hotelData:ITravelHotel[] = [
     name: "波翼酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 93,
@@ -1052,7 +1052,7 @@ const hotelData:ITravelHotel[] = [
     name: "空翼酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 94,
@@ -1063,7 +1063,7 @@ const hotelData:ITravelHotel[] = [
     name: "佳捷商务酒店",
     date: "2020-01-27T16:00:00.000Z",
     url: "http://wlj.wuhan.gov.cn/html/gsgg/20200128/13301.html",
-    remark: null
+    remark: ""
   },
   {
     id: 95,
