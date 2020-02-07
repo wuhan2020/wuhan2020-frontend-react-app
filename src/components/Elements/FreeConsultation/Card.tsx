@@ -32,7 +32,7 @@ export default class FreeConsultationCard extends React.PureComponent<FreeConsul
                 </div>
                 {data.contacts[0] && data.contacts[0].tel ? <div className={styles.infoItem}>
                   <Icon type="mobile" />
-                  <div className={styles.phone}>{data.contacts.length > 0 ? data.contacts[0].tel : ""}</div>
+                  <span className={styles.phone}>{data.contacts.length > 0 ? data.contacts[0].tel : ""}</span>
                   {isMobile ? <Button type='link' href={`tel:${data.contacts[0].tel}`}>{Message('DIAL_PHONE')}</Button> : null}
                 </div> : null}
             </section>

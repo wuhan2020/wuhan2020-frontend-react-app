@@ -3,7 +3,7 @@
     @import '../../fonts';
     $freeConsultation-card-namespace: "elementsFreeConsultationListCard";
     .#{$freeConsultation-card-namespace} {
-        height: 210px;
+        min-height: 210px;
         margin-bottom: 24px !important;
         border-radius: 10px !important;
         justify-content: space-between !important;
@@ -33,65 +33,42 @@
                     margin-top: 8px;
                 }
             }
-            .main {
+            .contactInfo {
+                flex: 0 0 auto;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
-                height: 100%;
-                .generalInfo {
-                    .title {
-                        color: $black0;
-                        font-size: $px24;
-                    }
-                    .date {
-                        font-size: $px14;
-                        color: $grey3;
-                    }
-                    .detail {
-                        color: $black0;
-                        font-size: $px16;
-                        margin-top: 8px;
-                    }
+                margin-top: 16px;
+                @include mobile-and-smaller() {
+                    flex-direction: column;
                 }
-                .contactInfo {
-                    flex: 0 0 auto;
+                .info {
                     display: flex;
                     flex-direction: row;
+                }
+                .phone {
+                    display: flex;
+                    flex-direction: row;
+                    margin-left: 16px;
+                    align-items: center;
+                }
+                .infoItem {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: row;
+                    &:last-child:not(:first-child) {
+                        margin-top: 16px;
+                    }
                     @include mobile-and-smaller() {
+                        margin-top: 16px;
+                    }
+                    i {
+                        display: flex;
                         flex-direction: column;
-                    }
-                    .info {
-                        display: flex;
-                        flex-direction: row;
-                    }
-                    .phone {
-                        display: flex;
-                        flex-direction: row;
-                        margin-left: 16px;
                         align-items: center;
-                    }
-                    .infoItem {
-                        display: flex;
-                        flex-direction: row;
-                        align-items: row;
-                        &:last-child:not(:first-child) {
-                            margin-left: 16px;
-                            @include mobile-and-smaller() {
-                                margin-left: 0;
-                                margin-top: 16px;
-                            }
-                        }
-                        @include mobile-and-smaller() {
-                            margin-top: 16px;
-                        }
-                        i {
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            justify-content: center;
-                            color: rgba(0, 0, 0, 0.65);
-                            font-size: 24px;
-                        }
+                        justify-content: center;
+                        color: rgba(0, 0, 0, 0.65);
+                        font-size: 24px;
+                        margin-right: 16px;
                     }
                 }
             }

@@ -5,8 +5,9 @@ $free-consultation-list-namespace: "pageFreeConsultationList";
 .#{$free-consultation-list-namespace} {
     display: flex;
     flex-direction: column;
+    height: 100%;
     width: 100%;
-    padding: 40px;
+    padding: 20px;
     flex: 1 1 auto;
     @include mobile-and-smaller() {
         align-items: center;
