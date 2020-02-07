@@ -10,14 +10,15 @@ import { HierarchicalVirusMap } from 'wuhan2020-mapviz';
 import { isMobile } from "../../../utils/deviceHelper";
 import { actionCreators as liveMapActionCreators, Actions as LiveMapActions } from "../../../store/LiveMap/actions";
 import { actionCreators as donateActionCreators, Actions as DonateActions } from "../../../store/Donate/actions";
+import { actionCreators as travelHotelActionCreators, Actions as TravelHotelActions } from "../../../store/TravelHotel/actions";
 import { convertProvincesSeries, convertCountry, convertCountrySeries } from "../../../utils/isacclin";
-import { IconDoctor, IconGuidebook, IconRenminPaper, IconQinghuaLogo, IconHomeBottomBanner, IconDonation, IconGift, IconFactory } from "../../../components/Icons";
+import { IconDoctor, IconGuidebook, IconRenminPaper, IconQinghuaLogo, IconHomeBottomBanner, IconDonation, IconGift, IconFactory, IconHotel } from "../../../components/Icons";
 import Button from "../../../components/Elements/Button";
 import { URLS } from "../../../constants/urls";
 import { RENMIN_PAPER_OFFICIAL, QINGHUA_OFFICIAL, COMMUNITY_HOME } from "../../../constants/globals";
 import Card from "../../../components/Elements/Card";
 import { AppState } from "../../../store/App";
-import { IDonate } from "../../../types/interfaces";
+import { IDonate, ITravelHotel } from "../../../types/interfaces";
 
 const patch = [
   {
@@ -43,11 +44,12 @@ const patch = [
 ]
 
 interface ConnectedProps {
-  actions: LiveMapActions & DonateActions;
+  actions: LiveMapActions & DonateActions & TravelHotelActions;
   loading: boolean;
   data: any;
   app: AppState;
   donateList: IDonate[];
+  hotelList: ITravelHotel[];
 }
 
 interface Props extends RouteComponentProps {
@@ -63,6 +65,9 @@ class Home extends React.PureComponent<Props, {}>
   componentWillMount() {
     this.props.actions.fetchData();
     this.props.app.dataSource && this.props.actions.fetchDonateList(this.props.app.dataSource['donation']);
+    // @todo - use data source to fetch hotel data, check related comments under
+    // `src/store/TravelHotel/index.ts`
+    this.props.actions.fetchHotels();
   }
 
 	componentDidMount() {
@@ -95,11 +100,17 @@ class Home extends React.PureComponent<Props, {}>
   onViewMore = () => {
     this.props.history.push(URLS.EPIDEMIC_LIVE);
   }
+  onViewTravelHotel = () => {
+    this.props.history.push(URLS.TRAVEL_HOTEL);
+  }
 
 	render()
 	{
-    const {donateList} = this.props;
+    const {donateList, hotelList} = this.props;
+    // @todo - make this more elegant with selector?? for now it might be fine since we know that the arrays aint empty
     const renderedDonation = [donateList[0], donateList[1], donateList[2]];
+    const renderHotels = [hotelList[0], hotelList[1], hotelList[2], hotelList[3], hotelList[4]];
+
     if (!this.props.data) return (
 			<Layout style={{backgroundColor: '#fff', flex: '1 0 auto', minHeight: 'unset'}}>
         <Content></Content>
@@ -195,11 +206,36 @@ class Home extends React.PureComponent<Props, {}>
             </section>
             <section className={styles.contentSection}>
               <div className={styles.header}>
+                <div className={styles.title}>{Message('HOME_HOTEL_TITLE')}</div>
+              </div>
+              <Row type='flex' justify='center'>
+                <Col lg={8} md={12} sm={24} xs={24}>
+                  <Card className={styles.infoCard}>
+                    <header>
+                      <IconHotel />
+                      <div className={styles.text}>{Message('HOME_TRAVEL_HOTEL_TITLE')}</div>
+                    </header>
+                    <main>
+                      <div className={styles.content}>
+                        {renderHotels.map((h, index) => {
+                          return (
+                            <div key={h.id} className={styles.lightRow}>{h.name}</div>
+                          )
+                        })}
+                      </div>
+                      <Button onClick={this.onViewTravelHotel} type='link'>{Message('VIEW_MORE')}&nbsp;></Button>
+                    </main>
+                  </Card>
+                </Col>
+              </Row>
+            </section>
+            <section className={styles.contentSection}>
+              <div className={styles.header}>
                 <div className={styles.title}>{Message('HOME_CONTRIBUTE_TITLE')}</div>
               </div>
               <Row gutter={isMobile ? 0 : 24}>
                 <Col lg={8} md={24} sm={24} xs={24}>
-                  <Card className={styles.contributeCard}>
+                  <Card className={styles.infoCard}>
                     <header>
                       <IconDonation />
                       <div className={styles.text}>{Message('DONATE_MONEY')}</div>
@@ -218,7 +254,7 @@ class Home extends React.PureComponent<Props, {}>
                   </Card>
                 </Col>
                 <Col lg={8} md={24} sm={24} xs={24}>
-                  <Card className={styles.contributeCard}>
+                  <Card className={styles.infoCard}>
                     <header>
                       <IconGift />
                       <div className={styles.text}>{Message('DONATE_SUPPLIES')}</div>
@@ -232,7 +268,7 @@ class Home extends React.PureComponent<Props, {}>
                   </Card>
                 </Col>
                 <Col lg={8} md={24} sm={24} xs={24}>
-                  <Card className={styles.contributeCard}>
+                  <Card className={styles.infoCard}>
                     <header>
                       <IconFactory />
                       <div className={styles.text}>{Message('PRODUCTION')}</div>
@@ -246,11 +282,6 @@ class Home extends React.PureComponent<Props, {}>
                   </Card>
                 </Col>
               </Row>
-            </section>
-            <section className={styles.contentSection}>
-              <div className={styles.header}>
-                <div className={styles.title}>{Message('HOME_HOTEL_TITLE')}</div>
-              </div>
             </section>
             <section className={styles.banner}>
               <IconHomeBottomBanner />
@@ -274,6 +305,7 @@ const mapStateToProps = (state: IApplicationState) =>
     data: state.liveMap.data,
     app: state.app,
     donateList: state.donate.list,
+    hotelList: state.travelHotel.hotelList,
 	};
 };
 
@@ -284,6 +316,7 @@ const mapActionsToProps = dispatch =>
 			{
         ...liveMapActionCreators,
         ...donateActionCreators,
+        ...travelHotelActionCreators,
 			},
 			dispatch,
 		),

@@ -38,6 +38,7 @@ const zh_CN: ILocalization = {
 	HOME_CONTRIBUTE_TITLE: '贡献力量',
 	HOME_HOTEL_TITLE: '住宿帮助',
 	HOME_OVERVIEW_TITLE: '疫情概况',
+	HOME_TRAVEL_HOTEL_TITLE: '武汉在外人士住宿',
 	HOSPITAL_SUPPLY_DETAIL: '医院物资详情',
 	HOTEL: '酒店',
 
@@ -92,6 +93,7 @@ const zh_CN: ILocalization = {
 	VIEW_DONATION: '查看全部捐款渠道',
 	VIEW_HOSPITALS: '查看全部医院需求',
 	VIEW_MAP: '查看地图',
+	VIEW_MORE: '查看更多',
 	VIEW_OFFICIAL_INFO: '查看官方信息',
 	VIEW_OFFICIAL_DONATE_INFO: '查看官方捐款信息',
 	VIEW_PREVENTION: '预防与隔离指南',

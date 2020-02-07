@@ -1,7 +1,4 @@
-import * as React from "react";
 import { typeName, StrongAction } from "../../common/StrongAction";
-import { ITravelHotel } from "../../types/interfaces";
-import { hotelData } from "../../mockData/travel_hotel";
 
 const SUFFIX = "__HOTEL";
 

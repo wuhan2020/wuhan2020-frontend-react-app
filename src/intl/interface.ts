@@ -27,6 +27,7 @@ interface ILocalization extends Record<string, string>
 	HOME_CONTRIBUTE_TITLE: string;
 	HOME_HOTEL_TITLE: string;
 	HOME_OVERVIEW_TITLE: string;
+	HOME_TRAVEL_HOTEL_TITLE: string;
 	HOSPITAL_SUPPLY_DETAIL: string;
 	HOTEL: string;
 
@@ -78,6 +79,7 @@ interface ILocalization extends Record<string, string>
 	VIEW_DONATION: string;
 	VIEW_HOSPITALS: string;
 	VIEW_MAP: string;
+	VIEW_MORE: string;
 	VIEW_OFFICIAL_INFO: string;
 	VIEW_PREVENTION: string;
 	VIEW_PRODUCTION: string;

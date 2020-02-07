@@ -64,6 +64,10 @@ const TravelHotelReducer: Reducer<TravelHotelState> = (
 ) => {
   if (isActionType(act, Actions.FetchHotelsAction)) {
     const { selectedProvince, selectedCity, searchedText } = state;
+    // @todo - this part is ridiculous that we are mixing data source in state tree,
+    // we need to refactor this to fetch data in action, and dispatch update action to push data
+    // into state tree...
+    // Please check other pages' implementation about how to fetch data correctly and cleanly.
     const hotels = _.filter(hotelData, hotel => {
       const provinceFilter = selectedProvince === DEFAULT_PROVINCE.key || hotel.province === selectedProvince;
       const cityFilter = selectedCity === DEFAULT_CITY.key || hotel.city === selectedCity;
