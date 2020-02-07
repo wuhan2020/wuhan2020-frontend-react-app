@@ -34,6 +34,7 @@ interface ILocalization extends Record<string, string>
 	INFO_SUBMISSION: string;
 	INTERNATIONAL: string;
 
+	LATEST_SUPPLIES: string;
 	LATEST_DONATION: string;
 	LOGISTICS: string;
 	LOGISTICS_TITLE: string;

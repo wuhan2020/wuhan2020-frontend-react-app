@@ -38,13 +38,14 @@ const zh_CN: ILocalization = {
 	HOME_CONTRIBUTE_TITLE: '贡献力量',
 	HOME_HOTEL_TITLE: '住宿帮助',
 	HOME_OVERVIEW_TITLE: '疫情概况',
-	HOME_TRAVEL_HOTEL_TITLE: '武汉在外人士住宿',
+	HOME_TRAVEL_HOTEL_TITLE: '湖北在外人士住宿',
 	HOSPITAL_SUPPLY_DETAIL: '医院物资详情',
 	HOTEL: '酒店',
 
 	INTERNATIONAL: '国际',
 	INFO_SUBMISSION: '发布信息',
 
+	LATEST_SUPPLIES: '医院最新物资需求（已核实）',
 	LATEST_DONATION: '最新捐款渠道（已核实）',
 	LOGISTICS: '物流',
 	LOGISTICS_TITLE: '物流方案',

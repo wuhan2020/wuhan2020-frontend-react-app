@@ -11,6 +11,7 @@ import { isMobile } from "../../../utils/deviceHelper";
 import { actionCreators as liveMapActionCreators, Actions as LiveMapActions } from "../../../store/LiveMap/actions";
 import { actionCreators as donateActionCreators, Actions as DonateActions } from "../../../store/Donate/actions";
 import { actionCreators as travelHotelActionCreators, Actions as TravelHotelActions } from "../../../store/TravelHotel/actions";
+import { actionCreators as clinicActionCreators, Actions as ClinicActions } from "../../../store/Clinic/actions";
 import { convertProvincesSeries, convertCountry, convertCountrySeries } from "../../../utils/isacclin";
 import { IconDoctor, IconGuidebook, IconRenminPaper, IconQinghuaLogo, IconHomeBottomBanner, IconDonation, IconGift, IconFactory, IconHotel } from "../../../components/Icons";
 import Button from "../../../components/Elements/Button";
@@ -18,7 +19,7 @@ import { URLS } from "../../../constants/urls";
 import { RENMIN_PAPER_OFFICIAL, QINGHUA_OFFICIAL, COMMUNITY_HOME } from "../../../constants/globals";
 import Card from "../../../components/Elements/Card";
 import { AppState } from "../../../store/App";
-import { IDonate, ITravelHotel } from "../../../types/interfaces";
+import { IDonate, ITravelHotel, IClinic } from "../../../types/interfaces";
 
 const patch = [
   {
@@ -44,12 +45,13 @@ const patch = [
 ]
 
 interface ConnectedProps {
-  actions: LiveMapActions & DonateActions & TravelHotelActions;
+  actions: LiveMapActions & DonateActions & TravelHotelActions & ClinicActions;
   loading: boolean;
   data: any;
   app: AppState;
   donateList: IDonate[];
   hotelList: ITravelHotel[];
+  clinicList: IClinic[]
 }
 
 interface Props extends RouteComponentProps {
@@ -65,6 +67,7 @@ class Home extends React.PureComponent<Props, {}>
   componentWillMount() {
     this.props.actions.fetchData();
     this.props.app.dataSource && this.props.actions.fetchDonateList(this.props.app.dataSource['donation']);
+    this.props.app.dataSource && this.props.actions.fetchClinicList(this.props.app.dataSource['hospital']);
     // @todo - use data source to fetch hotel data, check related comments under
     // `src/store/TravelHotel/index.ts`
     this.props.actions.fetchHotels();
@@ -106,10 +109,11 @@ class Home extends React.PureComponent<Props, {}>
 
 	render()
 	{
-    const {donateList, hotelList} = this.props;
+    const {donateList, hotelList, clinicList} = this.props;
     // @todo - make this more elegant with selector?? for now it might be fine since we know that the arrays aint empty
     const renderedDonation = [donateList[0], donateList[1], donateList[2]];
     const renderHotels = [hotelList[0], hotelList[1], hotelList[2], hotelList[3], hotelList[4]];
+    const renderClinics = [clinicList[0], clinicList[1], clinicList[2]];
 
     if (!this.props.data) return (
 			<Layout style={{backgroundColor: '#fff', flex: '1 0 auto', minHeight: 'unset'}}>
@@ -246,7 +250,7 @@ class Home extends React.PureComponent<Props, {}>
                         {renderedDonation.map((d, index) => {
                           return (
                             <div key={d.id} className={styles.row}>{d.name}</div>
-                          )
+                          );
                         })}
                       </div>
                       <Button onClick={this.onViewDonation} shape='round' type='primary'>{Message('VIEW_DONATION')}</Button>
@@ -261,7 +265,12 @@ class Home extends React.PureComponent<Props, {}>
                     </header>
                     <main>
                       <div className={styles.content}>
-                        <div className={styles.placeholder}>{Message('DEVELOPING')}</div>
+                        <div className={styles.title}>{Message('LATEST_SUPPLIES')}</div>
+                        {renderClinics.map((c, index) => {
+                          return (
+                            <div key={c.id} className={styles.row}>{c.name}</div>
+                          );
+                        })}
                       </div>
                       <Button onClick={this.onViewHospitals} shape='round' type='primary'>{Message('VIEW_HOSPITALS')}</Button>
                     </main>
@@ -306,6 +315,7 @@ const mapStateToProps = (state: IApplicationState) =>
     app: state.app,
     donateList: state.donate.list,
     hotelList: state.travelHotel.hotelList,
+    clinicList: state.clinic.list,
 	};
 };
 
@@ -317,6 +327,7 @@ const mapActionsToProps = dispatch =>
         ...liveMapActionCreators,
         ...donateActionCreators,
         ...travelHotelActionCreators,
+        ...clinicActionCreators,
 			},
 			dispatch,
 		),
