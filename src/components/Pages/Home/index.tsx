@@ -115,7 +115,7 @@ class Home extends React.PureComponent<Props, {}>
     const renderHotels = [hotelList[0], hotelList[1], hotelList[2], hotelList[3], hotelList[4]];
     const renderClinics = [clinicList[0], clinicList[1], clinicList[2]];
 
-    if (!this.props.data) return (
+    if (!this.props.data || !clinicList || !donateList || !hotelList || clinicList.length === 0 || donateList.length === 0 || hotelList.length === 0) return (
 			<Layout style={{backgroundColor: '#fff', flex: '1 0 auto', minHeight: 'unset'}}>
         <Content></Content>
       </Layout>
