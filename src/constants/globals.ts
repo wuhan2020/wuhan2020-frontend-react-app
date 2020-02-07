@@ -1,8 +1,14 @@
 export const BASE_URL = 'https://wh.opensource-service.cn/data/';
 
+export const COMMUNITY_HOME = 'https://community.wuhan2020.org.cn/zh-cn/';
+
 export const PROJECT_HOMEPAGE = 'http://wuhan2020.github.io';
 
 export const GAODE_SEARCH_PREFIX = 'https://ditu.amap.com/search?query=';
+
+export const RENMIN_PAPER_OFFICIAL = 'https://activity.peopleapp.com/qiuzhutongdao/?from=singlemessage&isappinstalled=0';
+
+export const QINGHUA_OFFICIAL = 'https://2019-ncov.tsing-care.com/survey.html';
 
 export const FRONT_END_PREFIX = '/fe';
 

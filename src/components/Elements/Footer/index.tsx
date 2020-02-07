@@ -29,22 +29,18 @@ class Footer extends React.PureComponent<Props, {}>
         name: Message('LOGISTICS'),
         link: URLS.LOGISTICS
       },
-      /*
       {
         name: Message('PRODUCTION'),
         link: URLS.PRODUCTION
       },
-      */
       {
         name: Message('DONATE'),
         link: URLS.DONATE
       },
-      /*
       {
         name: Message('PREVENTION_AND_TREATMENT'),
         link: URLS.PREVENTION_AND_TREATMENT
       },
-      */
       {
         name: Message('FREE_CONSULTATION'),
         link: URLS.FREE_CONSULTATION

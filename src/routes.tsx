@@ -18,7 +18,7 @@ import Epidemic from './components/Pages/Epidemic';
 
 export default (store: Store<any>) => (
 	<App>
-		<Route exact path={URLS.HOME} component={ClinicList} />
+		<Route exact path={URLS.HOME} component={Home} />
 		<Route exact path={URLS.CLINIC} component={ClinicList} />
 		<Route exact path={URLS.CLINICS} component={ClinicList} />
 		<Route exact path={URLS.EPIDEMIC_LIVE} component={Epidemic} />

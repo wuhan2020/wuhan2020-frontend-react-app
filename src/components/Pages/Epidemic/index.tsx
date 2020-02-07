@@ -68,7 +68,6 @@ class Epidemic extends React.PureComponent<Props, {}>
         <Content></Content>
       </Layout>
     );
-    console.log(this.props.data);
     const data = {
       provincesSeries: convertProvincesSeries([...this.props.data['history'], ...patch], RESOLUTION, true),
       countrySeries: convertCountrySeries(this.props.data['overall'], RESOLUTION),

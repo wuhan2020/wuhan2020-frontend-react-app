@@ -4,17 +4,17 @@
   color: $white !important;
 
   &.main {
-    color: $main !important;
+    color: $main6 !important;
   }
 }
 
 .ant-btn-primary {
-  background-color: $main !important;
-  border-color: $main !important;
+  background-color: $main6 !important;
+  border-color: $main6 !important;
 
   &:hover, &:focus {
-    background-color: $main_light !important;
-    border-color: $main_light !important;
+    background-color: $main3 !important;
+    border-color: $main3 !important;
   }
 
   &:active {
@@ -24,8 +24,8 @@
 }
 
 .ant-btn-ghost {
-  color: $main !important;
-  border-color: $main !important;
+  color: $main6 !important;
+  border-color: $main6 !important;
 }
 .fakeDisabled {
   background-color: $white !important;

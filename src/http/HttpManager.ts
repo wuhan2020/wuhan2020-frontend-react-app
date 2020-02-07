@@ -22,6 +22,7 @@ export default class HttpManager
 			baseURL: BASE_URL,
 			timeout: 10000,
 			withCredentials: false, // allowed to carry cookies
+			headers: {'Cache-Control': 'no-cache'},
 		})
 		this.initInterceptors()
 	}
