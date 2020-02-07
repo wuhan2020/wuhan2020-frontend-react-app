@@ -151,7 +151,7 @@ class Home extends React.PureComponent<Props, {}>
                         <IconDoctor height={100} />
                       </div>
                       <div className={styles.desc}>
-                        <div>关于新冠状病毒</div>
+                        <div>关于新型冠状病毒肺炎</div>
                         <div>&nbsp;</div>
                         <div>在线解答</div>
                       </div>
@@ -167,7 +167,7 @@ class Home extends React.PureComponent<Props, {}>
                       </div>
                       <div className={styles.desc}>
                         <div>如何预防</div>
-                        <div>新兴冠状病毒肺炎疑似病例</div>
+                        <div>新型冠状病毒肺炎疑似病例</div>
                         <div>居家自我隔离的指导建议</div>
                       </div>
                       <div className={styles.button}>
@@ -182,7 +182,7 @@ class Home extends React.PureComponent<Props, {}>
                       </div>
                       <div className={styles.desc}>
                         <div>人民日报官方</div>
-                        <div>新兴肺炎</div>
+                        <div>新型冠状病毒肺炎</div>
                         <div>患者求助通道</div>
                       </div>
                       <div className={styles.button}>
@@ -197,7 +197,7 @@ class Home extends React.PureComponent<Props, {}>
                       </div>
                       <div className={styles.desc}>
                         <div>清华大学官方</div>
-                        <div>新兴冠状病毒感染</div>
+                        <div>新型冠状病毒肺炎</div>
                         <div>自测评估</div>
                       </div>
                       <div className={styles.button}>
