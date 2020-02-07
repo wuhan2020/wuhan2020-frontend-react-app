@@ -53,11 +53,11 @@ export default class TravelHotelCard extends React.PureComponent<TravelHotelProp
 						travelhotel.contacts ?
 							<Row style={{ fontSize: '16px' }}>
 							<Icon type="phone" style={{ marginRight: '19px' }} />
-							{travelhotel.contacts[0].name ? (
+							{travelhotel.contacts[0] && travelhotel.contacts[0].name ? (
 								<span style={{ marginRight: '10px' }}>{travelhotel.contacts[0].name}</span>
 							) : null}
-							{!isMobile ? <span>{travelhotel.contacts[0].tel}</span> : null}
-							{isMobile ? <Button type='link' href={`tel:${travelhotel.contacts[0].tel}`}>{travelhotel.contacts[0].tel}</Button> : null}
+							{!isMobile && travelhotel.contacts[0] ? <span>{travelhotel.contacts[0].tel}</span> : null}
+							{isMobile && travelhotel.contacts[0] ? <Button type='link' href={`tel:${travelhotel.contacts[0].tel}`}>{travelhotel.contacts[0].tel}</Button> : null}
 							</Row>
 						: null
 					}
