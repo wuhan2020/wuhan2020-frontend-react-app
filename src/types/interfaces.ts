@@ -65,6 +65,13 @@ export interface IOption {
   value: string,
 }
 
+export interface ICity {
+  key: string;
+  name: string;
+  // @todo - when backend supports, use id for parentProvince (number type)
+  parentProvince: string;
+}
+
 export interface IDonate {
   id: number;
   name: string;

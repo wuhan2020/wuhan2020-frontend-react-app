@@ -31,7 +31,7 @@ export default class TravelHotelCard extends React.PureComponent<TravelHotelProp
 					<Row style={{ marginBottom: '10px'}} className={styles.lineInfo + ' ' + styles.greyFont}>
 						{travelhotel.city ?
 						<div style={{ marginRight: '20px' }}>
-							{travelhotel.city.split('-').map((el) => <span>{el}</span>)}
+							{travelhotel.city.split('-').map((el, index) => <span key={`city_${index}`}>{el}</span>)}
 						</div>
 						: null}
 						{

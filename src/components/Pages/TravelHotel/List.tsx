@@ -1,5 +1,4 @@
 import * as React from "react";
-import * as _ from "lodash";
 import styles from "../../../styles/pages/travel-hotel/list.module.scss";
 import Message from "../../Message";
 import { connect } from "react-redux";
@@ -7,11 +6,9 @@ import { bindActionCreators } from "redux";
 import { IApplicationState } from "../../../store";
 import { withRouter, RouteComponentProps } from "react-router";
 import { Row, Col, Layout, Tabs } from "antd";
-import Select from "../../../components/Elements/Select";
-import Option from "../../../components/Elements/Select/Option";
 import TravelHotelContext from "./Content";
-import TravelHotelCard from "../../../components/Elements/TravelHotel/index";
-import { hotelData } from "../../../mockData/travel_hotel";
+import { actionCreators, Actions as TravelHotelActions } from "../../../store/TravelHotel/actions";
+import { AppState } from "../../../store/App";
 
 const { TabPane } = Tabs;
 const tabConfig = [
@@ -26,6 +23,8 @@ const tabConfig = [
 ];
 
 interface ConnectedProps {
+  app: AppState;
+  actions: TravelHotelActions;
   loading: boolean;
 }
 
@@ -34,7 +33,10 @@ const { Content } = Layout;
 
 class TravelHotelList extends React.PureComponent<Props, {}> {
   public props: ConnectedProps & Props;
-  componentDidMount() {}
+  componentWillMount() {
+    console.log(this.props.app.dataSource);
+    this.props.app.dataSource && this.props.actions.fetchTravelHotelList(this.props.app.dataSource['travel_hotel']);
+  }
 
   onHotelFilterChange = () => {};
 
@@ -62,13 +64,16 @@ class TravelHotelList extends React.PureComponent<Props, {}> {
 
 const mapStateToProps = (state: IApplicationState) => {
   return {
-    loading: state.app.loading
+    app: state.app,
+    loading: state.app.loading,
   };
 };
 
 const mapActionsToProps = dispatch => {
   return {
-    actions: bindActionCreators({}, dispatch)
+    actions: bindActionCreators({
+      ...actionCreators,
+    }, dispatch)
   };
 };
 

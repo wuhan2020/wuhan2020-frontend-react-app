@@ -70,7 +70,7 @@ class Home extends React.PureComponent<Props, {}>
     this.props.app.dataSource && this.props.actions.fetchClinicList(this.props.app.dataSource['hospital']);
     // @todo - use data source to fetch hotel data, check related comments under
     // `src/store/TravelHotel/index.ts`
-    this.props.actions.fetchHotels();
+    this.props.app.dataSource && this.props.actions.fetchTravelHotelList(this.props.app.dataSource['travel_hotel']);
   }
 
 	componentDidMount() {

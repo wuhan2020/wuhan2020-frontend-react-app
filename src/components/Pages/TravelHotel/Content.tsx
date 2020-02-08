@@ -1,5 +1,4 @@
 import * as React from "react";
-import * as _ from "lodash";
 import { IApplicationState } from "../../../store";
 import { bindActionCreators } from "redux";
 import styles from "../../../styles/pages/travel-hotel/list.module.scss";
@@ -9,11 +8,11 @@ import { connect } from "react-redux";
 import { Col, Input, Row } from "antd";
 import Select from "../../../components/Elements/Select";
 import Option from "../../../components/Elements/Select/Option";
-import { IOption, ITravelHotel } from "../../../types/interfaces";
+import { IOption, ITravelHotel, ICity } from "../../../types/interfaces";
 import TravelHotelCard from "../../Elements/TravelHotel";
 import { injectIntl, IntlShape } from "react-intl";
 import { isMobile } from "../../../utils/deviceHelper";
-import { DEFAULT_CITY, DEFAULT_PROVINCE } from '../../../store/TravelHotel';
+import { DEFAULT_CITY, DEFAULT_PROVINCE, makeFilteredCitiesSelector, makeFilteredHotelsSelector } from '../../../store/TravelHotel';
 
 const { Search } = Input;
 
@@ -22,7 +21,7 @@ interface ConnectedProps {
   selectedCity: string;
   searchedText: string;
   provinceList: IOption[];
-  cityList: IOption[];
+  cityList: ICity[];
   hotelList: ITravelHotel[];
   actions: TravelHotelActions;
   intl: IntlShape;
@@ -39,25 +38,18 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
     cityList: [DEFAULT_CITY],
     hotelList: [] as ITravelHotel[]
   };
-
-  fetchHotels = _.debounce(() => {
-    this.props.actions.fetchHotels();
-  }, 500);
-
+  
   onProvinceFilterChange = province => {
     this.props.actions.changeFilter({
       selectedProvince: province,
       selectedCity: DEFAULT_CITY.key,
     });
-    this.props.actions.fetchCities(province);
-    this.props.actions.fetchHotels();
   };
 
   onCityFilterChange = city => {
     this.props.actions.changeFilter({
       selectedCity: city,
     });
-    this.props.actions.fetchHotels();
   };
 
   onTextChange = e => {
@@ -65,7 +57,6 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
     this.props.actions.changeFilter({
       searchedText: value,
     });
-    this.fetchHotels();
   };
 
   onSearch = e => {
@@ -73,14 +64,7 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
     this.props.actions.changeFilter({
       searchedText: value,
     });
-    this.props.actions.fetchHotels();
   };
-
-  componentDidMount() {
-    this.props.actions.fetchProvinces();
-    this.props.actions.fetchCities(DEFAULT_CITY.key);
-    this.props.actions.fetchHotels();
-  }
 
   render() {
     const {
@@ -103,13 +87,9 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
                 value={selectedProvince}
                 onChange={this.onProvinceFilterChange}
               >
-                {_.map(provinceList, (province) => {
+                {provinceList.map((province, index) => {
                   const { key, value } = province;
-                  return (
-                    <Option key={`province_${key}`} value={key}>
-                      {value}
-                    </Option>
-                  );
+                  return <Option key={`province_${key}`} value={key}>{value}</Option>;
                 })}
               </Select>
             </Col>
@@ -120,13 +100,9 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
                 value={selectedCity}
                 onChange={this.onCityFilterChange}
               >
-                {_.map(cityList, (city) => {
-                  const { key, value } = city;
-                  return (
-                    <Option key={`city_${key}`} value={key}>
-                      {value}
-                    </Option>
-                  );
+                {cityList.map((city, index) => {
+                  const { key, name } = city;
+                  return <Option key={`city_${key}`} value={name}>{name}</Option>;
                 })}
               </Select>
             </Col>
@@ -143,7 +119,7 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
         </div>
         <div className={styles.listWrapper}>
           <Row style={{ maxWidth: "100%", marginBottom: '30px' }} type="flex" gutter={isMobile ? 0 : 30}>
-            {_.map(hotelList, (hotel, index) => {
+            {hotelList.map((hotel, index) => {
               return (
                 <Col
                   style={{ maxWidth: "100%", marginBottom: '30px' }}
@@ -165,21 +141,22 @@ class TravelHotelContext extends React.PureComponent<InternalProps, {}> {
 }
 
 const mapStateToProps = (state: IApplicationState) => {
+  const filteredCities = makeFilteredCitiesSelector();
+  const filteredHotels = makeFilteredHotelsSelector();
+
   const {
     selectedProvince,
     selectedCity,
     searchedText,
     provinceList,
-    cityList,
-    hotelList
   } = state.travelHotel;
   return {
     selectedProvince,
     selectedCity,
     searchedText,
     provinceList,
-    cityList,
-    hotelList
+    cityList: filteredCities(state),
+    hotelList: filteredHotels(state),
   };
 };
 
