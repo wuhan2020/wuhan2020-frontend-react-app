@@ -3,6 +3,7 @@ const path = require("path");
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const tsImportPluginFactory = require('ts-import-plugin')
 
 const DEV = process.env.NODE_ENV === "development";
@@ -168,5 +169,6 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, '..', 'wwwroot/template.html'),
 		}),
+		new BundleAnalyzerPlugin(),
 	]
 };

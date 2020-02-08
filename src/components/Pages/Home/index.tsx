@@ -13,10 +13,10 @@ import { actionCreators as donateActionCreators, Actions as DonateActions } from
 import { actionCreators as travelHotelActionCreators, Actions as TravelHotelActions } from "../../../store/TravelHotel/actions";
 import { actionCreators as clinicActionCreators, Actions as ClinicActions } from "../../../store/Clinic/actions";
 import { convertProvincesSeries, convertCountry, convertCountrySeries } from "../../../utils/isacclin";
-import { IconDoctor, IconGuidebook, IconRenminPaper, IconQinghuaLogo, IconHomeBottomBanner, IconDonation, IconGift, IconFactory, IconHotel } from "../../../components/Icons";
+import { IconDoctor, IconGuidebook, IconDonation, IconGift, IconFactory, IconHotel } from "../../../components/Icons";
 import Button from "../../../components/Elements/Button";
 import { URLS } from "../../../constants/urls";
-import { RENMIN_PAPER_OFFICIAL, QINGHUA_OFFICIAL, COMMUNITY_HOME } from "../../../constants/globals";
+import { RENMIN_PAPER_OFFICIAL, QINGHUA_OFFICIAL, COMMUNITY_HOME, CDN_PREFIX } from "../../../constants/globals";
 import Card from "../../../components/Elements/Card";
 import { AppState } from "../../../store/App";
 import { IDonate, ITravelHotel, IClinic } from "../../../types/interfaces";
@@ -178,7 +178,7 @@ class Home extends React.PureComponent<Props, {}>
                   <Col className={styles.col} lg={6} sm={12} xs={12}>
                     <div className={styles.card}>
                       <div className={styles.icon}>
-                        <IconRenminPaper height={100} />
+                        <img src={`${CDN_PREFIX}/static/icon-renminpaper.png`} style={{height: '100px'}} />
                       </div>
                       <div className={styles.desc}>
                         <div>人民日报官方</div>
@@ -193,7 +193,7 @@ class Home extends React.PureComponent<Props, {}>
                   <Col className={styles.col} lg={6} sm={12} xs={12}>
                     <div className={styles.card}>
                       <div className={styles.icon}>
-                        <IconQinghuaLogo height={100} />
+                        <img src={`${CDN_PREFIX}/static/icon-qinghualogo.png`} style={{height: '100px'}} />
                       </div>
                       <div className={styles.desc}>
                         <div>清华大学官方</div>
@@ -293,7 +293,7 @@ class Home extends React.PureComponent<Props, {}>
               </Row>
             </section>
             <section className={styles.banner}>
-              <IconHomeBottomBanner />
+              <img src={`${CDN_PREFIX}/static/home-bottom-banner.svg`} />
             </section>
             <section className={styles.volunteer}>
               <div className={styles.text}>{Message('VOLUNTEER_INTRO1')}</div>

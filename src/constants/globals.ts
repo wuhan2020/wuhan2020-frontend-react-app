@@ -12,6 +12,8 @@ export const QINGHUA_OFFICIAL = 'https://2019-ncov.tsing-care.com/survey.html';
 
 export const FRONT_END_PREFIX = '/fe';
 
+export const CDN_PREFIX = 'http://q519ubblo.bkt.clouddn.com/';
+
 // @todo - remove these when backend better supports data retrieving instead of getting from github directly
 export const clinicsLocation = [
   {
