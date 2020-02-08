@@ -1,4 +1,7 @@
-export const BASE_URL = 'https://wh.opensource-service.cn/data/';
+
+export const CDN_PREFIX = 'https://wh.opensource-service.cn/';
+
+export const BASE_URL = `${CDN_PREFIX}data/`;
 
 export const COMMUNITY_HOME = 'https://community.wuhan2020.org.cn/zh-cn/';
 
@@ -11,8 +14,6 @@ export const RENMIN_PAPER_OFFICIAL = 'https://activity.peopleapp.com/qiuzhutongd
 export const QINGHUA_OFFICIAL = 'https://2019-ncov.tsing-care.com/survey.html';
 
 export const FRONT_END_PREFIX = '/fe';
-
-export const CDN_PREFIX = 'http://q519ubblo.bkt.clouddn.com/';
 
 // @todo - remove these when backend better supports data retrieving instead of getting from github directly
 export const clinicsLocation = [
