@@ -24,11 +24,11 @@ export default class LogisticsCard extends React.PureComponent<LogisticsCardProp
               <section className={styles.route}>
                 <div className={styles.routeItem}>
                   <Icon style={{color: '#7ed322'}} theme='filled' type="check-square" />
-                  <div className={styles.text}>{data.from}</div>
+                  <div className={styles.text}>{Message('SEND_TO')}{data.dest}</div>
                 </div>
                 <div className={styles.routeItem}>
                   <Icon style={{color: '#7ed322'}} theme='filled' type="check-square" />
-                  <div className={styles.text}>{data.dest}</div>
+                  <div className={styles.text}>{data.from}{Message('SEND_FROM')}</div>
                 </div>
               </section>
               <div className={styles.infoItem}>

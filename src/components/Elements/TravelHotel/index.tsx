@@ -42,13 +42,13 @@ export default class TravelHotelCard extends React.PureComponent<TravelHotelProp
 						}
 
 					</Row>
-					<Row type='flex' style={{ fontSize: '16px', marginBottom: '10px' }}>
+					{travelhotel.address && travelhotel.address !== '-' ? <Row type='flex' style={{ fontSize: '16px', marginBottom: '10px' }}>
 						<div className={styles.addressWrapper}>
 							<Icon type="bank" style={{ marginRight: '19px' }} />
 							<span style={{ marginRight: '10px' }}>{travelhotel.address}</span>
 						</div>
 						<Button type='link' className={styles.viewMap} onClick={() => this.onViewMap(travelhotel.address || '')}>{Message('VIEW_MAP')}</Button>
-					</Row>
+					</Row> : null}
 					{
 						travelhotel.contacts ?
 							<Row style={{ fontSize: '16px' }}>

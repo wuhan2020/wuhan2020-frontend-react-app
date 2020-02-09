@@ -8,9 +8,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import Nav from "./Elements/Nav";
 import Footer from "./Elements/Footer";
-import { Spin } from "antd";
 import GlobalLoader from "./Elements/Loader/GloabalLoader";
-import { Provider as KeepAliveProvider } from "react-keep-alive";
 
 interface Props extends RouteComponentProps<{}, {}>
 {

@@ -115,16 +115,11 @@ class Home extends React.PureComponent<Props, {}>
     const renderHotels = [hotelList[0], hotelList[1], hotelList[2], hotelList[3], hotelList[4]];
     const renderClinics = [clinicList[0], clinicList[1], clinicList[2]];
 
-    if (!this.props.data || !clinicList || !donateList || !hotelList || clinicList.length === 0 || donateList.length === 0 || hotelList.length === 0) return (
-			<Layout style={{backgroundColor: '#fff', flex: '1 0 auto', minHeight: 'unset'}}>
-        <Content></Content>
-      </Layout>
-    );
-    const data = {
+    const data = this.props.data ? {
       provincesSeries: convertProvincesSeries([...this.props.data['history'], ...patch], RESOLUTION, true),
       countrySeries: convertCountrySeries(this.props.data['overall'], RESOLUTION),
       countryData: convertCountry(this.props.data['current']),
-    }
+    } : null;
 		return (
 			<Layout style={{backgroundColor: '#fff', flex: '1 0 auto', minHeight: 'unset'}}>
 				<Content>
@@ -132,7 +127,7 @@ class Home extends React.PureComponent<Props, {}>
             <section className={styles.pageDesc}>
               <div>{Message('PAGE_DESC')}</div>
             </section>
-            <section className={styles.contentSection}>
+            {this.props.data ? <section className={styles.contentSection}>
               <div className={styles.header}>
                 <div className={styles.title}>{Message('HOME_OVERVIEW_TITLE')}</div>
                 <Button onClick={this.onViewMore} type='link' >{Message('MORE')}</Button>
@@ -140,7 +135,7 @@ class Home extends React.PureComponent<Props, {}>
               <div className="virus-map" style={{width: '100%', height: '552px', padding: '20px'}}>
                 <HierarchicalVirusMap data={data} resolution={RESOLUTION} type={isMobile ? 'mobile' : 'pc'} />
               </div>
-            </section>
+            </section> : null}
             <section className={styles.treatmentHelp}>
               <div className={styles.treatmentHelpMain}>
                 <div className={styles.title}>{Message('TREATMENT_HELP')}</div>
@@ -208,7 +203,7 @@ class Home extends React.PureComponent<Props, {}>
                 </Row>
               </div>
             </section>
-            <section className={styles.contentSection}>
+            {hotelList && hotelList.length > 0 ? <section className={styles.contentSection}>
               <div className={styles.header}>
                 <div className={styles.title}>{Message('HOME_HOTEL_TITLE')}</div>
               </div>
@@ -232,8 +227,8 @@ class Home extends React.PureComponent<Props, {}>
                   </Card>
                 </Col>
               </Row>
-            </section>
-            <section className={styles.contentSection}>
+            </section> : null}
+            {clinicList && donateList && clinicList.length > 0 && donateList.length > 0 ?<section className={styles.contentSection}>
               <div className={styles.header}>
                 <div className={styles.title}>{Message('HOME_CONTRIBUTE_TITLE')}</div>
               </div>
@@ -291,7 +286,7 @@ class Home extends React.PureComponent<Props, {}>
                   </Card>
                 </Col>
               </Row>
-            </section>
+            </section> : null}
             <section className={styles.banner}>
               <img src={`${CDN_PREFIX}/static/home-bottom-banner.svg`} />
             </section>
