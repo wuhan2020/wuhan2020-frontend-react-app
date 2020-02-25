@@ -12,9 +12,13 @@ export class ResetAction extends StrongAction { constructor() { super(); }}
 @typeName('UPDATE_FREE_CONSULTATION' + SUFFIX)
 export class UpdateFreeConsultationActions extends StrongAction { constructor(public list: IFreeConsultation[]) {super(); }}
 
+@typeName('SEARCH_CONSULTATION' + SUFFIX)
+export class SearchConsultation extends StrongAction { constructor(public searchText: string) { super(); }}
+
 export interface Actions
 {
   fetchFreeConsultationList(list: any[]);
+  searchConsultation(searchText: string);
 }
 
 
@@ -33,9 +37,9 @@ export const actionCreators = {
       });
 
       const result = await Promise.all(promises);
-      let freeCinsultation = [];
-      result.forEach((l) => freeCinsultation = freeCinsultation.concat(l));
-      dispatch(new UpdateFreeConsultationActions(freeCinsultation));
+      let freeConsultation = [];
+      result.forEach((l) => freeConsultation = freeConsultation.concat(l));
+      dispatch(new UpdateFreeConsultationActions(freeConsultation));
     }
     catch (err)
     {
@@ -45,5 +49,6 @@ export const actionCreators = {
     {
       dispatch(appActionCreators.toggleAppLoading(false));
     }
-  }
+  },
+  searchConsultation: (searchText: string): any => dispatch => dispatch(new SearchConsultation(searchText)),
 };

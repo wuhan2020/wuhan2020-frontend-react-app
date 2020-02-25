@@ -6,11 +6,14 @@ import { bindActionCreators } from "redux";
 import { IApplicationState } from "../../../store";
 import { withRouter, RouteComponentProps } from "react-router";
 import { Row, Col, Input, Layout, Pagination } from "antd";
-import { freeConsulationState } from "../../../store/FreeConsultations";
+import { 
+  makeFilteredConsultationsSelector,
+  freeConsultationState 
+} from "../../../store/FreeConsultations";
 import { IntlShape, injectIntl } from "react-intl";
 import {
-  actionCreators as freeConsulationActionCreators,
-  Actions as freeConsulationActions
+  actionCreators as freeConsultationActionCreators,
+  Actions as freeConsultationActions
 } from "../../../store/FreeConsultations/actions";
 import { AppState } from "../../../store/App";
 import { IFreeConsultation } from "../../../types/interfaces";
@@ -20,8 +23,8 @@ interface ConnectedProps {
   loading: boolean;
   app: AppState;
   freeConsultationList: IFreeConsultation[];
-  freeConsultation: freeConsulationState;
-  actions: freeConsulationActions;
+  freeConsultation: freeConsultationState;
+  actions: freeConsultationActions;
   intl: IntlShape;
 }
 
@@ -52,7 +55,7 @@ class FreeConsultationList extends React.PureComponent<Props, {}> {
 	}
 
 	componentDidMount() {
-		const { total , pageSize, current} = this.state;
+		const { total , pageSize, current } = this.state;
 		const { freeConsultationList } = this.props;
 		
 		this.setState({freeConsultationList: freeConsultationList.slice((pageSize * (current - 1)), pageSize * current > total ? total : pageSize * current)})
@@ -66,6 +69,11 @@ class FreeConsultationList extends React.PureComponent<Props, {}> {
     });
     this.getPerPageInfo(page);
   };
+  
+  handleSearchingConsultation = (searchText) => {
+    this.props.actions.searchConsultation(searchText);
+  };
+
 
 	getPerPageInfo = (current: number) => {
 		const { pageSize, total } = this.state;
@@ -88,7 +96,7 @@ class FreeConsultationList extends React.PureComponent<Props, {}> {
                 placeholder={this.props.intl.formatMessage({
                   id: "SEARCH_CONSULTATION"
                 })}
-                onSearch={value => console.log(value)}
+                onSearch={this.handleSearchingConsultation}
               />
             </Col>
           </Row>
@@ -140,10 +148,11 @@ class FreeConsultationList extends React.PureComponent<Props, {}> {
 }
 
 const mapStateToProps = (state: IApplicationState) => {
+  const filteredConsultationSelector = makeFilteredConsultationsSelector();
   return {
     app: state.app,
     loading: state.app.loading,
-    freeConsultationList: state.freeConsultation.list
+    freeConsultationList: filteredConsultationSelector(state)
   };
 };
 
@@ -151,7 +160,7 @@ const mapActionsToProps = dispatch => {
   return {
     actions: bindActionCreators(
       {
-        ...freeConsulationActionCreators
+        ...freeConsultationActionCreators
       },
       dispatch
     )
