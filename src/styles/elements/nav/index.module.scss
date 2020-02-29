@@ -1,7 +1,7 @@
 @import '../../colors';
 @import '../../media';
 
-$nav-namespace: "elementsNav";
+$nav-namespace: 'elementsNav';
 
 .#{$nav-namespace} {
   display: flex;
@@ -25,6 +25,8 @@ $nav-namespace: "elementsNav";
 
     @include mobile-and-smaller() {
       justify-content: center;
+      height: auto;
+      padding: 6px;
     }
 
     .left {
@@ -78,7 +80,7 @@ $nav-namespace: "elementsNav";
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;;
+      justify-content: center;
       flex: 1 1 auto;
     }
   }

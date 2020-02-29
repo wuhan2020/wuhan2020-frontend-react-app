@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["./src/*"],
+        "components/*": ["./src/components/*"],
+        "styles/*": ["./src/styles/*"],
+      }
+    },
+    "exclude": [
+      "node_modules",
+      "dist"
+    ]
+  }
+  

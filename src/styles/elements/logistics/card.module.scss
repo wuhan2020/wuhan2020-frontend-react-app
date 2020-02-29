@@ -18,7 +18,9 @@ $logistic-card-namespace: 'elementsLogisticsListCard';
   @include mobile-and-smaller() {
     width: 100%;
     height: auto;
+    margin-bottom: 0 !important;
   }
+
   .main {
     display: flex;
     flex-direction: column;
@@ -29,18 +31,19 @@ $logistic-card-namespace: 'elementsLogisticsListCard';
 
       .title {
         margin-bottom: 18px;
+        display: flex;
+        align-items: center;
 
         .name {
           font-size: $px24;
           font-weight: 600;
           color: $black0;
-          padding: 2px;
         }
 
         .greenChannel {
           background-color: $green4;
           margin-left: 14px;
-          padding: 2px 4px;
+          padding: 0 4px;
           color: $white;
         }
       }
@@ -69,9 +72,14 @@ $logistic-card-namespace: 'elementsLogisticsListCard';
 
         .arrow {
           margin: 10px 32px;
-          width: 110px;
+          flex: 1;
+          max-width: 110px;
           border: 1px solid $black0;
           position: relative;
+          @include mobile-and-smaller() {
+            margin: 10px 24px;
+            // max-width: unset;
+          }
 
           &::after {
             content: '';

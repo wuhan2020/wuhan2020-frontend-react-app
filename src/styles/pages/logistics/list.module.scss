@@ -1,9 +1,8 @@
-
 @import '../../colors';
 @import '../../fonts';
 @import '../../media';
 
-$logistics-list-namespace: "pageLogisticsList";
+$logistics-list-namespace: 'pageLogisticsList';
 
 .#{$logistics-list-namespace} {
   display: flex;
@@ -11,6 +10,9 @@ $logistics-list-namespace: "pageLogisticsList";
   height: 100%;
   width: 100%;
   padding: 40px;
+  @include mobile-and-smaller() {
+    padding: 0px;
+  }
 
   h3 {
     color: $black0;
