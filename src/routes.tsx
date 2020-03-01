@@ -8,27 +8,26 @@ import ClinicList from './components/Pages/Clinic/List';
 import DonateList from './components/Pages/Donate/List';
 import HotelList from './components/Pages/Hotel/List';
 import TravelHotelList from './components/Pages/TravelHotel/List';
-import LogisticsList from './components/Pages/Logistics/List';
+import LogisticsList from './components/Pages/Logistics';
 import ProductionList from './components/Pages/Production/List';
 import FreeConsultationList from './components/Pages/FreeConsultation/List';
 import Treatment from './components/Pages/Treatment';
 import NewsFeed from './components/Pages/NewsFeed';
 import Epidemic from './components/Pages/Epidemic';
 
-
 export default (store: Store<any>) => (
-	<App>
-		<Route exact path={URLS.HOME} component={Home} />
-		<Route exact path={URLS.CLINIC} component={ClinicList} />
-		<Route exact path={URLS.CLINICS} component={ClinicList} />
-		<Route exact path={URLS.EPIDEMIC_LIVE} component={Epidemic} />
-		<Route exact path={URLS.DONATE} component={DonateList} />
-		<Route exact path={URLS.FREE_CONSULTATION} component={FreeConsultationList} />
-		<Route exact path={URLS.HOTELS} component={HotelList} />
-		<Route exact path={URLS.LOGISTICS} component={LogisticsList} />
-		<Route exact path={URLS.NEWS_FEED} component={NewsFeed} />
-		<Route exact path={URLS.PREVENTION_AND_TREATMENT} component={Treatment} />
-		<Route exact path={URLS.PRODUCTION} component={ProductionList} />
-		<Route exact path={URLS.TRAVEL_HOTEL} component={TravelHotelList} />
-	</App>
+  <App>
+    <Route exact path={URLS.HOME} component={Home} />
+    <Route exact path={URLS.CLINIC} component={ClinicList} />
+    <Route exact path={URLS.CLINICS} component={ClinicList} />
+    <Route exact path={URLS.EPIDEMIC_LIVE} component={Epidemic} />
+    <Route exact path={URLS.DONATE} component={DonateList} />
+    <Route exact path={URLS.FREE_CONSULTATION} component={FreeConsultationList} />
+    <Route exact path={URLS.HOTELS} component={HotelList} />
+    <Route exact path={URLS.LOGISTICS} component={LogisticsList} />
+    <Route exact path={URLS.NEWS_FEED} component={NewsFeed} />
+    <Route exact path={URLS.PREVENTION_AND_TREATMENT} component={Treatment} />
+    <Route exact path={URLS.PRODUCTION} component={ProductionList} />
+    <Route exact path={URLS.TRAVEL_HOTEL} component={TravelHotelList} />
+  </App>
 );

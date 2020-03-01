@@ -50,7 +50,9 @@ const zh_CN: ILocalization = {
   LATEST_SUPPLIES: '医院最新物资需求（已核实）',
   LATEST_DONATION: '最新捐款渠道（已核实）',
   LOGISTICS: '物流',
-  LOGISTICS_TITLE: '物流方案',
+  LOGISTICS_TITLE: '物流解决方案',
+  LOGISTICS_CHECT: '查看物流方案',
+  LOGISTICS_FOLLOW: '追踪物流信息',
 
   MAILING_ADDRESS: '邮寄地址',
   MORE: '更多',

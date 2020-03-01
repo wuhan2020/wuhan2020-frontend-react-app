@@ -5,22 +5,6 @@
 $logistics-list-namespace: 'pageLogisticsList';
 
 .#{$logistics-list-namespace} {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  padding: 40px;
-  @include mobile-and-smaller() {
-    padding: 0px;
-  }
-
-  h3 {
-    color: $black0;
-    font-size: $px46;
-    margin: 0 auto;
-    margin-bottom: 26px;
-  }
-
   .selectGroup {
     display: flex;
     @include mobile-and-smaller() {

@@ -1,0 +1,40 @@
+@import '../../colors';
+@import '../../fonts';
+@import '../../media';
+
+$logistics-index-namespace: 'pageLogisticsIndex';
+
+.#{$logistics-index-namespace} {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 32px;
+  @include mobile-and-smaller() {
+    padding: 0px;
+  }
+
+  h3 {
+    color: $black0;
+    font-size: $px46;
+    margin: 0 auto;
+    margin-bottom: 18px;
+  }
+
+  :global {
+    .ant-tabs {
+      .ant-tabs-bar {
+        border-bottom: unset;
+
+        .ant-tabs-nav-container {
+          display: flex;
+          justify-content: center;
+
+          .ant-tabs-tab {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+}

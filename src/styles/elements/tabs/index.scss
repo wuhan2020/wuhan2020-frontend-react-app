@@ -1,0 +1,17 @@
+@import '../../colors';
+
+.ant-tabs-bar {
+  .ant-tabs-nav-container {
+    .ant-tabs-tab:hover {
+      color: $main6;
+    }
+
+    .ant-tabs-tab-active {
+      color: $main6;
+    }
+
+    .ant-tabs-ink-bar {
+      background-color: $main6 !important;
+    }
+  }
+}
