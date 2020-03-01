@@ -6,6 +6,7 @@ import styles from '../../../styles/pages/logistics/index.module.scss';
 import Tabs from '../../Elements/Tabs';
 import TabPane from '../../Elements/Tabs/TabPane';
 import List from './List';
+import Check from './Check';
 
 const { Content } = Layout;
 
@@ -21,7 +22,7 @@ class LogisticsIndex extends React.PureComponent<{}, {}> {
                 <List />
               </TabPane>
               <TabPane tab={Message('LOGISTICS_FOLLOW')} key="search">
-                search
+                <Check />
               </TabPane>
             </Tabs>
           </div>

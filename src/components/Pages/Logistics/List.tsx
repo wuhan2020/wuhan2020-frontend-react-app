@@ -1,11 +1,10 @@
 import * as React from 'react';
 import styles from '../../../styles/pages/logistics/list.module.scss';
-import Message from '../../Message';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { IApplicationState } from '../../../store';
 import { withRouter, RouteComponentProps } from 'react-router';
-import { Layout, Row, Col, Input } from 'antd';
+import { Layout, Row, Col } from 'antd';
 import {
   actionCreators as logisticsActionCreators,
   Actions as LogisticActions,
