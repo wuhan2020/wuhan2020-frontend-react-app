@@ -21,19 +21,30 @@ $logistics-list-namespace: 'pageLogisticsList';
     margin-bottom: 26px;
   }
 
-  .select {
-    width: 20% !important;
-
+  .selectGroup {
+    display: flex;
     @include mobile-and-smaller() {
-      width: 50% !important;
+      padding: 0 13px;
+    }
+
+    .select {
+      flex: 1;
+      margin-right: 20px;
+      // width: 20% !important;
+
+      @include mobile-and-smaller() {
+        width: 50% !important;
+        margin: 0 5px;
+      }
     }
   }
 
   .search {
-    width: 80% !important;
+    // width: 80% !important;
 
     @include mobile-and-smaller() {
-      width: 50% !important;
+      width: calc(100% - 36px) !important;
+      margin: 10px 18px -24px 18px;
     }
   }
 }

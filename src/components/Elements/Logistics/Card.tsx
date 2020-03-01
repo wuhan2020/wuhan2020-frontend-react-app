@@ -15,6 +15,7 @@ interface LogisticsCardProps {
 export default class LogisticsCard extends React.PureComponent<LogisticsCardProps, {}> {
   render() {
     const { data } = this.props;
+    const [contact] = data.contacts;
     return (
       <Card className={styles.elementsLogisticsListCard}>
         <div className={styles.main}>
@@ -41,19 +42,25 @@ export default class LogisticsCard extends React.PureComponent<LogisticsCardProp
               </section>
             }
             {/** 电话 */
-            data.contacts[0] && data.contacts[0].tel ? (
+            contact && contact.tel && (
               <div className={styles.infoItem}>
                 <Icon type="mobile" />
-                <div className={styles.phone}>
-                  {data.contacts.length > 0 ? data.contacts[0].tel : ''}
-                </div>
                 {isMobile ? (
-                  <Button type="link" href={`tel:${data.contacts[0].tel}`}>
-                    {Message('DIAL_PHONE')}
-                  </Button>
-                ) : null}
+                  <div>
+                    {contact.tel.split(';').map(tel => (
+                      <div key={tel} className={styles.mobilePhoneItem}>
+                        <span className={styles.phone}>{tel}</span>
+                        <Button type="link" href={`tel:${tel}`}>
+                          {Message('DIAL_PHONE')}
+                        </Button>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className={styles.phone}>{contact.tel}</div>
+                )}
               </div>
-            ) : null}
+            )}
             {
               /** 公告 */
               <div className={styles.notice}>

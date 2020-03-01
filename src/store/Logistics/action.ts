@@ -22,11 +22,15 @@ export class SearchLogisticAction extends StrongAction { constructor(public sear
 @typeName('RESET' + SUFFIX)
 export class ResetAction extends StrongAction { constructor() { super(); }}
 
+@typeName('UPDATE_CURRENT_PAGE' + SUFFIX)
+export class UpdateCurrentPage extends StrongAction { constructor(public page: number) { super();}}
+
 export interface Actions {
     fetchLogisticList(list: any[]),
     searchLogistic(searchText: string),
     updateSendPlace(value: number),
     addSendPlace(value: string)
+    updateCurrentPage(page: number),
 }
 
 export const actionCreators = {
@@ -58,4 +62,5 @@ export const actionCreators = {
     updateSendPlace: (value: number): any => dispatch => dispatch (new UpdateDestinationAction(value)),
     addSendPlace: (value: any): any => dispatch => dispatch(new AddDestination(value)),
     searchLogistic: (searchText: string): any => dispatch => dispatch(new SearchLogisticAction(searchText)),
+    updateCurrentPage: (page: number): any => dispatch => dispatch(new UpdateCurrentPage(page))
 }

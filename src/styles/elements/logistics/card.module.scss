@@ -44,6 +44,7 @@ $logistic-card-namespace: 'elementsLogisticsListCard';
           background-color: $green4;
           margin-left: 14px;
           padding: 0 4px;
+          border-radius: 2px;
           color: $white;
         }
       }
@@ -95,26 +96,30 @@ $logistic-card-namespace: 'elementsLogisticsListCard';
         }
       }
 
-      .phone {
-        display: flex;
-        flex-direction: row;
-        margin-left: 16px;
-        align-items: center;
-        font-size: $px20;
-      }
-
       .infoItem {
         display: flex;
         flex-direction: row;
         margin-bottom: 18px;
         // align-items: row;
 
-        &:last-child:not(:first-child) {
-          margin-top: 16px;
+        // &:last-child:not(:first-child) {
+        //   margin-top: 16px;
+        // }
+
+        // @include mobile-and-smaller() {
+        //   margin-top: 16px;
+        // }
+
+        .phone {
+          display: flex;
+          flex-direction: row;
+          margin-left: 16px;
+          align-items: center;
+          font-size: $px20;
         }
 
-        @include mobile-and-smaller() {
-          margin-top: 16px;
+        .mobilePhoneItem {
+          display: flex;
         }
 
         i {
@@ -132,6 +137,7 @@ $logistic-card-namespace: 'elementsLogisticsListCard';
           background-color: $black2;
           padding: 2px 4px;
           color: $white;
+          border-radius: 2px;
         }
 
         .content {
