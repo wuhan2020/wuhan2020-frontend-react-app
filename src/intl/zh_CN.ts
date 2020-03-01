@@ -53,6 +53,7 @@ const zh_CN: ILocalization = {
   LOGISTICS_TITLE: '物流解决方案',
   LOGISTICS_CHECT: '查看物流方案',
   LOGISTICS_FOLLOW: '追踪物流信息',
+  LOGISTICS_HELP: '物流有问题？扫码寻求帮助',
 
   MAILING_ADDRESS: '邮寄地址',
   MORE: '更多',
