@@ -112,7 +112,8 @@ class DetailDrawer extends React.Component<{}, IDetailDrawerState> {
             </section>
           }
           {
-            <Row type="flex">
+            /** 详情 */
+            <Row type="flex" gutter={12}>
               <Col span={12} className={styles.detailRow}>
                 <span className={styles.detailTitle}>{Message('SOURCE_URL')}</span>
                 <span className={styles.noticeTitle}>{data.noticeTitle}</span>
@@ -139,22 +140,28 @@ class DetailDrawer extends React.Component<{}, IDetailDrawerState> {
             </Row>
           }
         </div>
-        <div className={styles.website}>
-          <Col span={12}>
-            <Button type="link" href={data.website} target="_blank">
-              {Message('OFFICIAL_WEBSITE')}
-            </Button>
-          </Col>
-          <Col span={12}>
-            <span>{Message('REMARK_INFO')}</span>
-            <span className={styles.remark}>{data.remark}</span>
-          </Col>
-        </div>
+        {
+          /** 官网 */
+          <Row type="flex" gutter={12} className={styles.website}>
+            <Col span={12}>
+              <Button type="link" href={data.website} target="_blank">
+                {Message('OFFICIAL_WEBSITE')}
+              </Button>
+            </Col>
+            <Col span={12}>
+              <span>{Message('REMARK_INFO')}</span>
+              <span className={styles.remark}>{data.remark}</span>
+            </Col>
+          </Row>
+        }
 
-        <div className={styles.notice}>
-          <div style={{ marginBottom: 20 }}>{data.noticeTitle}</div>
-          <div>{data.noticeContent}</div>
-        </div>
+        {
+          /** 通知 */
+          <div className={styles.notice}>
+            <div style={{ marginBottom: 20 }}>{data.noticeTitle}</div>
+            <div>{data.noticeContent}</div>
+          </div>
+        }
 
         <div className={styles.order}>
           <Button type="primary" onClick={this.onOrderClick}>
