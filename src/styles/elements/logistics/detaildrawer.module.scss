@@ -1,0 +1,131 @@
+@import '../../colors';
+@import '../../media';
+@import '../../fonts';
+
+$logistic-card-namespace: 'elementsLogisticsDetailDrawer';
+
+.#{$logistic-card-namespace} {
+  .detail {
+    padding: 22px;
+
+    .title {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+
+      .name {
+        font-size: $px24;
+        font-weight: 600;
+        color: $black0;
+      }
+
+      .greenChannel {
+        background-color: $green4;
+        margin-left: 14px;
+        padding: 0 4px;
+        border-radius: 2px;
+        color: $white;
+      }
+    }
+
+    .route {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 18px;
+
+      .routeItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & > span:nth-child(1) {
+          font-size: $px24;
+          color: rgba(0, 0, 0, 0.65);
+          font-weight: 600;
+        }
+
+        & > span:nth-child(2) {
+          font-size: $px12;
+        }
+      }
+
+      .arrow {
+        margin: 10px 32px;
+        flex: 1;
+        max-width: 110px;
+        border: 1px solid $black0;
+        position: relative;
+        @include mobile-and-smaller() {
+          margin: 10px 24px;
+          // max-width: unset;
+        }
+
+        &::after {
+          content: '';
+          border-right: 2px solid $black0;
+          border-bottom: 2px solid $black0;
+          height: 12px;
+          width: 12px;
+          position: absolute;
+          right: 0px;
+          top: -6px;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+
+    .detailRow {
+      display: flex;
+      flex-direction: column;
+
+      .detailTitle {
+        margin-bottom: 10px;
+        color: $grey4;
+      }
+
+      .noticeTitle {
+        color: $main6;
+        margin-bottom: 7px;
+      }
+
+      .noticeTime {
+        color: rgba(0, 0, 0, 0.65);
+        font-size: $px12;
+      }
+
+      a,
+      a:hover,
+      a:active {
+        color: $black0;
+        font-weight: 600;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .website {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 22px;
+    min-height: 200px;
+
+    
+    .remark {
+      color: $black0;
+      margin-top: 10px;
+    }
+  }
+
+  .notice {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 22px;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: $px14;
+  }
+
+  .order {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+}

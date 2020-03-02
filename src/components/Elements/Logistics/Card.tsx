@@ -10,11 +10,12 @@ import { isMobile } from '../../../utils/deviceHelper';
 
 interface LogisticsCardProps {
   data: ILogistic;
+  onClick: (data: ILogistic) => void;
 }
 
 export default class LogisticsCard extends React.PureComponent<LogisticsCardProps, {}> {
   render() {
-    const { data } = this.props;
+    const { data, onClick } = this.props;
     const [contact] = data.contacts;
     return (
       <Card className={styles.elementsLogisticsListCard}>
@@ -24,7 +25,9 @@ export default class LogisticsCard extends React.PureComponent<LogisticsCardProp
               /** 名称 */
               <div className={styles.title}>
                 <span className={styles.name}>{data.name}</span>
-                {<span className={styles.greenChannel}>{Message('GREEN_CHANNEL')}</span>}
+                {data.greenPath === '是' && (
+                  <span className={styles.greenChannel}>{Message('GREEN_CHANNEL')}</span>
+                )}
               </div>
             }
             {
@@ -65,15 +68,15 @@ export default class LogisticsCard extends React.PureComponent<LogisticsCardProp
               /** 公告 */
               <div className={styles.notice}>
                 <span className={styles.source}>{Message('SOURCE')}</span>
-                <span className={styles.content}>顺丰关于疫情物资运输的公告</span>
-                <span className={styles.time}>2020年1月25日</span>
+                <span className={styles.content}>{data.noticeTitle}</span>
+                <span className={styles.time}>{moment(data.date).format('YYYY年MM月DD日')}</span>
               </div>
             }
           </div>
           {
             /** 官网详情 */
             <div className={styles.officialInfo}>
-              <Button theme="white" type="primary">
+              <Button theme="white" type="primary" onClick={() => onClick(data)}>
                 {Message('VIEW_OFFICIAL_INFO')}
               </Button>
             </div>

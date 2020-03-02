@@ -21,6 +21,14 @@ export interface ILogistic {
   allowPersonal: string;
   url: string;
   remark: string;
+  area: string;
+  telRemark: string;
+  website: string;
+  orderUrl: string;
+  customService: string;
+  noticeTitle: string;
+  noticeContent: string;
+  greenPath: string;
   sendPlaceKey?: number;
 }
 
@@ -49,20 +57,20 @@ export interface IFreeConsultation {
   remark: string;
 }
 export interface ITravelHotel {
-  id: number,
-  province: string,
-  city: string,
-  contacts: IContact[],
-  address: string,
-  name: string,
-  date: string,
-  url: string,
-  remark: string,
+  id: number;
+  province: string;
+  city: string;
+  contacts: IContact[];
+  address: string;
+  name: string;
+  date: string;
+  url: string;
+  remark: string;
 }
 
 export interface IOption {
-  key: string,
-  value: string,
+  key: string;
+  value: string;
 }
 
 export interface ICity {
@@ -97,7 +105,7 @@ export interface IFreeConsultation {
   name: string;
   url: string;
   id: number;
-  contacts: Array<{[key: string]: string}>,
-  date: string,
-  remark: string
+  contacts: Array<{ [key: string]: string }>;
+  date: string;
+  remark: string;
 }

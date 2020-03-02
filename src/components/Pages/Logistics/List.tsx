@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { IApplicationState } from '../../../store';
 import { withRouter, RouteComponentProps } from 'react-router';
-import { Layout, Row, Col } from 'antd';
+import { Row, Col } from 'antd';
 import {
   actionCreators as logisticsActionCreators,
   Actions as LogisticActions,
@@ -17,6 +17,7 @@ import Option from '../../../components/Elements/Select/Option';
 import { Search } from '../../../components/Elements/Input';
 import { injectIntl, IntlShape } from 'react-intl';
 import LogisticsCard from '../../../components/Elements/Logistics/Card';
+import DetailDrawer from '../../../components/Elements/Logistics/DetailDrawer';
 import { isMobile } from '../../../utils/deviceHelper';
 import Pagination from '../../../components/Elements/Pagination';
 
@@ -31,10 +32,9 @@ interface ConnectedProps {
 
 interface Props extends RouteComponentProps {}
 
-const { Content } = Layout;
-
 class LogisticsList extends React.PureComponent<Props, {}> {
   public props: ConnectedProps & Props;
+  public detailDrawerRef: any;
 
   componentWillMount() {
     this.props.app.dataSource &&
@@ -44,19 +44,24 @@ class LogisticsList extends React.PureComponent<Props, {}> {
 
   onNewClick = () => {};
 
-  onUpdateSendPlaceChange = value => {
+  onUpdateSendPlaceChange = (value: number): void => {
     this.props.actions.updateSendPlace(value);
   };
 
-  onLogisticSearch = searchText => {
+  onLogisticSearch = (searchText: string): void => {
     this.props.actions.searchLogistic(searchText);
   };
 
-  onPageChange = page => {
+  onPageChange = (page: number): void => {
     this.props.actions.updateCurrentPage(page);
   };
 
   onUpdateChanelChange = value => {};
+
+  onLogisticsCardClick = (data: ILogistic) => {
+    // console.log({ ref: this.detailDrawerRef });
+    this.detailDrawerRef.show(data);
+  };
 
   render() {
     const { logisticList, logisticState } = this.props;
@@ -115,7 +120,7 @@ class LogisticsList extends React.PureComponent<Props, {}> {
             {currentLogisticList.map((item, index) => {
               return (
                 <Col key={`logistic_${index}`} lg={8} sm={24} xs={24}>
-                  <LogisticsCard data={item} />
+                  <LogisticsCard data={item} onClick={this.onLogisticsCardClick} />
                 </Col>
               );
             })}
@@ -132,6 +137,7 @@ class LogisticsList extends React.PureComponent<Props, {}> {
             </Row>
           )}
         </section>
+        <DetailDrawer ref={ref => (this.detailDrawerRef = ref)} />
       </div>
     );
   }

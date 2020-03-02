@@ -46,14 +46,18 @@ const zh_CN: ILocalization = {
 
   INTERNATIONAL: '国际',
   INFO_SUBMISSION: '发布信息',
+  IS_ALLOW_PERSONAL: '是否支持个人捐赠',
 
   LATEST_SUPPLIES: '医院最新物资需求（已核实）',
   LATEST_DONATION: '最新捐款渠道（已核实）',
   LOGISTICS: '物流',
   LOGISTICS_TITLE: '物流解决方案',
+  LOGISTICS_DETAIL_TITLE: '物流解决方案详情',
   LOGISTICS_CHECT: '查看物流方案',
   LOGISTICS_FOLLOW: '追踪物流信息',
   LOGISTICS_HELP: '物流有问题？扫码寻求帮助',
+
+  REMARK_INFO: '备注信息',
 
   MAILING_ADDRESS: '邮寄地址',
   MORE: '更多',
@@ -68,6 +72,9 @@ const zh_CN: ILocalization = {
   OPEN_SOURCE_PROJ: '开源项目',
   OTHER_SUPPLIES: ' 项其他物资',
   OVERVIEW: '疫情简要',
+  ONLINE_SERVICES: '在线客服',
+  OFFICIAL_WEBSITE: '官网地址',
+  ORDER: '去下单',
 
   PAGE_DESC:
     '本社区所有资源均收集自互联网，所有视频图片资源均不用于商用，仅用作新型冠状病毒的公益宣传，所有资源版权均归资源持有人所有。同时本社区无意侵犯版权所有人的合法权益，如有侵犯您权益的文章或资源，请直接通过邮件或微信公众号联系我们，我们会第一时间屏蔽或删除该资源（24-48小时内）。',
@@ -87,6 +94,7 @@ const zh_CN: ILocalization = {
   SPECIFICATION: '规格',
   SUPPLY_NAME: '需求物资名称',
   SOURCE: '来源',
+  SOURCE_URL: '来源链接',
 
   THIS_CLINIC: '本院',
   TRAVEL_HOTEL: '指定接待酒店',
