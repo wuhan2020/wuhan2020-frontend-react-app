@@ -19,6 +19,11 @@ $logistics-index-namespace: 'pageLogisticsIndex';
     font-size: $px46;
     margin: 0 auto;
     margin-bottom: 18px;
+
+    @include mobile-and-smaller() {
+      font-size: $px24;
+      margin-top: 12px;
+    }
   }
 
   :global {
@@ -32,6 +37,25 @@ $logistics-index-namespace: 'pageLogisticsIndex';
 
           .ant-tabs-tab {
             font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+
+  @include mobile-and-smaller() {
+    :global {
+      .ant-tabs {
+        .ant-tabs-bar {
+          border-bottom: unset;
+  
+          .ant-tabs-nav-container {
+            display: flex;
+            justify-content: center;
+  
+            .ant-tabs-tab {
+              font-size: 16px;
+            }
           }
         }
       }

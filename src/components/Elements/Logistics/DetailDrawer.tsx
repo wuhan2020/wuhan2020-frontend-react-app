@@ -5,6 +5,7 @@ import styles from '../../../styles/elements/logistics/detaildrawer.module.scss'
 import monent from 'moment';
 import { Drawer, Row, Col } from 'antd';
 import Button from '../../Elements/Button';
+import { isMobile } from '../../../utils/deviceHelper';
 
 interface IDetailDrawerState {
   data?: ILogistic;
@@ -87,74 +88,83 @@ class DetailDrawer extends React.Component<{}, IDetailDrawerState> {
         title={Message('LOGISTICS_DETAIL_TITLE')}
         className={styles.elementsLogisticsDetailDrawer}
       >
-        <div className={styles.detail}>
-          {
-            /** 名称 */
-            <div className={styles.title}>
-              <span className={styles.name}>{data.name}</span>
-              {data.greenPath === '是' && (
-                <span className={styles.greenChannel}>{Message('GREEN_CHANNEL')}</span>
-              )}
+        {
+          /** 名称 */
+          <div className={styles.title}>
+            <span className={styles.name}>{data.name}</span>
+            {data.greenPath === '是' && (
+              <span className={styles.greenChannel}>{Message('GREEN_CHANNEL')}</span>
+            )}
+          </div>
+        }
+        {
+          /** 路径 */
+          <section className={styles.route}>
+            <div className={styles.routeItem}>
+              <span>{data.from}</span>
+              <span>{Message('SEND_FROM')}</span>
             </div>
-          }
+            <div className={styles.arrow} />
+            <div className={styles.routeItem}>
+              <span>{data.dest}</span>
+              <span>{Message('SEND_TO')}</span>
+            </div>
+          </section>
+        }
+        <div className={isMobile ? styles.mbDetail1 : styles.pcDetail1}>
           {
-            /** 路径 */
-            <section className={styles.route}>
-              <div className={styles.routeItem}>
-                <span>{data.from}</span>
-                <span>{Message('SEND_FROM')}</span>
-              </div>
-              <div className={styles.arrow} />
-              <div className={styles.routeItem}>
-                <span>{data.dest}</span>
-                <span>{Message('SEND_TO')}</span>
-              </div>
-            </section>
-          }
-          {
-            /** 详情 */
-            <Row type="flex" gutter={12}>
-              <Col span={12} className={styles.detailRow}>
-                <span className={styles.detailTitle}>{Message('SOURCE_URL')}</span>
+            /** 数据来源 */
+            <div className={styles.source}>
+              <span>{Message('SOURCE_URL')}</span>
+              <div>
                 <span className={styles.noticeTitle}>{data.noticeTitle}</span>
                 <span className={styles.noticeTime}>
                   {monent(data.date).format('YYYY年MM月DD日')}
                 </span>
-              </Col>
-              <Col span={6} className={styles.detailRow}>
-                <span className={styles.detailTitle}>{Message('CONTACT_METHODS')}</span>
+              </div>
+            </div>
+          }
+          {/** 联系方式 */
+          !isMobile && (
+            <div className={styles.contact}>
+              <span>{Message('CONTACT_METHODS')}</span>
+              <div>
                 {data.contacts[0] &&
-                  data.contacts[0].tel.split(';').map(t => (
-                    <span style={{ color: 'black' }} key={t}>
-                      {t}
-                    </span>
-                  ))}
+                  data.contacts[0].tel.split(';').map(t => <span key={t}>{t}</span>)}
                 <a href={data.customService} target="_blank">
                   {Message('ONLINE_SERVICES')}
                 </a>
-              </Col>
-              <Col span={6} className={styles.detailRow}>
-                <span className={styles.detailTitle}>{Message('IS_ALLOW_PERSONAL')}</span>
-                <span style={{ color: 'black', fontWeight: 600 }}>{data.allowPersonal}</span>
-              </Col>
-            </Row>
+              </div>
+            </div>
+          )}
+          {
+            /** 个人捐赠 */
+            <div className={styles.personal}>
+              <span>{Message('IS_ALLOW_PERSONAL')}</span>
+              <span style={{ color: 'black', fontWeight: 600 }}>{data.allowPersonal}</span>
+            </div>
           }
         </div>
-        {
-          /** 官网 */
-          <Row type="flex" gutter={12} className={styles.website}>
-            <Col span={12}>
-              <Button type="link" href={data.website} target="_blank">
-                {Message('OFFICIAL_WEBSITE')}
-              </Button>
-            </Col>
-            <Col span={12}>
+        {!isMobile && <div className={styles.divider} />}
+        <div className={isMobile ? styles.mbDetail2 : styles.pcDetail2}>
+          {
+            /** 官网 */
+            <div className={styles.website}>
+              <span>{Message('OFFICIAL_WEBSITE')}</span>
+              <a type="link" href={data.website} target="_blank">
+                {data.website}
+              </a>
+            </div>
+          }
+          {
+            /** 备注*/
+            <div className={styles.remark}>
               <span>{Message('REMARK_INFO')}</span>
-              <span className={styles.remark}>{data.remark}</span>
-            </Col>
-          </Row>
-        }
-
+              <span>{data.remark}ddd</span>
+            </div>
+          }
+        </div>
+        <div className={styles.divider} />
         {
           /** 通知 */
           <div className={styles.notice}>
@@ -162,10 +172,9 @@ class DetailDrawer extends React.Component<{}, IDetailDrawerState> {
             <div>{data.noticeContent}</div>
           </div>
         }
-
         <div className={styles.order}>
           <Button type="primary" onClick={this.onOrderClick}>
-            {Message('ORDER')}{' '}
+            {Message('ORDER')}
           </Button>
         </div>
       </Drawer>

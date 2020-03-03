@@ -5,12 +5,14 @@ import { ILogistic } from '../../types/interfaces';
 import * as Actions from './action';
 import { createSelector } from 'reselect';
 import { IApplicationState } from '..';
+import { isMobile } from '../../utils/deviceHelper';
 
 export interface LogisticsState {
   list: ILogistic[];
   pageSize: number;
   currentPage: number;
   selectedSendPlace: number;
+  selectedChannel: number;
   searchText: string;
   sendPlaceList: { value: number; description: string }[];
   channelList: { value: number; description: string }[];
@@ -21,6 +23,7 @@ export const initialLogisticsState: LogisticsState = {
   pageSize: 6,
   currentPage: 1,
   selectedSendPlace: -1,
+  selectedChannel: -1,
   searchText: '',
   sendPlaceList: [
     { value: -1, description: '全部' },
@@ -41,16 +44,34 @@ export const logtisticSelectedSendPlaceSelector = (state: IApplicationState) =>
 
 export const logisticsSearchSelector = (state: IApplicationState) => state.logistics.searchText;
 
+export const logisticsSelectedChannelSelector = (state: IApplicationState) =>
+  state.logistics.selectedChannel;
+
+export const logisticsPageSelector = (state: IApplicationState) => ({
+  currentPage: state.logistics.currentPage,
+  pageSize: state.logistics.pageSize,
+});
+
 export const makeFilteredLogisticsSelector = () => {
   return createSelector(
-    [logisticsSelector, logtisticSelectedSendPlaceSelector, logisticsSearchSelector],
-    (logistics: ILogistic[], selectedSendPlace: number, searchText: string) => {
+    [
+      logisticsSelector,
+      logtisticSelectedSendPlaceSelector,
+      logisticsSearchSelector,
+      logisticsSelectedChannelSelector,
+      logisticsPageSelector,
+    ],
+    (logistics, selectedSendPlace, searchText, selectedChannel, { currentPage, pageSize }) => {
       if (!logistics) return [];
-      return logistics.filter(c => {
+      const filteredListed = logistics.filter(c => {
         const matchFrom = selectedSendPlace === -1 || c.sendPlaceKey === selectedSendPlace;
         const matchSearchText = !searchText || c.name.includes(searchText);
-        return matchFrom && matchSearchText;
+        const matchChannel = selectedChannel === -1 || c.greenPath === '是';
+        return matchFrom && matchSearchText && matchChannel;
       });
+      return isMobile
+        ? filteredListed
+        : filteredListed.slice(0 + (currentPage - 1) * pageSize, currentPage * pageSize);
     }
   );
 };
@@ -68,6 +89,8 @@ const LogisticReducer: Reducer<LogisticsState> = (state: LogisticsState, act) =>
     return { ...state, searchText: act.searchText };
   } else if (isActionType(act, Actions.UpdateCurrentPage)) {
     return { ...state, currentPage: act.page };
+  } else if (isActionType(act, Actions.UpdateChannel)) {
+    return { ...state, selectedChannel: act.value };
   }
   return state || initialLogisticsState;
 };

@@ -56,19 +56,17 @@ class LogisticsList extends React.PureComponent<Props, {}> {
     this.props.actions.updateCurrentPage(page);
   };
 
-  onUpdateChanelChange = value => {};
+  onUpdateChanelChange = (value: number): void => {
+    this.props.actions.updateChannel(value);
+  };
 
-  onLogisticsCardClick = (data: ILogistic) => {
-    // console.log({ ref: this.detailDrawerRef });
+  onLogisticsCardClick = (data: ILogistic): void => {
     this.detailDrawerRef.show(data);
   };
 
   render() {
     const { logisticList, logisticState } = this.props;
     const { channelList, sendPlaceList, pageSize, currentPage } = logisticState;
-    const currentLogisticList = isMobile
-      ? logisticList
-      : logisticList.slice(0 + (currentPage - 1) * pageSize, currentPage * pageSize);
     return (
       <div className={styles.pageLogisticsList}>
         <section>
@@ -117,7 +115,7 @@ class LogisticsList extends React.PureComponent<Props, {}> {
             type="flex"
             gutter={isMobile ? 0 : 24}
           >
-            {currentLogisticList.map((item, index) => {
+            {logisticList.map((item, index) => {
               return (
                 <Col key={`logistic_${index}`} lg={8} sm={24} xs={24}>
                   <LogisticsCard data={item} onClick={this.onLogisticsCardClick} />
@@ -130,7 +128,7 @@ class LogisticsList extends React.PureComponent<Props, {}> {
               <Pagination
                 current={currentPage}
                 defaultCurrent={1}
-                total={logisticList.length}
+                total={logisticState.list.length}
                 pageSize={pageSize}
                 onChange={this.onPageChange}
               />
