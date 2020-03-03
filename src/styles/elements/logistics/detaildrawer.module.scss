@@ -10,6 +10,7 @@ $logistic-card-namespace: 'elementsLogisticsDetailDrawer';
     display: flex;
     box-sizing: border-box;
     align-items: center;
+    justify-content: space-between;
 
     .name {
       font-size: $px24;
@@ -23,6 +24,9 @@ $logistic-card-namespace: 'elementsLogisticsDetailDrawer';
       padding: 0 4px;
       border-radius: 2px;
       color: $white;
+    }
+
+    .call {
     }
   }
 

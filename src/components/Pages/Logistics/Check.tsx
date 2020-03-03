@@ -10,7 +10,26 @@ class LogisticsCheck extends React.Component<{}, {}> {
     return (
       <div className={styles.pageLogisticsCheck}>
         {isMobile ? (
-          <React.Fragment></React.Fragment>
+          <React.Fragment>
+            <div className={styles.code}>
+              <img
+                src={`${CDN_PREFIX}/static/kuaidi100-lite-app.png`}
+                alt="kuaidi100"
+                width={175}
+                height={175}
+              />
+              <span>{Message('LOGISTICS_HELP')}</span>
+            </div>
+            <div className={styles.code}>
+              <img
+                src={`${CDN_PREFIX}/static/kuaidi100-lite-app.png`}
+                alt="help"
+                width={175}
+                height={175}
+              />
+              <span>{Message('LOGISTICS_HELP')}</span>
+            </div>
+          </React.Fragment>
         ) : (
           <React.Fragment>
             <Iframe
@@ -22,7 +41,7 @@ class LogisticsCheck extends React.Component<{}, {}> {
             <div className={styles.code}>
               <img
                 src={`${CDN_PREFIX}/static/kuaidi100-lite-app.png`}
-                alt="kuaidi100"
+                alt="help"
                 width={175}
                 height={175}
               />

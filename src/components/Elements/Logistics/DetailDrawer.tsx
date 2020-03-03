@@ -3,7 +3,7 @@ import { ILogistic } from '../../../types/interfaces';
 import Message from '../../../components/Message';
 import styles from '../../../styles/elements/logistics/detaildrawer.module.scss';
 import monent from 'moment';
-import { Drawer, Row, Col } from 'antd';
+import { Drawer, Icon } from 'antd';
 import Button from '../../Elements/Button';
 import { isMobile } from '../../../utils/deviceHelper';
 
@@ -91,9 +91,20 @@ class DetailDrawer extends React.Component<{}, IDetailDrawerState> {
         {
           /** 名称 */
           <div className={styles.title}>
-            <span className={styles.name}>{data.name}</span>
-            {data.greenPath === '是' && (
-              <span className={styles.greenChannel}>{Message('GREEN_CHANNEL')}</span>
+            <div>
+              <span className={styles.name}>{data.name}</span>
+              {data.greenPath === '是' && (
+                <span className={styles.greenChannel}>{Message('GREEN_CHANNEL')}</span>
+              )}
+            </div>
+            {isMobile && (
+              <Icon
+                type="phone"
+                style={{ fontSize: 18, padding: 4 }}
+                onClick={() => {
+                  data.contacts[0].tel && window.open(`tel:${data.contacts[0].tel.split(';')[0]}`);
+                }}
+              />
             )}
           </div>
         }
@@ -128,13 +139,11 @@ class DetailDrawer extends React.Component<{}, IDetailDrawerState> {
           !isMobile && (
             <div className={styles.contact}>
               <span>{Message('CONTACT_METHODS')}</span>
-              <div>
-                {data.contacts[0] &&
-                  data.contacts[0].tel.split(';').map(t => <span key={t}>{t}</span>)}
-                <a href={data.customService} target="_blank">
-                  {Message('ONLINE_SERVICES')}
-                </a>
-              </div>
+              {data.contacts[0] &&
+                data.contacts[0].tel.split(';').map(t => <span key={t}>{t}</span>)}
+              <a href={data.customService} target="_blank">
+                {Message('ONLINE_SERVICES')}
+              </a>
             </div>
           )}
           {
@@ -160,7 +169,7 @@ class DetailDrawer extends React.Component<{}, IDetailDrawerState> {
             /** 备注*/
             <div className={styles.remark}>
               <span>{Message('REMARK_INFO')}</span>
-              <span>{data.remark}ddd</span>
+              <span>{data.remark}</span>
             </div>
           }
         </div>
@@ -168,7 +177,7 @@ class DetailDrawer extends React.Component<{}, IDetailDrawerState> {
         {
           /** 通知 */
           <div className={styles.notice}>
-            <div style={{ marginBottom: 20 }}>{data.noticeTitle}</div>
+            {/** */ !isMobile && <div style={{ marginBottom: 20 }}>{data.noticeTitle}</div>}
             <div dangerouslySetInnerHTML={{ __html: data.noticeContent }}></div>
           </div>
         }
