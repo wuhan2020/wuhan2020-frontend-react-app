@@ -159,7 +159,7 @@ class DetailDrawer extends React.Component<{}, IDetailDrawerState> {
           /** 通知 */
           <div className={styles.notice}>
             <div style={{ marginBottom: 20 }}>{data.noticeTitle}</div>
-            <div>{data.noticeContent}</div>
+            <div dangerouslySetInnerHTML={{ __html: data.noticeContent }}></div>
           </div>
         }
 

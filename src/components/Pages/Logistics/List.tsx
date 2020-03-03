@@ -40,7 +40,6 @@ class LogisticsList extends React.PureComponent<Props, {}> {
     this.props.app.dataSource &&
       this.props.actions.fetchLogisticList(this.props.app.dataSource['logistical']);
   }
-  componentDidMount() {}
 
   onNewClick = () => {};
 
@@ -82,7 +81,7 @@ class LogisticsList extends React.PureComponent<Props, {}> {
                   onChange={this.onUpdateChanelChange}
                 >
                   {channelList.map(obj => (
-                    <Option key={obj.value} value={obj.value}>
+                    <Option key={`channel_${obj.value}`} value={obj.value}>
                       {obj.description}
                     </Option>
                   ))}
@@ -94,7 +93,7 @@ class LogisticsList extends React.PureComponent<Props, {}> {
                   onChange={this.onUpdateSendPlaceChange}
                 >
                   {sendPlaceList.map(d => (
-                    <Option key={d.value} value={d.value}>
+                    <Option key={`place_${d.value}`} value={d.value}>
                       {d.description}
                     </Option>
                   ))}
