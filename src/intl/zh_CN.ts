@@ -95,6 +95,7 @@ const zh_CN: ILocalization = {
   SUPPLY_NAME: '需求物资名称',
   SOURCE: '来源',
   SOURCE_URL: '来源链接',
+  SCAN_TO_KUAIDI_100: '扫码进入快递100小程序',
 
   THIS_CLINIC: '本院',
   TRAVEL_HOTEL: '指定接待酒店',

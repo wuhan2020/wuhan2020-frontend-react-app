@@ -13,16 +13,16 @@ class LogisticsCheck extends React.Component<{}, {}> {
           <React.Fragment>
             <div className={styles.code}>
               <img
-                src={`${CDN_PREFIX}/static/kuaidi100-lite-app.png`}
+                src={`${CDN_PREFIX}/static/qrcode-kuaidi100-lite-app.png`}
                 alt="kuaidi100"
                 width={175}
                 height={175}
               />
-              <span>{Message('LOGISTICS_HELP')}</span>
+              <span>{Message('SCAN_TO_KUAIDI_100')}</span>
             </div>
             <div className={styles.code}>
               <img
-                src={`${CDN_PREFIX}/static/kuaidi100-lite-app.png`}
+                src={`${CDN_PREFIX}/static/qrcode-help.png`}
                 alt="help"
                 width={175}
                 height={175}
@@ -40,7 +40,7 @@ class LogisticsCheck extends React.Component<{}, {}> {
             ></Iframe>
             <div className={styles.code}>
               <img
-                src={`${CDN_PREFIX}/static/kuaidi100-lite-app.png`}
+                src={`${CDN_PREFIX}/static/qrcode-help.png`}
                 alt="help"
                 width={175}
                 height={175}
