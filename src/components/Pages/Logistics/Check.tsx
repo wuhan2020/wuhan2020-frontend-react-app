@@ -22,7 +22,7 @@ class LogisticsCheck extends React.Component<{}, {}> {
             </div>
             <div className={styles.code}>
               <img
-                src={`${CDN_PREFIX}/static/qrcode-help.png`}
+                src={`${CDN_PREFIX}/static/qrcode-help.jpg`}
                 alt="help"
                 width={175}
                 height={175}
@@ -40,7 +40,7 @@ class LogisticsCheck extends React.Component<{}, {}> {
             ></Iframe>
             <div className={styles.code}>
               <img
-                src={`${CDN_PREFIX}/static/qrcode-help.png`}
+                src={`${CDN_PREFIX}/static/qrcode-help.jpg`}
                 alt="help"
                 width={175}
                 height={175}
