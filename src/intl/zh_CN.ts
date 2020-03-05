@@ -18,7 +18,7 @@ const zh_CN: ILocalization = {
   COPY: '复制',
 
   DEVELOPING: '紧急开发中',
-  DIAL_PHONE: '拨打电话',
+  DIAL_PHONE: '点击拨号',
   DOMESTIC: '国内',
   DONATE: '捐款',
   DONATE_SUPPLIES: '我想捐物',

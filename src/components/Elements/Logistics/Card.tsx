@@ -52,7 +52,9 @@ export default class LogisticsCard extends React.PureComponent<LogisticsCardProp
                   <div>
                     {contact.tel.split(';').map(tel => (
                       <div key={tel} className={styles.mobilePhoneItem}>
-                        <span className={styles.phone}>{tel}</span>
+                        <span className={styles.phone} onClick={() => window.open(`tel:${tel}`)}>
+                          {tel}
+                        </span>
                         <Button type="link" href={`tel:${tel}`}>
                           {Message('DIAL_PHONE')}
                         </Button>

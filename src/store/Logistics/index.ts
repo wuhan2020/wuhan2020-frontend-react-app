@@ -1,3 +1,9 @@
+/*
+ * @Description: 
+ * @Author: huangdeliang
+ * @Date: 2020-03-04 08:28:13
+ * @LastEditors: huangdeliang
+ */
 import { Reducer } from 'redux';
 import * as React from 'react';
 import { isActionType } from '../../common/StrongAction';
@@ -28,8 +34,8 @@ export const initialLogisticsState: LogisticsState = {
   sendPlaceList: [
     { value: -1, description: '全部' },
     { value: 0, description: '中国大陆' },
-    { value: 1, description: '港澳台' },
-    { value: 2, description: '海外' },
+    // { value: 1, description: '港澳台' },
+    // { value: 2, description: '海外' },
   ],
   channelList: [
     { value: -1, description: '全部' },

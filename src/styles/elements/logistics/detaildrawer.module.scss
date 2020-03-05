@@ -284,6 +284,10 @@ $logistic-card-namespace: 'elementsLogisticsDetailDrawer';
     padding: 22px;
     color: rgba(0, 0, 0, 0.65);
     font-size: $px14;
+
+    img {
+      height: 128px;
+    }
   }
 
   .order {
