@@ -14,8 +14,12 @@ interface LogisticsCardProps {
 }
 
 export default class LogisticsCard extends React.PureComponent<LogisticsCardProps, {}> {
+  handleOnDetailClick = () => {
+    const { onClick, data } = this.props;
+    onClick(data);
+  };
   render() {
-    const { data, onClick } = this.props;
+    const { data } = this.props;
     const [contact] = data.contacts;
     return (
       <Card className={styles.elementsLogisticsListCard}>
@@ -78,7 +82,7 @@ export default class LogisticsCard extends React.PureComponent<LogisticsCardProp
           {
             /** 官网详情 */
             <div className={styles.officialInfo}>
-              <Button theme="white" type="primary" onClick={() => onClick(data)}>
+              <Button theme="white" type="primary" onClick={this.handleOnDetailClick}>
                 {Message('VIEW_OFFICIAL_INFO')}
               </Button>
             </div>

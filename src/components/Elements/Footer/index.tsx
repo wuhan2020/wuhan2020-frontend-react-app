@@ -3,7 +3,7 @@ import styles from '../../../styles/elements/footer/index.module.scss';
 import Message from '../../../components/Message';
 import { URLS } from '../../../constants/urls';
 import { Row, Col } from 'antd';
-import Button from '../Button';
+// import Button from '../Button';
 import { withRouter, RouteComponentProps } from 'react-router';
 import { IconMainIconWhite } from '../../../components/Icons';
 
