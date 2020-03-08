@@ -3,6 +3,7 @@ const path = require("path");
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const baseConfig = require("./webpack.base.conf");
+const WebpackCdnPlugin = require("webpack-cdn-plugin");
 
 const webpackConfig = merge(baseConfig, {
 	mode: 'production',
@@ -18,6 +19,15 @@ const webpackConfig = merge(baseConfig, {
 			filename: './static/css/[name].[hash].css',
 			chunkFilename: './static/css/[id].[chunkhash].css',
 		}),
+		new WebpackCdnPlugin({
+			modules: [
+				{ name: 'echarts', var: 'echarts', path: 'dist/echarts.min.js' },
+				{ name: 'moment', var: 'moment', path: 'min/moment.min.js' },
+				{ name: 'react', var: 'React', path: `umd/react.production.min.js` },
+				{ name: 'react-dom', var: 'ReactDOM', path: `umd/react-dom.production.min.js` },
+			],
+			publicPath: '/node_modules'
+		})
 	],
 	optimization: {
 		splitChunks: {

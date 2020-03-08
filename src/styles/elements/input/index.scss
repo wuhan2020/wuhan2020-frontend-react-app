@@ -1,0 +1,16 @@
+@import '../../colors';
+
+.ant-input-search {
+  .ant-input {
+    &:active,
+    &:hover,
+    &:focus {
+      border-color: $main6 !important;
+    }
+
+    &:active,
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+}

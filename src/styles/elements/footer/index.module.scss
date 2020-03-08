@@ -2,16 +2,17 @@
 @import '../../media';
 @import '../../fonts';
 
-$footer-namespace: "elementsFooter";
+$footer-namespace: 'elementsFooter';
 
 .#{$footer-namespace} {
   display: flex;
   flex-direction: row;
+  background-color: $main6;
   width: 100%;
   padding: 32px 160px;
-  background-color: $white;
-  border-top: 1px solid $main6;
-  border-bottom: 1px solid $main6;
+  // background-color: $white;
+  // border-top: 1px solid $main6;
+  // border-bottom: 1px solid $main6;
   flex: 0 0 auto;
 
   .title {
@@ -22,10 +23,10 @@ $footer-namespace: "elementsFooter";
     margin-bottom: 32px;
   }
 
-  .siteMap { 
+  .siteMap {
     display: flex;
     flex-direction: row;
-    width: 300px;
+    width: 600px;
     align-items: center;
   }
 

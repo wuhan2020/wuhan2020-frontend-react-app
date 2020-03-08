@@ -1,47 +1,94 @@
-import * as React from "react";
+import * as React from 'react';
 import styles from '../../../styles/elements/logistics/card.module.scss';
-import Card from "../Card";
-import { ILogistic } from "../../../types/interfaces";
-import Message from "../../../components/Message";
-import moment from "moment";
-import Button from "../Button";
-import { Icon } from "antd";
-import { isMobile } from "../../../utils/deviceHelper";
+import Card from '../Card';
+import { ILogistic } from '../../../types/interfaces';
+import Message from '../../../components/Message';
+import moment from 'moment';
+import Button from '../Button';
+import { Icon } from 'antd';
+import { isMobile } from '../../../utils/deviceHelper';
 
 interface LogisticsCardProps {
-    data: ILogistic;
+  data: ILogistic;
+  onClick: (data: ILogistic) => void;
 }
 
-export default class LogisticsCard extends React.PureComponent<LogisticsCardProps, {}>
-{
-	render()
-	{
-        const { data } = this.props;
+export default class LogisticsCard extends React.PureComponent<LogisticsCardProps, {}> {
+  handleOnDetailClick = () => {
+    const { onClick, data } = this.props;
+    onClick(data);
+  };
+  render() {
+    const { data } = this.props;
+    const [contact] = data.contacts;
     return (
       <Card className={styles.elementsLogisticsListCard}>
-          <div className={styles.main}>
-              <div className={styles.name}>{data.name}</div>
+        <div className={styles.main}>
+          <div className={styles.mainContent}>
+            {
+              /** 名称 */
+              <div className={styles.title}>
+                <span className={styles.name}>{data.name}</span>
+                {data.greenPath === '是' && (
+                  <span className={styles.greenChannel}>{Message('GREEN_CHANNEL')}</span>
+                )}
+              </div>
+            }
+            {
+              /** 路径 */
               <section className={styles.route}>
                 <div className={styles.routeItem}>
-                  <Icon style={{color: '#7ed322'}} theme='filled' type="check-square" />
-                  <div className={styles.text}>{Message('SEND_TO')}{data.dest}</div>
+                  <span>{data.from}</span>
+                  <span>{Message('SEND_FROM')}</span>
                 </div>
+                <div className={styles.arrow} />
                 <div className={styles.routeItem}>
-                  <Icon style={{color: '#7ed322'}} theme='filled' type="check-square" />
-                  <div className={styles.text}>{data.from}{Message('SEND_FROM')}</div>
+                  <span>{data.dest}</span>
+                  <span>{Message('SEND_TO')}</span>
                 </div>
               </section>
+            }
+            {/** 电话 */
+            contact && contact.tel && (
               <div className={styles.infoItem}>
-                <Icon type="desktop" />
-                <Button type='link' href={data.url} target='_blank'>{Message('VIEW_OFFICIAL_INFO')}</Button>
-              </div>
-              {data.contacts[0] && data.contacts[0].tel ? <div className={styles.infoItem}>
                 <Icon type="mobile" />
-                <div className={styles.phone}>{data.contacts.length > 0 ? data.contacts[0].tel : ""}</div>
-                {isMobile ? <Button type='link' href={`tel:${data.contacts[0].tel}`}>{Message('DIAL_PHONE')}</Button> : null}
-              </div> : null}
+                {isMobile ? (
+                  <div>
+                    {contact.tel.split(';').map(tel => (
+                      <div key={tel} className={styles.mobilePhoneItem}>
+                        <span className={styles.phone} onClick={() => window.open(`tel:${tel}`)}>
+                          {tel}
+                        </span>
+                        <Button type="link" href={`tel:${tel}`}>
+                          {Message('DIAL_PHONE')}
+                        </Button>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className={styles.phone}>{contact.tel}</div>
+                )}
+              </div>
+            )}
+            {
+              /** 公告 */
+              <div className={styles.notice}>
+                <span className={styles.source}>{Message('SOURCE')}</span>
+                <span className={styles.content}>{data.noticeTitle}</span>
+                <span className={styles.time}>{moment(data.date).format('YYYY年MM月DD日')}</span>
+              </div>
+            }
           </div>
+          {
+            /** 官网详情 */
+            <div className={styles.officialInfo}>
+              <Button theme="white" type="primary" onClick={this.handleOnDetailClick}>
+                {Message('VIEW_OFFICIAL_INFO')}
+              </Button>
+            </div>
+          }
+        </div>
       </Card>
     );
-	}
+  }
 }

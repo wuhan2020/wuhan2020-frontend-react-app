@@ -1,0 +1,298 @@
+@import '../../colors';
+@import '../../media';
+@import '../../fonts';
+
+$logistic-card-namespace: 'elementsLogisticsDetailDrawer';
+
+.#{$logistic-card-namespace} {
+  .title {
+    margin: 20px;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+
+    .name {
+      font-size: $px24;
+      font-weight: 600;
+      color: $black0;
+    }
+
+    .greenChannel {
+      background-color: $green4;
+      margin-left: 14px;
+      padding: 0 4px;
+      border-radius: 2px;
+      color: $white;
+    }
+
+    .call {
+    }
+  }
+
+  .route {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: 18px;
+
+    .routeItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & > span:nth-child(1) {
+        font-size: $px24;
+        color: rgba(0, 0, 0, 0.65);
+        font-weight: 600;
+      }
+
+      & > span:nth-child(2) {
+        font-size: $px12;
+      }
+    }
+
+    .arrow {
+      margin: 10px 32px;
+      flex: 1;
+      max-width: 110px;
+      border: 1px solid $black0;
+      position: relative;
+      @include mobile-and-smaller() {
+        margin: 10px 24px;
+        // max-width: unset;
+      }
+
+      &::after {
+        content: '';
+        border-right: 2px solid $black0;
+        border-bottom: 2px solid $black0;
+        height: 12px;
+        width: 12px;
+        position: absolute;
+        right: 0px;
+        top: -6px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .divider {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .pcDetail1 {
+    margin: 20px;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+
+    .source {
+      flex: 6 0 0;
+      display: flex;
+      flex-direction: column;
+      & > span:first-child {
+        margin-bottom: 10px;
+        color: $grey4;
+      }
+      & > div {
+        display: flex;
+        flex-direction: column;
+
+        & > span:first-child {
+          color: $main6;
+          margin-bottom: 7px;
+        }
+
+        & > span:last-child {
+          color: rgba(0, 0, 0, 0.65);
+          font-size: $px12;
+        }
+      }
+    }
+
+    .contact {
+      flex: 3 0 0;
+      margin-left: 16px;
+      display: flex;
+      flex-direction: column;
+      & > span:first-child {
+        color: $grey4;
+        margin-bottom: 10px;
+      }
+
+      & > span:last-child {
+        margin-bottom: 10px;
+      }
+
+      & > span:not(:first-child) {
+        font-weight: 600;
+        color: $black0;
+      }
+
+      a,
+      a:hover,
+      a:active {
+        color: $black0;
+        font-weight: 600;
+      }
+    }
+
+    .personal {
+      flex: 3 0 0;
+      margin-left: 16px;
+      display: flex;
+      flex-direction: column;
+      & > span:first-child {
+        margin-bottom: 10px;
+        color: $grey4;
+      }
+    }
+  }
+
+  .pcDetail2 {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    min-height: 140px;
+    box-sizing: border-box;
+
+    .website {
+      flex: 6 0 0;
+      display: flex;
+      flex-direction: column;
+
+      & > span:first-child {
+        color: $grey4;
+        margin-bottom: 10px;
+      }
+
+      a,
+      a:hover,
+      a:active {
+        display: inline-block;
+        color: $main6;
+        font-weight: 600;
+      }
+    }
+
+    .remark {
+      display: flex;
+      flex-direction: column;
+      color: $black0;
+      flex: 6 0 0;
+
+      & > span:first-child {
+        color: $grey4;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .mbDetail1 {
+    .source {
+      display: flex;
+      flex-direction: row;
+      margin: 20px;
+      box-sizing: border-box;
+
+      & > span {
+        margin-right: 20px;
+        color: $grey4;
+        flex: 0 0 56px;
+      }
+
+      & > div {
+        flex: 1 0 0;
+        display: flex;
+        flex-direction: column;
+
+        & > span:first-child {
+          color: $main6;
+          margin-bottom: 6px;
+        }
+
+        & > span:last-child {
+          font-size: $px12;
+          color: rgba(0, 0, 0, 0.65);
+        }
+      }
+    }
+
+    .personal {
+      display: flex;
+      flex-direction: row;
+      margin: 20px;
+      box-sizing: border-box;
+
+      & > span:first-child {
+        margin-right: 20px;
+        color: $grey4;
+        flex: 0 0 112px;
+      }
+
+      & > span:last-child {
+        flex: 1 0 0;
+        color: $black0;
+      }
+    }
+  }
+
+  .mbDetail2 {
+    .website {
+      display: flex;
+      flex-direction: row;
+      margin: 20px;
+      box-sizing: border-box;
+
+      & > span {
+        margin-right: 20px;
+        color: $grey4;
+        flex: 0 0 56px;
+      }
+
+      a,
+      a:hover,
+      a:active {
+        display: inline-block;
+        color: $main6;
+        font-weight: 600;
+      }
+    }
+
+    .remark {
+      display: flex;
+      flex-direction: row;
+      margin: 20px;
+      box-sizing: border-box;
+
+      & > span:first-child {
+        margin-right: 20px;
+        color: $grey4;
+        flex: 0 0 56px;
+      }
+
+      & > span:last-child {
+        color: $black0;
+      }
+    }
+  }
+
+  .notice {
+    padding: 22px;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: $px14;
+
+    img {
+      height: 128px;
+    }
+  }
+
+  .order {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+  }
+}

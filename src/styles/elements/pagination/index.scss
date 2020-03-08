@@ -1,0 +1,42 @@
+@import '../../colors';
+
+.ant-pagination {
+  .ant-pagination-disabled:hover,
+  .ant-pagination-disabled:focus {
+    a {
+      border-color: #d9d9d9 !important;
+      color: #d9d9d9 !important;
+    }
+  }
+
+  .ant-pagination-prev:hover,
+  .ant-pagination-next:hover,
+  .ant-pagination-prev:focus,
+  .ant-pagination-next:focus {
+    a {
+      color: $main6;
+      border-color: $main6;
+    }
+  }
+
+  .ant-pagination-item:hover,
+  .ant-pagination-item:checked {
+    border-color: $main6;
+
+    a {
+      color: $main6;
+    }
+  }
+
+  .ant-pagination-item-active,
+  .ant-pagination-item-active:hover,
+  .ant-pagination-item-active:focus,
+  .ant-pagination-item-active:checked {
+    background: $main6;
+    border-color: $main6;
+
+    a {
+      color: $white;
+    }
+  }
+}

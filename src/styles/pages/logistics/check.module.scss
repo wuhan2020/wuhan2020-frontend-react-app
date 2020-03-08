@@ -1,0 +1,19 @@
+@import '../../colors';
+@import '../../fonts';
+@import '../../media';
+
+$logistics-index-namespace: 'pageLogisticsCheck';
+
+.#{$logistics-index-namespace} {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+}

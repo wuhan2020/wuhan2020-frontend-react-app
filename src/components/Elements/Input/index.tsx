@@ -1,5 +1,5 @@
 import * as React from "react";
-import '../../../styles/elements/select/index.scss';
+import '../../../styles/elements/input/index.scss';
 import { Input as AntDInput } from "antd";
 import { InputProps as AntDInputProps, SearchProps as AntDSearchProps } from "antd/lib/input";
 
