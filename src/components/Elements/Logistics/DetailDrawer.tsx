@@ -182,9 +182,11 @@ class DetailDrawer extends React.Component<{}, IDetailDrawerState> {
           </div>
         }
         <div className={styles.order}>
-          <Button type="primary" onClick={this.onOrderClick}>
-            {Message('ORDER')}
-          </Button>
+          {data.orderUrl && (
+            <Button type="primary" onClick={this.onOrderClick}>
+              {Message('ORDER')}
+            </Button>
+          )}
         </div>
       </Drawer>
     );
